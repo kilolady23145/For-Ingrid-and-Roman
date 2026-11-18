@@ -1,0 +1,146 @@
+{
+  "date": "2026-11-18",
+  "category": "🐾 Animal World",
+  "level": "國小高年級 (A2)",
+  "title": "Meet the Amazing Fish with a See-Through Head!",
+  "title_zh": "認識擁有透明頭部的神奇魚類！",
+  "paragraphs": [
+    {
+      "en": "Deep beneath the ocean, scientists have captured stunning footage of an extraordinarily rare creature. It is called the barreleye fish, and it lives nearly 2,000 feet under the sea. What makes this animal so bizarre and wonderful is its head! The fish has a transparent, dome-shaped shield on top of its head, which lets us peek right inside and watch its green, glowing eyes.",
+      "zh": "在海洋深處，科學家們捕捉到了極其罕見生物的驚人畫面。這種魚被稱為桶眼魚（barreleye fish），生活在海面下近 2,000 英尺的地方。這種動物如此奇特又奇妙的原因在於它的頭部！這條魚的頭頂上有一個透明的圓頂狀外殼，讓我們可以一窺內部，並看到它會發光的綠色眼睛。"
+    },
+    {
+      "en": "These special eyes can rotate inside the transparent dome. When the fish is looking for food, it points its eyes straight up to spot tiny prey swimming overhead. Then, as it gets ready to eat, it rotates its eyes forward to track the meal. This clever superpower helps the barreleye fish survive in the dark, mysterious deep ocean!",
+      "zh": "這些特別的眼睛可以在透明圓頂內轉動。當這條魚在尋找食物時，它會將眼睛直直向上看，以發現游在頭頂上的微小獵物。接著，當它準備進食時，它會將眼睛向前轉動來追蹤食物。這種聰明的超能力幫助桶眼魚在黑暗、神秘的深海中生存下來！"
+    }
+  ],
+  "vocabulary": {
+    "creature": {
+      "word": "creature",
+      "syllables": "crea·ture",
+      "pos": "n. 名詞",
+      "zh": "生物、動物",
+      "explanation": "指任何活著的動物或生靈，這隻神奇的深海魚就是一個很酷的海洋creature喔！",
+      "example": "The ocean is home to many mysterious creatures."
+    },
+    "transparent": {
+      "word": "transparent",
+      "syllables": "trans·par·ent",
+      "pos": "adj. 形容詞",
+      "zh": "透明的",
+      "explanation": "指光線可以穿過去、讓人看得透過去的材質，就像乾淨的玻璃一樣。",
+      "example": "The window is so clean and transparent."
+    },
+    "dome": {
+      "word": "dome",
+      "syllables": "dome",
+      "pos": "n. 名詞",
+      "zh": "圓頂",
+      "explanation": "像半個球體一樣、頂部彎曲拱起的形狀，這條魚的頭上就有一個透明的dome。",
+      "example": "The building has a big glass dome on top."
+    },
+    "glowing": {
+      "word": "glowing",
+      "syllables": "glow·ing",
+      "pos": "adj. 形容詞",
+      "zh": "發光的、發亮的",
+      "explanation": "指散發出溫和光芒的樣子，就像暗暗房間裡的小夜燈一樣。",
+      "example": "I saw glowing stars on my bedroom ceiling."
+    },
+    "rotate": {
+      "word": "rotate",
+      "syllables": "ro·tate",
+      "pos": "v. 動詞",
+      "syllables_pos": "v. 動詞",
+      "zh": "旋轉、轉動",
+      "explanation": "指繞著一個中心點轉圈圈，這條魚的眼睛可以在頭裡rotate轉動喔！",
+      "example": "The wheels of a bicycle rotate when you ride."
+    },
+    "spot": {
+      "word": "spot",
+      "syllables": "spot",
+      "pos": "v. 動詞",
+      "zh": "注意到、發現",
+      "explanation": "指突然看見或找某個東西，就像你在人群中一眼spot到你的好朋友一樣。",
+      "example": "Can you spot the bird in the tree?"
+    },
+    "prey": {
+      "word": "prey",
+      "syllables": "prey",
+      "pos": "n. 名詞",
+      "zh": "獵物",
+      "explanation": "指被其他動物追捕來當作食物的動物。",
+      "example": "The owl looked down from the tree to find its prey."
+    },
+    "track": {
+      "word": "track",
+      "syllables": "track",
+      "pos": "v. 動詞",
+      "zh": "追蹤",
+      "explanation": "指跟著移動的目標一直看或尋找它的動向。",
+      "example": "The cat used its eyes to track the moving toy."
+    },
+    "clever": {
+      "word": "clever",
+      "syllables": "clev·er",
+      "pos": "adj. 形容詞",
+      "zh": "聰明的、巧妙的",
+      "explanation": "形容很有智慧或點子很多，這條魚的眼睛構造真的非常clever！",
+      "example": "It was a clever idea to bring an umbrella today."
+    },
+    "survive": {
+      "word": "survive",
+      "syllables": "sur·vive",
+      "pos": "v. 動詞",
+      "zh": "生存、存活",
+      "explanation": "指在困難或危險的環境中繼續活下去。",
+      "example": "Some animals can survive in the freezing snow."
+    }
+  },
+  "quiz": [
+    {
+      "question": "1. What is the main idea of this article?",
+      "options": [
+        "A newly discovered deep-sea fish has a transparent head and rotating eyes.",
+        "Scientists found a way to travel 2,000 feet under the ocean.",
+        "All fish in the deep ocean have green, glowing eyes.",
+        "Deep-sea fish like to swim near the surface in the bright sunlight."
+      ],
+      "answer": 0,
+      "explanation": "太棒了！整篇文章都在介紹神奇的桶眼魚，牠擁有透明的頭部和會旋轉的眼睛，這是文章最核心的主旨喔！"
+    },
+    {
+      "question": "2. According to the text, why does the barreleye fish point its eyes straight up?",
+      "options": [
+        "To look at the bright sun",
+        "To spot tiny prey swimming overhead",
+        "To protect its eyes from bright lights",
+        "To talk to other big fish"
+      ],
+      "answer": 1,
+      "explanation": "答對囉！文章第二段提到，當魚在找食物時，會把眼睛直直向上看，來發現游在頭頂上的微小獵物。"
+    },
+    {
+      "question": "3. What can we infer about the environment where the barreleye fish lives?",
+      "options": [
+        "It is very bright and full of colorful plants.",
+        "It is warm, shallow, and near a sunny beach.",
+        "It is dark and located deep beneath the ocean surface.",
+        "It is a freshwater river with many rocks."
+      ],
+      "answer": 2,
+      "explanation": "你真細心！文章提到牠住在海面下近 2,000 英尺的深海，並且需要靠特殊超能力在「黑暗」的深海中生存，所以可以推論那裡是非常黑暗的環境。"
+    },
+    {
+      "question": "4. In the sentence \"These special eyes can rotate inside the transparent dome,\" what does the word \"rotate\" mean?",
+      "options": [
+        "To close tightly",
+        "To change color",
+        "To turn or spin around",
+        "To grow bigger"
+      ],
+      "answer": 2,
+      "explanation": "答對囉！「rotate」的意思就是旋轉或轉動，就像牠的眼睛能在透明的頭部圓頂內轉來轉去一樣！"
+    }
+  ]
+}
