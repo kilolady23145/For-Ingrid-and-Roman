@@ -1,191 +1,191 @@
 {
   "date": "2026-11-18",
-  "category": "🔭 Space & Cosmos",
+  "category": "🌍 Planet & Wildlife",
   "level": "US Grade 7–8 (Lexile 1050L｜CEFR B2)",
-  "title": "Unlocking the Mystery of Earth’s Vanishing Billion Years",
-  "title_zh": "解開地球消失十億年歷史的謎團",
+  "title": "Hidden Ecosystems: The Secret Life Inside Deep-Sea Rocks",
+  "title_zh": "隱藏的生態系：深海岩石內的秘密生活",
   "paragraphs": [
     {
-      "en": "For decades, geologists have been puzzled by a massive gap in the Earth’s rock record. Known as the 'Great Unconformity,' this phenomenon refers to the mysterious absence of up to a billion years of geological history in rock layers across the globe. It is as if a massive section of the planet’s biography has been torn out of the book of time. Recently, however, researchers may have finally identified the culprit behind this missing chapter: a combination of tectonic movement and ancient, large-scale erosion.",
-      "zh": "幾十年來，地質學家一直對地球岩石紀錄中巨大的斷層感到困惑。這種現象被稱為「大不整合」（Great Unconformity），指的是全球岩石層中缺失了長達十億年的地質歷史。這就像是地球這本書中，有一大段章節被硬生生地撕掉了。然而，最近研究人員可能終於找到了造成這段歷史缺失的元兇：板塊運動與大規模古代侵蝕作用的結合。"
+      "en": "Deep beneath the Pacific Ocean, where sunlight never penetrates, scientists have uncovered a surprising and vibrant world. Researchers recently discovered that mineral-rich rocks, known as polymetallic nodules, act as miniature homes for a diverse array of life. While these rocks take millions of years to form on the seafloor, they are far from barren; instead, they serve as crucial habitats for thousands of tiny organisms, ranging from delicate sponges to complex crustaceans.",
+      "zh": "在陽光無法穿透的太平洋深處，科學家們揭開了一個令人驚訝且充滿活力的世界。研究人員最近發現，被稱為多金屬結核的礦物岩石，竟是各種生物的迷你家園。雖然這些岩石在海床上形成需要數百萬年的時間，但它們絕非荒蕪；相反地，它們成為了成千上萬種微小生物的關鍵棲息地，從脆弱的海綿到複雜的甲殼類動物應有盡有。"
     },
     {
-      "en": "How could such a vast amount of time simply vanish? The process likely began when the Earth’s continents were arranged into a single supercontinent known as Rodinia. As this supercontinent broke apart, it triggered intense tectonic activity. Consequently, massive forces deep within the planet pushed the crust upward. This elevation exposed ancient rock formations to the elements, making them vulnerable to weathering. Over millions of years, water and ice scoured the surface, stripping away layers of rock and effectively erasing the evidence of that long-lost era.",
-      "zh": "如此漫長的時間怎麼會憑空消失呢？這個過程很可能始於地球大陸排列成一個被稱為「羅迪尼亞」（Rodinia）的超大陸時期。當這個超大陸分裂時，它引發了劇烈的板塊活動。隨後，地表深處的巨大力量將地殼向上推升。這種隆起使古老的岩層暴露在外，使其容易受到風化作用的影響。經過數百萬年，水與冰川不斷沖刷地表，將岩層剝離，有效地抹去了那個失落時代的痕跡。"
+      "en": "By analyzing 244 of these nodules, the team identified more than 4,100 individual animals thriving within their cracks and cavities. Remarkably, these creatures form unique communities that differ significantly from the life found in the surrounding seafloor mud. This finding challenges the previous assumption that the deep-sea floor was a relatively uniform environment, suggesting instead that these rocks provide specialized niches that support distinct biological diversity.",
+      "zh": "透過分析 244 個這類結核，研究團隊在岩石的裂縫與空腔中發現了超過 4,100 隻生物。值得注意的是，這些生物形成的獨特群落，與周圍海床泥沙中的生物截然不同。這項發現挑戰了過去認為深海海床環境相對單一的假設，並指出這些岩石提供了能支持不同生物多樣性的特殊生態位。"
     },
     {
-      "en": "Nevertheless, the mystery was not solved by looking at the rocks themselves, but by studying the heat trapped within them. Researchers utilized a technique called thermochronology to measure how high temperatures changed as the rocks were buried and then brought to the surface. By analyzing these thermal signatures, they could reconstruct the timing of the erosion. This intricate process suggests that the 'Great Unconformity' was not a single, global event, but rather a series of regional episodes occurring as different continents shifted and collided over deep time.",
-      "zh": "然而，這個謎團並非透過觀察岩石本身來解決，而是透過研究岩石中殘留的熱量。研究人員運用了一種稱為「熱年代學」（thermochronology）的技術，來測量岩石在埋藏後又被帶回地表時，溫度是如何變化的。透過分析這些熱特徵，他們可以重構侵蝕發生的時間。這一複雜的過程表明，「大不整合」並非單一的全球性事件，而是隨著不同大陸在漫長地質時間中移動與碰撞，發生的一系列區域性事件。"
+      "en": "The existence of these hidden ecosystems raises urgent questions regarding human impact on the deep ocean. As industries look toward the seafloor for valuable metals needed for green technology, there is growing concern that deep-sea mining could inadvertently destroy these fragile habitats. Because these nodules develop so slowly, any disruption to their structure could have permanent consequences for the species that rely on them for survival.",
+      "zh": "這些隱藏生態系的存在，引發了關於人類對深海影響的迫切疑問。隨著工業界將目光投向海床，以獲取綠色科技所需的貴重金屬，人們越來越擔心深海採礦可能會無意間破壞這些脆弱的棲息地。由於這些結核的形成極其緩慢，任何對其結構的破壞，都可能對依賴它們生存的物種造成永久性的後果。"
     },
     {
-      "en": "Understanding this gap is crucial because it helps scientists piece together the history of life on Earth. The missing rock layers coincide with a period just before the 'Cambrian Explosion,' a time when complex life forms began to flourish. By finally uncovering the forces that erased this history, geologists are gaining a clearer picture of the environmental conditions that existed just before biology underwent its most dramatic transformation. This discovery reminds us that the Earth is a dynamic, ever-changing system where even the solid ground beneath our feet is constantly being reshaped.",
-      "zh": "理解這個斷層至關重要，因為它有助於科學家拼湊出地球生命的歷史。這些缺失的岩層恰好對應於「寒武紀大爆發」之前的一段時期，那是複雜生命形式開始蓬勃發展的時刻。透過揭開抹去這段歷史的力量，地質學家能更清晰地描繪出生物經歷最劇烈轉變前所存在的環境條件。這項發現提醒我們，地球是一個動態且不斷變化的系統，即使我們腳下堅實的土地也在持續重塑之中。"
+      "en": "Ultimately, this discovery underscores how little we truly understand about the vast, unexplored regions of our planet. As researchers continue to investigate these miniature habitats, the goal is to balance the global demand for resources with the necessity of environmental conservation. Protecting these deep-sea ecosystems is not just about preserving individual animals; it is about safeguarding the complex, interconnected web of life that sustains the health of our oceans.",
+      "zh": "歸根究底，這項發現凸顯了我們對地球上廣闊且未開發區域的了解是多麼有限。隨著研究人員持續探索這些迷你棲息地，目標在於平衡全球對資源的需求與環境保護的必要性。保護這些深海生態系不僅是為了保存單一物種，更是為了守護維持海洋健康的複雜且相互連結的生命網絡。"
     }
   ],
   "vocabulary": {
-    "geologists": {
-      "word": "geologist",
-      "syllables": "ge·ol·o·gist",
-      "pos": "n. 名詞",
-      "zh": "地質學家",
-      "explanation": "專門研究地球構造、成分與演變歷史的科學家。在文中指透過研究岩石紀錄來解開地球歷史謎團的專家。",
-      "example": "The geologists spent the summer collecting rock samples in the mountains."
+    "penetrates": {
+      "word": "penetrate",
+      "syllables": "pen·e·trate",
+      "pos": "v. 動詞",
+      "zh": "穿透、進入",
+      "explanation": "指物體或光線進入或穿過原本無法輕易通過的空間或物質，文中形容陽光無法到達深海。",
+      "example": "The moonlight could not penetrate the thick canopy of the forest."
     },
-    "phenomenon": {
-      "word": "phenomenon",
-      "syllables": "phe·nom·e·non",
-      "pos": "n. 名詞",
-      "zh": "現象",
-      "explanation": "指觀察到的事實或事件，通常指科學上值得探討或解釋的特殊情況。",
-      "example": "The northern lights are a beautiful natural phenomenon that attracts many tourists."
+    "barren": {
+      "word": "barren",
+      "syllables": "bar·ren",
+      "pos": "adj. 形容詞",
+      "zh": "荒蕪的、貧瘠的",
+      "explanation": "形容土地或環境缺乏生命力，無法支持動植物生長，文中用以對比岩石其實充滿生命。",
+      "example": "After the drought, the landscape looked completely barren and dry."
     },
-    "absence": {
-      "word": "absence",
-      "syllables": "ab·sence",
+    "habitats": {
+      "word": "habitat",
+      "syllables": "hab·i·tat",
       "pos": "n. 名詞",
-      "zh": "缺席、缺失",
-      "explanation": "指某人或某物不在場或不存在的狀態。文中指地質紀錄中缺少了重要的岩層。",
-      "example": "The absence of rain for several months led to a severe drought in the region."
+      "zh": "棲息地",
+      "explanation": "指特定生物群落自然生長與生存的環境，是生態學中的核心詞彙。",
+      "example": "The government is working to protect the natural habitats of endangered species."
     },
-    "culprit": {
-      "word": "culprit",
-      "syllables": "cul·prit",
+    "nodules": {
+      "word": "nodule",
+      "syllables": "nod·ule",
       "pos": "n. 名詞",
-      "zh": "元兇、問題的根源",
-      "explanation": "指導致問題或壞事發生的主因。文中用來形容造成地質斷層的背後力量。",
-      "example": "Poor diet is often the main culprit behind many modern health issues."
+      "zh": "結核、小瘤狀塊",
+      "explanation": "指海底沉積物中形成的礦物硬塊，通常富含金屬，是文中探討的關鍵科學對象。",
+      "example": "The geologist found several small mineral nodules in the riverbed."
     },
-    "consequently": {
-      "word": "consequently",
-      "syllables": "con·se·quent·ly",
+    "thriving": {
+      "word": "thrive",
+      "syllables": "thrive",
+      "pos": "v. 動詞",
+      "zh": "繁榮、茁壯成長",
+      "explanation": "指生物在極佳的環境中旺盛地生長或活動，強調生命力的展現。",
+      "example": "These plants thrive in humid conditions with plenty of indirect sunlight."
+    },
+    "remarkably": {
+      "word": "remarkable",
+      "syllables": "re·mark·a·ble",
       "pos": "adv. 副詞",
-      "zh": "因此、結果",
-      "explanation": "用於連接前後句，表示後者是前者的必然結果，常用於學術寫作中增加邏輯連貫性。",
-      "example": "The factory closed down; consequently, many workers lost their jobs."
+      "zh": "顯著地、非凡地",
+      "explanation": "用於強調某事物的程度令人驚訝或值得注意，語氣帶有讚嘆感。",
+      "example": "The results of the experiment were remarkably consistent across all trials."
     },
-    "elevation": {
-      "word": "elevation",
-      "syllables": "el·e·va·tion",
+    "uniform": {
+      "word": "uniform",
+      "syllables": "u·ni·form",
+      "pos": "adj. 形容詞",
+      "zh": "一致的、均勻的",
+      "explanation": "指事物在全範圍內呈現相同狀態，沒有差異或變化，文中用來描述科學家對深海的舊認知。",
+      "example": "The paint was applied in a uniform layer across the entire surface."
+    },
+    "niches": {
+      "word": "niche",
+      "syllables": "niche",
       "pos": "n. 名詞",
-      "zh": "海拔、升高",
-      "explanation": "指物體被提升的高度或處於高處的狀態。文中指地殼被推升至較高位置的過程。",
-      "example": "At this high elevation, the air is much thinner and harder to breathe."
+      "zh": "生態位、適當位置",
+      "explanation": "在生物學中，指生物在生態系統中扮演的角色及其所需的環境條件。",
+      "example": "Each species fills a specific niche within the complex rainforest ecosystem."
     },
-    "vulnerable": {
-      "word": "vulnerable",
-      "syllables": "vul·ner·a·ble",
-      "pos": "adj. 形容詞",
-      "zh": "易受影響的、脆弱的",
-      "explanation": "指容易受到攻擊、傷害或損壞。文中指岩石暴露後容易被風化侵蝕。",
-      "example": "Young birds are particularly vulnerable to predators until they learn to fly."
+    "inadvertently": {
+      "word": "inadvertent",
+      "syllables": "in·ad·ver·tent·ly",
+      "pos": "adv. 副詞",
+      "zh": "無意地、不經意地",
+      "explanation": "指並非故意造成的結果，通常暗示在追求目標時忽略了潛在的負面影響。",
+      "example": "I inadvertently deleted the file while trying to move it to the folder."
     },
-    "erasing": {
-      "word": "erase",
-      "syllables": "e·rase",
-      "pos": "v. 動詞",
-      "zh": "抹去、消除",
-      "explanation": "指將某物完全清除或抹掉。文中形容侵蝕作用將地質證據抹去了。",
-      "example": "The heavy waves are slowly erasing the footprints from the wet sand."
-    },
-    "thermochronology": {
-      "word": "thermochronology",
-      "syllables": "ther·mo·chro·nol·o·gy",
+    "consequences": {
+      "word": "consequence",
+      "syllables": "con·se·quence",
       "pos": "n. 名詞",
-      "zh": "熱年代學",
-      "explanation": "一種透過測量岩石中熱紀錄來推算其冷卻與埋藏歷史的科學技術。",
-      "example": "Scientists used thermochronology to determine when the mountains were uplifted."
+      "zh": "後果、結果",
+      "explanation": "指某種行動或事件所引發的後續效應，通常指負面或重大的影響。",
+      "example": "Ignoring the rules of the game will have serious consequences."
     },
-    "intricate": {
-      "word": "intricate",
-      "syllables": "in·tri·cate",
-      "pos": "adj. 形容詞",
-      "zh": "複雜的、精細的",
-      "explanation": "指結構複雜、細節多且難以理解的。文中指研究過程相當深入且細膩。",
-      "example": "The watchmaker spent hours working on the intricate gears of the clock."
-    },
-    "coincide": {
-      "word": "coincide",
-      "syllables": "co·in·cide",
+    "underscores": {
+      "word": "underscore",
+      "syllables": "un·der·score",
       "pos": "v. 動詞",
-      "zh": "同時發生、重合",
-      "explanation": "指兩個事件發生在同一時間或空間。文中指缺失的岩層時間點與寒武紀大爆發前夕吻合。",
-      "example": "My vacation plans coincide with the annual music festival in the city."
+      "zh": "強調、突顯",
+      "explanation": "字面意為在文字下畫線，引申為強調某事的重要性或嚴重性。",
+      "example": "The recent data underscores the importance of early education."
     },
-    "dynamic": {
-      "word": "dynamic",
-      "syllables": "dy·nam·ic",
-      "pos": "adj. 形容詞",
-      "zh": "動態的、不斷變化的",
-      "explanation": "形容事物處於持續活動或改變的狀態，而非靜止不變。",
-      "example": "The job market is a dynamic environment that requires constant learning."
+    "safeguarding": {
+      "word": "safeguard",
+      "syllables": "safe·guard",
+      "pos": "v. 動詞",
+      "zh": "保護、維護",
+      "explanation": "指採取行動以防禦潛在危險，確保某事物安全無虞。",
+      "example": "We must focus on safeguarding our natural resources for future generations."
     }
   },
   "quiz": [
     {
       "question": "1. What is the central idea of this article?",
       "options": [
-        "A. How the supercontinent Rodinia was formed and eventually split apart.",
-        "B. The discovery of a scientific explanation for the 'Great Unconformity' rock gap.",
-        "C. The impact of the Cambrian Explosion on modern geological research.",
-        "D. Why thermochronology is the only reliable way to date ancient rocks."
+        "A. Deep-sea mining is the only way to obtain metals for modern technology.",
+        "B. Scientists have discovered that deep-sea mineral rocks act as vital, unique habitats for diverse life.",
+        "C. The Pacific Ocean is the most dangerous environment on Earth for marine animals.",
+        "D. Polymetallic nodules take millions of years to form and are therefore impossible to study."
       ],
       "answer": 1,
-      "explanation": "文章主要探討科學家如何解開「大不整合」這個地質謎團，選項 B 最能概括全文核心。"
+      "explanation": "文章核心在於揭示深海結核岩石不僅是礦物，更是支持多樣生物的生態系統，故選 B。"
     },
     {
-      "question": "2. According to the text, what combination of factors likely caused the missing rock layers?",
+      "question": "2. According to the text, why are deep-sea nodules considered unique habitats?",
       "options": [
-        "A. Volcanic eruptions and rapid global climate cooling.",
-        "B. Human intervention and deep-sea mining activities.",
-        "C. Tectonic movement and large-scale erosion.",
-        "D. The sudden rise of sea levels and intense solar radiation."
+        "A. They are the only places in the ocean where sunlight reaches the seafloor.",
+        "B. They contain minerals that are toxic to most surrounding seafloor life.",
+        "C. They host diverse communities that are different from those living in the surrounding mud.",
+        "D. They are rapidly growing structures that provide constant food for predators."
       ],
       "answer": 2,
-      "explanation": "文中明確提到這段歷史缺失是板塊運動與大規模侵蝕作用結合的結果。"
+      "explanation": "文中明確提到，結核岩石中的生物群落與周圍泥沙中的生物群落顯著不同，故選 C。"
     },
     {
-      "question": "3. In the phrase 'This intricate process suggests...', what does the word 'intricate' mean?",
+      "question": "3. In the phrase 'these rocks provide specialized niches,' what does the word 'niches' imply?",
       "options": [
-        "A. Extremely slow and boring.",
-        "B. Simple and easily understood.",
-        "C. Complicated and detailed.",
-        "D. Dangerous and unpredictable."
-      ],
-      "answer": 2,
-      "explanation": "Intricate 意指複雜、細膩且精細，文中使用此詞來形容研究方法的深度。"
-    },
-    {
-      "question": "4. What can be reasonably inferred about the 'Great Unconformity'?",
-      "options": [
-        "A. It occurred exactly the same way all over the planet at the same time.",
-        "B. It was caused by a single, catastrophic event that lasted one year.",
-        "C. It likely happened in different regions at different times as continents shifted.",
-        "D. It is a fake phenomenon created by errors in telescope data."
-      ],
-      "answer": 2,
-      "explanation": "文中指出這並非單一全球性事件，而是隨著大陸移動在不同地區發生的系列事件。"
-    },
-    {
-      "question": "5. Why did the author include the final paragraph about the 'Cambrian Explosion'?",
-      "options": [
-        "A. To argue that the Cambrian Explosion was caused by erosion.",
-        "B. To explain why understanding the rock gap is important for studying life's history.",
-        "C. To prove that the Earth's history is mostly made up of missing rocks.",
-        "D. To provide a counter-argument to the theory of tectonic movement."
+        "A. Physical holes that animals use for protection.",
+        "B. Specific roles and environmental conditions that allow different species to survive.",
+        "C. Large areas of the ocean that have been cleared of all debris.",
+        "D. Scientific tools used by researchers to count deep-sea animals."
       ],
       "answer": 1,
-      "explanation": "最後一段說明了解這個斷層有助於拼湊生命演化史，點出研究此現象的科學價值。"
+      "explanation": "生態位（niche）在生物學中指生物生存所需的特定條件與角色，故 B 最符合學術語境。"
     },
     {
-      "question": "6. How does the 'Great Unconformity' relate to the Earth's current state?",
+      "question": "4. What can be inferred about the potential impact of deep-sea mining?",
       "options": [
-        "A. It shows that the Earth is a dynamic system that is always being reshaped.",
-        "B. It proves that the Earth's surface has stopped changing completely.",
-        "C. It indicates that the Earth is cooling down faster than previously thought.",
-        "D. It suggests that continents are no longer moving as they did in the past."
+        "A. Mining will likely improve the health of the deep-sea ecosystem.",
+        "B. Mining is harmless because the animals living in the rocks are very common.",
+        "C. Mining could cause long-term damage because the habitats it destroys recover very slowly.",
+        "D. Mining will only affect the mud on the seafloor, not the nodules themselves."
+      ],
+      "answer": 2,
+      "explanation": "文章提到結核形成緩慢，因此破壞結構可能導致永久性後果，故推論 C 正確。"
+    },
+    {
+      "question": "5. Why does the author include the detail that nodules take 'millions of years to form'?",
+      "options": [
+        "A. To explain why the rocks are so heavy.",
+        "B. To highlight the fragility and non-renewable nature of these habitats.",
+        "C. To suggest that humans should wait millions of years before mining.",
+        "D. To prove that the rocks are older than the animals living inside them."
+      ],
+      "answer": 1,
+      "explanation": "此細節旨在強調其恢復極慢，一旦破壞即不可逆，凸顯保護之重要性，故選 B。"
+    },
+    {
+      "question": "6. Based on the article, what is the 'paradox' or challenge facing researchers?",
+      "options": [
+        "A. They want to protect the environment but also need resources for green technology.",
+        "B. They want to study the rocks but cannot find them in the Pacific Ocean.",
+        "C. They want to prove that life exists in the ocean but have no evidence.",
+        "D. They want to stop mining but the animals are not actually living in the rocks."
       ],
       "answer": 0,
-      "explanation": "文章結尾強調地球是一個不斷變化的系統，即便地表也在持續重塑，這與大不整合的發現相呼應。"
+      "explanation": "文中第四段提到需要在資源需求與環境保護之間取得平衡，這正是科學界與工業界面臨的挑戰，故選 A。"
     }
   ]
 }
