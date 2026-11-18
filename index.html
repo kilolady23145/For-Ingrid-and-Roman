@@ -38,7 +38,6 @@
       padding: 20px 16px;
     }
 
-    /* 頂部標題卡片 */
     .hero {
       background: linear-gradient(135deg, #1d4ed8 0%, #4338ca 100%);
       color: #fff;
@@ -79,7 +78,6 @@
       font-weight: 500;
     }
 
-    /* 新聞封面大圖區 */
     .photo-card {
       background: var(--card);
       border-radius: 20px;
@@ -105,7 +103,6 @@
       border-top: 1px solid var(--border);
     }
 
-    /* 語音控制與朗讀者選單列 */
     .toolbar {
       background: var(--card);
       border: 1px solid var(--border);
@@ -270,7 +267,6 @@
     .vocab-chip strong { display: block; font-size: 16px; color: #92400e; }
     .vocab-chip span { font-size: 13.5px; color: #78350f; }
 
-    /* 測驗題卡片 */
     .quiz-item {
       background: #f8fafc;
       border: 1px solid var(--border);
@@ -279,13 +275,7 @@
       margin-bottom: 16px;
     }
 
-    .quiz-q {
-      font-weight: 700;
-      font-size: 17px;
-      margin: 0 0 12px;
-      color: #0f172a;
-    }
-
+    .quiz-q { font-weight: 700; font-size: 17px; margin: 0 0 12px; color: #0f172a; }
     .quiz-options { display: grid; gap: 8px; }
 
     .opt-btn {
@@ -324,7 +314,6 @@
       margin-top: 12px;
     }
 
-    /* 彈出式點讀字典卡 */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -359,6 +348,9 @@
 </head>
 <body>
 
+  <!-- 專為 iPhone Safari 設計的單一持久音訊播放器，支援連續換段播放與調速 -->
+  <audio id="cloudPlayer" preload="auto"></audio>
+
   <div class="container">
     <div class="hero">
       <div class="hero-top">
@@ -369,13 +361,11 @@
       <p class="subtitle-zh" id="newsTitleZh">正在載入今日新聞與題目...</p>
     </div>
 
-    <!-- 新聞真實配圖區 -->
     <div class="photo-card" id="photoCard">
       <img id="newsImage" alt="Today's News Visual" onerror="handleImgError(this)" />
       <div class="photo-caption" id="newsCaption"></div>
     </div>
 
-    <!-- 朗讀與男女聲音切換工具列 -->
     <div class="toolbar">
       <button class="btn btn-primary" id="playAllBtn" onclick="togglePlayArticle()">🔊 聽整篇新聞</button>
       <button class="btn btn-outline" id="speedBtn" onclick="toggleSpeed()">🐢 語速：0.9x 適中</button>
@@ -384,7 +374,7 @@
       <div class="voice-group">
         <span class="voice-label">🎙️ 朗讀老師：</span>
         <select id="voiceSelect" class="voice-select" onchange="onVoiceChange()">
-          <option value="">🇺🇸 自動挑選美式發音 (預設)</option>
+          <option value="cloud_uk_male">🇬🇧 載入語音清單中...</option>
         </select>
         <button class="btn btn-outline" onclick="testSelectedVoice()">🔔 試聽聲音</button>
       </div>
@@ -411,7 +401,6 @@
     </div>
   </div>
 
-  <!-- 單字發音字典視窗 -->
   <div class="modal-backdrop" id="dictModal" onclick="closeModalOnBg(event)">
     <div class="dict-card">
       <div class="dict-header">
@@ -437,12 +426,60 @@
     let showZh = false;
     let isPlayingAll = false;
     let availableVoices = [];
+    let audioQueue = [];
     let currentModalWord = "";
     let currentModalAudioUrl = "";
     let answeredCount = 0;
     let correctCount = 0;
+    const sessionBust = Date.now();
 
     const BACKUP_PHOTO = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80";
+    // 過濾掉 iPhone 內建的搞笑機器人特效音
+    const JUNK_VOICE_NAMES = /Albert|Bad News|Bahh|Bells|Boing|Bubbles|Cellos|Deranged|Good News|Hysterical|Jester|Organ|Superstar|Trinoids|Whisper|Wobble|Zarvox|Ralph|Kathy|Junior|Fred/i;
+
+    const cloudPlayer = document.getElementById('cloudPlayer');
+    cloudPlayer.onended = () => {
+      if (audioQueue.length > 0) {
+        playNextInQueue();
+      } else {
+        isPlayingAll = false;
+        updatePlayBtn();
+      }
+    };
+
+    function stopAllAudio() {
+      audioQueue = [];
+      cloudPlayer.pause();
+      cloudPlayer.currentTime = 0;
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    }
+
+    function playCloudQueue(urls, fallbackText = "") {
+      stopAllAudio();
+      if (!urls || urls.length === 0) {
+        if (fallbackText) speakLocalText(fallbackText, speechRate);
+        return;
+      }
+      audioQueue = urls.map(u => `${u}?v=${sessionBust}`);
+      playNextInQueue(fallbackText);
+    }
+
+    function playNextInQueue(fallbackText = "") {
+      if (audioQueue.length === 0) {
+        isPlayingAll = false;
+        updatePlayBtn();
+        return;
+      }
+      const nextUrl = audioQueue.shift();
+      cloudPlayer.src = nextUrl;
+      cloudPlayer.playbackRate = speechRate;
+      cloudPlayer.play().catch(() => {
+        audioQueue = [];
+        isPlayingAll = false;
+        updatePlayBtn();
+        if (fallbackText) speakLocalText(fallbackText, speechRate);
+      });
+    }
 
     function handleImgError(imgEl) {
       if (imgEl.dataset.retried) {
@@ -453,42 +490,84 @@
       imgEl.src = BACKUP_PHOTO;
     }
 
-    // 載入裝置上所有英文男女聲音
-    function loadVoices() {
-      if (!('speechSynthesis' in window)) return;
-      const all = window.speechSynthesis.getVoices();
-      const enVoices = all.filter(v => /^en(-|_)/i.test(v.lang));
-      if (enVoices.length === 0) return;
-
-      enVoices.sort((a, b) => {
-        const aUS = /US/i.test(a.lang) ? 0 : (/GB/i.test(a.lang) ? 1 : 2);
-        const bUS = /US/i.test(b.lang) ? 0 : (/GB/i.test(b.lang) ? 1 : 2);
-        if (aUS !== bUS) return aUS - bUS;
-        return a.name.localeCompare(b.name);
-      });
-
-      availableVoices = enVoices;
+    function rebuildVoiceMenu() {
       const select = document.getElementById('voiceSelect');
-      const savedURI = localStorage.getItem('preferredVoiceURI') || '';
+      const savedURI = localStorage.getItem('preferredVoiceURI') || 'cloud_uk_male';
+      select.innerHTML = '';
 
-      select.innerHTML = '<option value="">🇺🇸 自動挑選美式發音 (預設)</option>';
-      enVoices.forEach(v => {
-        const opt = document.createElement('option');
-        opt.value = v.voiceURI;
-        let flag = '🌐';
-        if (/US/i.test(v.lang)) flag = '🇺🇸 美式';
-        else if (/GB/i.test(v.lang)) flag = '🇬🇧 英式';
-        else if (/AU/i.test(v.lang)) flag = '🇦🇺 澳式';
-        opt.textContent = `${flag}｜${v.name}`;
-        if (v.voiceURI === savedURI) opt.selected = true;
-        select.appendChild(opt);
-      });
+      const cloudMap = (articleData && articleData.cloud_audio) || {};
+      const cloudKeys = Object.keys(cloudMap);
+
+      // 1. 優先置頂「雲端真人級男女主播」（手機也能聽純正 UK English Male！）
+      if (cloudKeys.length > 0) {
+        const cloudGroup = document.createElement('optgroup');
+        cloudGroup.label = '🌟 雲端真人級主播（手機／電腦通用）';
+        cloudKeys.forEach(k => {
+          const opt = document.createElement('option');
+          opt.value = k;
+          opt.textContent = cloudMap[k].label;
+          if (k === savedURI) opt.selected = true;
+          cloudGroup.appendChild(opt);
+        });
+        select.appendChild(cloudGroup);
+      }
+
+      // 2. 接著列出裝置內建的乾淨語音（過濾怪聲與重複名稱）
+      if ('speechSynthesis' in window) {
+        const raw = window.speechSynthesis.getVoices();
+        const seenNames = new Set();
+        const cleanVoices = raw.filter(v => {
+          if (!/^en(-|_)/i.test(v.lang)) return false;
+          if (JUNK_VOICE_NAMES.test(v.name)) return false;
+          const key = `${v.lang}_${v.name}`;
+          if (seenNames.has(key)) return false;
+          seenNames.add(key);
+          return true;
+        });
+
+        cleanVoices.sort((a, b) => {
+          const aRank = /GB/i.test(a.lang) ? 0 : (/US/i.test(a.lang) ? 1 : 2);
+          const bRank = /GB/i.test(b.lang) ? 0 : (/US/i.test(b.lang) ? 1 : 2);
+          if (aRank !== bRank) return aRank - bRank;
+          return a.name.localeCompare(b.name);
+        });
+
+        availableVoices = cleanVoices;
+
+        if (cleanVoices.length > 0) {
+          const localGroup = document.createElement('optgroup');
+          localGroup.label = '📱 此裝置內建語音';
+          cleanVoices.forEach(v => {
+            const opt = document.createElement('option');
+            opt.value = v.voiceURI;
+            let flag = '🌐';
+            if (/GB/i.test(v.lang)) flag = '🇬🇧 英式';
+            else if (/US/i.test(v.lang)) flag = '🇺🇸 美式';
+            else if (/AU/i.test(v.lang)) flag = '🇦🇺 澳式';
+            opt.textContent = `${flag}｜${v.name}`;
+            if (v.voiceURI === savedURI) opt.selected = true;
+            localGroup.appendChild(opt);
+          });
+          select.appendChild(localGroup);
+        }
+      }
+
+      // 若原先沒選中任何項目，預設選第一個（即 UK English Male 雲端男主播）
+      if (!select.value && select.options.length > 0) {
+        select.selectedIndex = 0;
+      }
     }
 
     if ('speechSynthesis' in window) {
-      window.speechSynthesis.onvoiceschanged = loadVoices;
-      setTimeout(loadVoices, 200);
-      setTimeout(loadVoices, 1000);
+      window.speechSynthesis.onvoiceschanged = rebuildVoiceMenu;
+      setTimeout(rebuildVoiceMenu, 300);
+      setTimeout(rebuildVoiceMenu, 1000);
+    }
+
+    function getActiveCloudPack() {
+      const val = document.getElementById('voiceSelect').value;
+      const cloudMap = (articleData && articleData.cloud_audio) || {};
+      return cloudMap[val] || null;
     }
 
     function onVoiceChange() {
@@ -497,31 +576,29 @@
       testSelectedVoice();
     }
 
-    function getSelectedVoice() {
-      if (availableVoices.length === 0) loadVoices();
-      const savedURI = localStorage.getItem('preferredVoiceURI');
-      if (savedURI) {
-        const exact = availableVoices.find(v => v.voiceURI === savedURI);
-        if (exact) return exact;
+    function getFallbackLocalVoice() {
+      const val = document.getElementById('voiceSelect').value || '';
+      const exact = availableVoices.find(v => v.voiceURI === val);
+      if (exact) return exact;
+      // 若選的是英式雲端語音，單字即時發音優先配對裝置內的英式聲音（如 Daniel / Google UK）
+      if (val.includes('_uk_')) {
+        return availableVoices.find(v => /GB/i.test(v.lang) && /Male|Daniel|Arthur|Oliver/i.test(v.name))
+          || availableVoices.find(v => /GB/i.test(v.lang))
+          || availableVoices[0] || null;
       }
-      return (
-        availableVoices.find(v => /US/i.test(v.lang) && /Evan|Nathan|Ava|Allison|Samantha|Alex/i.test(v.name)) ||
-        availableVoices.find(v => /US/i.test(v.lang)) ||
-        availableVoices[0] ||
-        null
-      );
+      return availableVoices.find(v => /US/i.test(v.lang)) || availableVoices[0] || null;
     }
 
-    function speakText(text, customRate = null, onEndCallback = null) {
+    function speakLocalText(text, customRate = null, onEndCallback = null) {
       if (!('speechSynthesis' in window)) return;
-      window.speechSynthesis.cancel();
+      stopAllAudio();
       const utter = new SpeechSynthesisUtterance(text);
-      const voice = getSelectedVoice();
+      const voice = getFallbackLocalVoice();
       if (voice) {
         utter.voice = voice;
         utter.lang = voice.lang;
       } else {
-        utter.lang = 'en-US';
+        utter.lang = 'en-GB';
       }
       utter.rate = customRate !== null ? customRate : speechRate;
       utter.onend = () => { if (onEndCallback) onEndCallback(); };
@@ -532,25 +609,50 @@
     function testSelectedVoice() {
       isPlayingAll = false;
       updatePlayBtn();
-      speakText("Hi Ingrid and Roman! Ready for today's story?");
+      const cloudPack = getActiveCloudPack();
+      if (cloudPack && cloudPack.title) {
+        playCloudQueue([cloudPack.title], articleData ? articleData.title : "Hello Ingrid and Roman!");
+      } else {
+        speakLocalText("Hello Ingrid and Roman! Let's explore today's science story.");
+      }
+    }
+
+    function playSingleParagraph(idx, enText) {
+      isPlayingAll = false;
+      updatePlayBtn();
+      const cloudPack = getActiveCloudPack();
+      if (cloudPack && cloudPack.paragraphs && cloudPack.paragraphs[idx]) {
+        playCloudQueue([cloudPack.paragraphs[idx]], enText);
+      } else {
+        speakLocalText(enText);
+      }
     }
 
     function togglePlayArticle() {
       if (!articleData) return;
       if (isPlayingAll) {
-        window.speechSynthesis.cancel();
+        stopAllAudio();
         isPlayingAll = false;
         updatePlayBtn();
         return;
       }
-      const paras = (articleData.paragraphs || []).map(p => typeof p === 'string' ? p : (p.en || p.text || ''));
+
+      const paras = (articleData.paragraphs || []).map(p => typeof p === 'string' ? p : (p.en || ''));
       const fullText = [articleData.title, ...paras].join(' ');
+      const cloudPack = getActiveCloudPack();
+
       isPlayingAll = true;
       updatePlayBtn();
-      speakText(fullText, speechRate, () => {
-        isPlayingAll = false;
-        updatePlayBtn();
-      });
+
+      if (cloudPack && cloudPack.paragraphs && cloudPack.paragraphs.length > 0) {
+        const list = cloudPack.title ? [cloudPack.title, ...cloudPack.paragraphs] : [...cloudPack.paragraphs];
+        playCloudQueue(list, fullText);
+      } else {
+        speakLocalText(fullText, speechRate, () => {
+          isPlayingAll = false;
+          updatePlayBtn();
+        });
+      }
     }
 
     function updatePlayBtn() {
@@ -566,6 +668,7 @@
       const idx = speeds.findIndex(s => Math.abs(s.val - speechRate) < 0.03);
       const next = speeds[(idx + 1) % speeds.length];
       speechRate = next.val;
+      cloudPlayer.playbackRate = speechRate;
       document.getElementById('speedBtn').textContent = next.label;
     }
 
@@ -581,6 +684,7 @@
       try {
         const res = await fetch(`data/today.json?t=${Date.now()}`);
         articleData = await res.json();
+        rebuildVoiceMenu();
         renderArticle();
       } catch (err) {
         document.getElementById('newsTitle').textContent = '尚無今日新聞資料';
@@ -592,7 +696,6 @@
       return raw.toLowerCase().replace(/^[^a-z]+|[^a-z]+$/gi, '');
     }
 
-    // 相容各種新舊 JSON 欄位名稱，確保永遠不會空白！
     function normalizeVocab(rawVocab) {
       if (!rawVocab) return {};
       if (Array.isArray(rawVocab)) {
@@ -610,26 +713,24 @@
       document.getElementById('newsCategory').textContent = articleData.category || '🌟 Daily News';
       document.getElementById('newsMeta').textContent = `📅 ${articleData.date || ''} ｜ ${articleData.level || 'US Grade 7–8'}`;
       document.getElementById('newsTitle').textContent = articleData.title || '';
-      document.getElementById('newsTitleZh').textContent = articleData.title_zh || articleData.subtitle || '';
+      document.getElementById('newsTitleZh').textContent = articleData.title_zh || '';
 
-      // 顯示新聞圖片（若舊資料沒圖也給備援科普大圖）
-      const imgUrl = articleData.image_url || articleData.image || BACKUP_PHOTO;
+      const imgUrl = articleData.image_url || BACKUP_PHOTO;
       const photoCard = document.getElementById('photoCard');
       const imgEl = document.getElementById('newsImage');
       imgEl.src = imgUrl;
       document.getElementById('newsCaption').textContent = articleData.image_caption || `📸 今日新聞主題視覺｜${articleData.title_zh || articleData.title}`;
       photoCard.style.display = 'block';
 
-      const vocabMap = normalizeVocab(articleData.vocabulary || articleData.vocab);
+      const vocabMap = normalizeVocab(articleData.vocabulary);
       articleData._vocabMap = vocabMap;
 
       const bodyEl = document.getElementById('articleBody');
       bodyEl.innerHTML = '';
 
-      const paras = articleData.paragraphs || (articleData.content ? [{ en: articleData.content, zh: articleData.translation || '' }] : []);
-      paras.forEach((paraObj, idx) => {
-        const enStr = typeof paraObj === 'string' ? paraObj : (paraObj.en || paraObj.text || '');
-        const zhStr = typeof paraObj === 'string' ? '' : (paraObj.zh || paraObj.translation || '');
+      (articleData.paragraphs || []).forEach((paraObj, idx) => {
+        const enStr = typeof paraObj === 'string' ? paraObj : (paraObj.en || '');
+        const zhStr = typeof paraObj === 'string' ? '' : (paraObj.zh || '');
 
         const block = document.createElement('div');
         block.className = 'paragraph-block';
@@ -640,11 +741,7 @@
         const pBtn = document.createElement('button');
         pBtn.className = 'para-speak-btn';
         pBtn.textContent = `🔊 第 ${idx + 1} 段`;
-        pBtn.onclick = () => {
-          isPlayingAll = false;
-          updatePlayBtn();
-          speakText(enStr);
-        };
+        pBtn.onclick = () => playSingleParagraph(idx, enStr);
         enP.appendChild(pBtn);
 
         enStr.split(/(\s+)/).forEach(tok => {
@@ -679,7 +776,7 @@
       Object.entries(vocabMap).forEach(([key, info]) => {
         const chip = document.createElement('div');
         chip.className = 'vocab-chip';
-        chip.innerHTML = `<strong>🔊 ${info.word || key}</strong><span>${info.zh || info.meaning || ''}</span>`;
+        chip.innerHTML = `<strong>🔊 ${info.word || key}</strong><span>${info.zh || ''}</span>`;
         chip.onclick = () => openWordLookup(key);
         grid.appendChild(chip);
       });
@@ -694,12 +791,7 @@
       correctCount = 0;
       document.getElementById('scoreBanner').style.display = 'none';
 
-      const quizList = articleData.quiz || articleData.questions || [];
-      if (quizList.length === 0) {
-        container.innerHTML = '<p style="color:#64748b;">正在等待最新題目產生，請在 GitHub Actions 執行一次 Run workflow 即可更新！</p>';
-        return;
-      }
-
+      const quizList = articleData.quiz || [];
       quizList.forEach(qItem => {
         const box = document.createElement('div');
         box.className = 'quiz-item';
@@ -714,7 +806,7 @@
         const expDiv = document.createElement('div');
         expDiv.className = 'quiz-exp';
 
-        const ansIdx = typeof qItem.answer === 'number' ? qItem.answer : (qItem.correct_index ?? 0);
+        const ansIdx = typeof qItem.answer === 'number' ? qItem.answer : 0;
 
         (qItem.options || []).forEach((optText, optIdx) => {
           const btn = document.createElement('button');
@@ -764,15 +856,16 @@
       isPlayingAll = false;
       updatePlayBtn();
 
-      speakText(localInfo ? (localInfo.word || cleanedKey) : cleanedKey, 0.88);
+      const targetWord = localInfo ? (localInfo.word || cleanedKey) : cleanedKey;
+      speakLocalText(targetWord, 0.88);
 
       if (localInfo) {
-        document.getElementById('modalWord').textContent = localInfo.word || cleanedKey;
+        document.getElementById('modalWord').textContent = targetWord;
         document.getElementById('modalSub').textContent = [localInfo.syllables, localInfo.pos].filter(Boolean).join(' ｜ ');
-        document.getElementById('modalZh').textContent = localInfo.zh || localInfo.meaning || '';
+        document.getElementById('modalZh').textContent = localInfo.zh || '';
         document.getElementById('modalExp').textContent = `💬 ${localInfo.explanation || ''}`;
         document.getElementById('modalExample').textContent = localInfo.example ? `例句：${localInfo.example}` : '';
-        fetchDictionaryAudioOnly(localInfo.word || cleanedKey);
+        fetchDictionaryAudioOnly(targetWord);
       } else {
         document.getElementById('modalWord').textContent = cleanedKey;
         document.getElementById('modalSub').textContent = '即時字典查詢中...';
@@ -789,8 +882,10 @@
         if (!res.ok) return;
         const json = await res.json();
         const phonetics = (json[0] && json[0].phonetics) || [];
-        const usAudio = phonetics.find(p => p.audio && p.audio.includes('-us')) || phonetics.find(p => p.audio);
-        if (usAudio && usAudio.audio) currentModalAudioUrl = usAudio.audio;
+        const ukOrUs = phonetics.find(p => p.audio && p.audio.includes('-uk'))
+          || phonetics.find(p => p.audio && p.audio.includes('-us'))
+          || phonetics.find(p => p.audio);
+        if (ukOrUs && ukOrUs.audio) currentModalAudioUrl = ukOrUs.audio;
       } catch (_) {}
     }
 
@@ -807,8 +902,10 @@
         const entry = dictData[0];
         const phonetic = entry.phonetic || ((entry.phonetics || []).find(p => p.text)?.text) || '';
         const phonetics = entry.phonetics || [];
-        const usAudio = phonetics.find(p => p.audio && p.audio.includes('-us')) || phonetics.find(p => p.audio);
-        if (usAudio && usAudio.audio) currentModalAudioUrl = usAudio.audio;
+        const ukOrUs = phonetics.find(p => p.audio && p.audio.includes('-uk'))
+          || phonetics.find(p => p.audio && p.audio.includes('-us'))
+          || phonetics.find(p => p.audio);
+        if (ukOrUs && ukOrUs.audio) currentModalAudioUrl = ukOrUs.audio;
 
         const firstMeaning = (entry.meanings && entry.meanings[0]) || {};
         const defObj = (firstMeaning.definitions && firstMeaning.definitions[0]) || {};
@@ -825,9 +922,9 @@
       if (!currentModalWord) return;
       if (!slow && currentModalAudioUrl) {
         const audio = new Audio(currentModalAudioUrl);
-        audio.play().catch(() => speakText(currentModalWord, 0.9));
+        audio.play().catch(() => speakLocalText(currentModalWord, 0.9));
       } else {
-        speakText(currentModalWord, slow ? 0.6 : 0.9);
+        speakLocalText(currentModalWord, slow ? 0.6 : 0.9);
       }
     }
 
