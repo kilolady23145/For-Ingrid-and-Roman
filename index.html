@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌟 每日英文小報 Daily Kids News</title>
+  <style>
+    :root {
+      --bg: #fdfaf3;
+      --card: #ffffff;
+      --primary: #3b82f6;
+      --primary-light: #dbeafe;
+      --highlight: #fef08a;
+      --highlight-border: #facc15;
+      --text: #1e293b;
+      --muted: #64748b;
+      --success: #16a34a;
+      --danger: #ef4444;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding-bottom: 80px;
+    }
+    header {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: white;
+      padding: 24px 20px;
+      text-align: center;
+      border-bottom-left-radius: 28px;
+      border-bottom-right-radius: 28px;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+    }
+    header h1 { margin: 0; font-size: 1.7rem; letter-spacing: 0.5px; }
+    header p { margin: 6px 0 0; opacity: 0.92; font-size: 0.95rem; }
+    .container { max-width: 760px; margin: 24px auto; padding: 0 16px; }
+    .card {
+      background: var(--card);
+      border-radius: 22px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+      border: 2px solid #f1f5f9;
+    }
+    .meta-bar {
+      display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 12px;
+    }
+    .badge {
+      background: var(--primary-light); color: #1d4ed8;
+      padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 0.85rem;
+    }
+    .article-title { font-size: 1.55rem; margin: 8px 0 4px; color: #0f172a; line-height: 1.35; }
+    .article-title-zh { font-size: 1.05rem; color: var(--muted); margin: 0 0 18px; }
+
+    .audio-toolbar {
+      display: flex; flex-wrap: wrap; gap: 10px; padding: 12px 16px;
+      background: #f8fafc; border-radius: 16px; margin-bottom: 20px; align-items: center;
+    }
+    button {
+      cursor: pointer; border: none; border-radius: 999px;
+      padding: 9px 16px; font-size: 0.95rem; font-weight: 700;
+      transition: transform 0.12s, background 0.2s;
+    }
+    button:active { transform: scale(0.96); }
+    .btn-play { background: var(--primary); color: white; }
+    .btn-slow { background: #fef3c7; color: #b45309; }
+    .btn-stop { background: #fee2e2; color: #b91c1c; }
+    .tip-box {
+      font-size: 0.9rem; color: #475569; background: #eff6ff;
+      padding: 10px 14px; border-radius: 12px; margin-bottom: 18px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .paragraph-block { margin-bottom: 22px; }
+    .en-text { font-size: 1.28rem; line-height: 1.95; margin: 0 0 8px; }
+    .word-token {
+      display: inline-block; padding: 1px 3px; border-radius: 6px;
+      cursor: pointer; transition: background 0.15s;
+    }
+    .word-token:hover { background: #e0f2fe; }
+    .word-key {
+      background: var(--highlight);
+      border-bottom: 2px dashed var(--highlight-border);
+      font-weight: 600;
+    }
+    .zh-toggle {
+      background: #f1f5f9; color: #475569; font-size: 0.82rem; padding: 5px 12px;
+    }
+    .zh-text {
+      display: none; margin-top: 8px; padding: 10px 14px;
+      background: #f8fafc; border-radius: 12px; color: #334155; font-size: 1rem;
+    }
+
+    /* 彈出單字魔法小卡 */
+    .modal-backdrop {
+      display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.45);
+      z-index: 1000; align-items: center; justify-content: center; padding: 16px;
+    }
+    .word-modal {
+      background: white; width: 100%; max-width: 420px; border-radius: 24px;
+      padding: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); position: relative;
+      animation: popIn 0.18s ease-out;
+    }
+    @keyframes popIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .close-btn {
+      position: absolute; top: 14px; right: 14px; background: #f1f5f9;
+      width: 34px; height: 34px; padding: 0; font-size: 1.1rem; color: #475569;
+    }
+    .modal-word { font-size: 1.8rem; font-weight: 800; color: var(--primary); margin: 0; }
+    .modal-syllables { font-size: 1rem; color: var(--muted); margin: 2px 0 12px; }
+    .modal-zh {
+      font-size: 1.25rem; font-weight: 700; color: #0f172a;
+      background: #fef9c3; display: inline-block; padding: 4px 12px; border-radius: 10px;
+    }
+    .modal-desc { margin: 12px 0; font-size: 1rem; color: #334155; }
+    .modal-example {
+      background: #f8fafc; padding: 10px 14px; border-radius: 12px;
+      font-size: 0.95rem; color: #475569; border-left: 3px solid var(--primary);
+    }
+
+    /* 測驗區 */
+    .quiz-item { margin-bottom: 24px; padding-bottom: 20px; border-bottom: 2px dashed #e2e8f0; }
+    .quiz-q { font-weight: 700; font-size: 1.12rem; margin-bottom: 12px; }
+    .option-btn {
+      display: block; width: 100%; text-align: left; background: #f8fafc;
+      border: 2px solid #e2e8f0; border-radius: 14px; padding: 12px 16px;
+      margin-bottom: 8px; font-size: 1rem; font-weight: 600; color: var(--text);
+    }
+    .option-btn:hover { border-color: var(--primary); background: #eff6ff; }
+    .option-btn.correct { background: #dcfce7; border-color: var(--success); color: #14532d; }
+    .option-btn.wrong { background: #fee2e2; border-color: var(--danger); color: #7f1d1d; }
+    .explanation-box {
+      display: none; margin-top: 10px; padding: 12px 16px;
+      border-radius: 12px; background: #f0fdf4; color: #166534; font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🌟 每日英文伴讀小報</h1>
+  <p>點任何英文字都能聽發音、查意思！每天早上 6:00 自動更新</p>
+</header>
+
+<div class="container">
+  <div class="card" id="article-card">
+    <div class="meta-bar">
+      <span class="badge" id="news-date">載入中...</span>
+      <span class="badge" id="news-category">🌍 News</span>
+      <span class="badge" id="news-level">A2</span>
+    </div>
+    <h2 class="article-title" id="news-title">Loading today's story...</h2>
+    <p class="article-title-zh" id="news-title-zh"></p>
+
+    <div class="audio-toolbar">
+      <button class="btn-play" onclick="speakFullArticle(0.9)">▶️ 聽全文導讀</button>
+      <button class="btn-slow" onclick="speakFullArticle(0.65)">🐢 慢速聽全文</button>
+      <button class="btn-stop" onclick="stopSpeaking()">⏹️ 停止</button>
+    </div>
+
+    <div class="tip-box">
+      💡 <strong>小書僮提示：</strong>黃色底線是今日重點單字；遇到<strong>任何其他不會的字</strong>，直接用手指點它，我也會唸給你聽並幫你查字典喔！
+    </div>
+
+    <div id="paragraphs-container"></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0; font-size:1.35rem;">🏆 每日閱讀闖關（Reading Quiz）</h3>
+    <div id="quiz-container"></div>
+  </div>
+</div>
+
+<!-- 彈出單字卡 -->
+<div class="modal-backdrop" id="word-modal-backdrop" onclick="closeModal(event)">
+  <div class="word-modal" onclick="event.stopPropagation()">
+    <button class="close-btn" onclick="closeModal()">✕</button>
+    <p class="modal-word" id="m-word">word</p>
+    <p class="modal-syllables" id="m-syllables"></p>
+    <div style="display:flex; gap:8px; margin-bottom:14px;">
+      <button class="btn-play" id="m-speak-normal">🔊 正常發音</button>
+      <button class="btn-slow" id="m-speak-slow">🐢 烏龜慢速</button>
+    </div>
+    <div><span class="modal-zh" id="m-zh">查詢中...</span></div>
+    <p class="modal-desc" id="m-desc"></p>
+    <div class="modal-example" id="m-example" style="display:none;"></div>
+  </div>
+</div>
+
+<script>
+  let currentData = null;
+
+  // 呼叫瀏覽器內建純正美式語音
+  function speakText(text, rate = 0.9) {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'en-US';
+    utter.rate = rate;
+    const voices = window.speechSynthesis.getVoices();
+    const usVoice = voices.find(v => v.lang === 'en-US' && (v.name.includes('Google') || v.name.includes('Samantha') || v.name.includes('Natural')))
+                 || voices.find(v => v.lang.startsWith('en'));
+    if (usVoice) utter.voice = usVoice;
+    window.speechSynthesis.speak(utter);
+  }
+
+  function stopSpeaking() {
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+  }
+
+  function speakFullArticle(rate) {
+    if (!currentData) return;
+    const fullText = currentData.title + ". " + currentData.paragraphs.map(p => p.en).join(" ");
+    speakText(fullText, rate);
+  }
+
+  // 將每個英文單字包裝成可點擊的按鈕
+  function renderInteractiveParagraph(enText, vocabMap) {
+    return enText.split(/(\s+)/).map(token => {
+      if (/^\s+$/.test(token)) return token;
+      const clean = token.replace(/^[^a-zA-Z']+|[^a-zA-Z']+$/g, '');
+      if (!clean) return token;
+      const lower = clean.toLowerCase();
+      const isKey = vocabMap && vocabMap[lower];
+      const cls = isKey ? 'word-token word-key' : 'word-token';
+      return `<span class="${cls}" onclick="handleWordClick('${clean.replace(/'/g, "\\'")}')">${token}</span>`;
+    }).join('');
+  }
+
+  // 點擊單字：立刻發音 + 顯示 AI 字卡或即時免費查字典
+  async function handleWordClick(rawWord) {
+    const lower = rawWord.toLowerCase();
+    speakText(rawWord, 0.85);
+
+    const backdrop = document.getElementById('word-modal-backdrop');
+    const mWord = document.getElementById('m-word');
+    const mSyl = document.getElementById('m-syllables');
+    const mZh = document.getElementById('m-zh');
+    const mDesc = document.getElementById('m-desc');
+    const mEx = document.getElementById('m-example');
+
+    document.getElementById('m-speak-normal').onclick = () => speakText(rawWord, 0.9);
+    document.getElementById('m-speak-slow').onclick = () => speakText(rawWord, 0.55);
+    backdrop.style.display = 'flex';
+
+    // 第一層：如果是今日 AI 精選重點字，直接顯示兒童友善詳解
+    if (currentData.vocabulary && currentData.vocabulary[lower]) {
+      const v = currentData.vocabulary[lower];
+      mWord.textContent = v.word || rawWord;
+      mSyl.textContent = `${v.syllables || ''}  ${v.pos || ''}`;
+      mZh.textContent = v.zh;
+      mDesc.textContent = v.explanation;
+      if (v.example) {
+        mEx.style.display = 'block';
+        mEx.innerHTML = `<strong>例句：</strong>${v.example} <button style="padding:3px 8px;font-size:0.8rem;margin-left:6px;" onclick="speakText('${v.example.replace(/'/g, "\\'")}', 0.85)">🔊 聽例句</button>`;
+      } else {
+        mEx.style.display = 'none';
+      }
+      return;
+    }
+
+    // 第二層：任意其他單字 -> 呼叫免費字典與繁中翻譯 API
+    mWord.textContent = rawWord;
+    mSyl.textContent = '即時查詢字典中...';
+    mZh.textContent = '⏳ 翻譯中...';
+    mDesc.textContent = '';
+    mEx.style.display = 'none';
+
+    try {
+      const [transRes, dictRes] = await Promise.allSettled([
+        fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(lower)}&langpair=en|zh-TW`).then(r => r.json()),
+        fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(lower)}`).then(r => r.json())
+      ]);
+
+      if (transRes.status === 'fulfilled' && transRes.value?.responseData?.translatedText) {
+        mZh.textContent = transRes.value.responseData.translatedText;
+      } else {
+        mZh.textContent = '請聽發音練習唸唸看！';
+      }
+
+      if (dictRes.status === 'fulfilled' && Array.isArray(dictRes.value) && dictRes.value[0]) {
+        const entry = dictRes.value[0];
+        const phonetic = entry.phonetic || (entry.phonetics?.find(p => p.text)?.text) || '';
+        const meaning = entry.meanings?.[0];
+        const pos = meaning?.partOfSpeech ? `(${meaning.partOfSpeech})` : '';
+        const defEn = meaning?.definitions?.[0]?.definition || '';
+        mSyl.textContent = `${phonetic} ${pos}`;
+        mDesc.textContent = defEn ? `英文小解釋：${defEn}` : '';
+      } else {
+        mSyl.textContent = '點擊上方烏龜按鈕可以聽慢速發音喔！';
+      }
+    } catch (e) {
+      mZh.textContent = '已為你朗讀發音！';
+      mSyl.textContent = '';
+    }
+  }
+
+  function closeModal() {
+    document.getElementById('word-modal-backdrop').style.display = 'none';
+  }
+
+  function toggleZh(idx) {
+    const el = document.getElementById(`zh-p-${idx}`);
+    el.style.display = el.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function renderQuiz(quizList) {
+    const container = document.getElementById('quiz-container');
+    container.innerHTML = quizList.map((q, qIdx) => `
+      <div class="quiz-item">
+        <div class="quiz-q">${q.question} <button style="padding:4px 10px;font-size:0.8rem;" onclick="speakText('${q.question.replace(/'/g, "\\'")}', 0.88)">🔊</button></div>
+        ${q.options.map((opt, oIdx) => `
+          <button class="option-btn" id="q${qIdx}-o${oIdx}" onclick="checkAnswer(${qIdx}, ${oIdx}, ${q.answer})">
+            ${String.fromCharCode(65 + oIdx)}. ${opt}
+          </button>
+        `).join('')}
+        <div class="explanation-box" id="exp-${qIdx}">💡 <strong>解析：</strong>${q.explanation}</div>
+      </div>
+    `).join('');
+  }
+
+  function checkAnswer(qIdx, selected, correct) {
+    const selectedBtn = document.getElementById(`q${qIdx}-o${selected}`);
+    const correctBtn = document.getElementById(`q${qIdx}-o${correct}`);
+    if (selected === correct) {
+      selectedBtn.classList.add('correct');
+    } else {
+      selectedBtn.classList.add('wrong');
+      correctBtn.classList.add('correct');
+    }
+    document.getElementById(`exp-${qIdx}`).style.display = 'block';
+  }
+
+  async function init() {
+    const res = await fetch(`./data/today.json?t=${Date.now()}`);
+    currentData = await res.json();
+
+    document.getElementById('news-date').textContent = `📅 ${currentData.date}`;
+    document.getElementById('news-category').textContent = currentData.category;
+    document.getElementById('news-level').textContent = currentData.level;
+    document.getElementById('news-title').textContent = currentData.title;
+    document.getElementById('news-title-zh').textContent = currentData.title_zh;
+
+    const pContainer = document.getElementById('paragraphs-container');
+    pContainer.innerHTML = currentData.paragraphs.map((p, i) => `
+      <div class="paragraph-block">
+        <p class="en-text">${renderInteractiveParagraph(p.en, currentData.vocabulary)}</p>
+        <button class="zh-toggle" onclick="toggleZh(${i})">👀 點我看這段中文提示</button>
+        <div class="zh-text" id="zh-p-${i}">${p.zh}</div>
+      </div>
+    `).join('');
+
+    renderQuiz(currentData.quiz);
+  }
+
+  window.speechSynthesis?.getVoices();
+  init();
+</script>
+</body>
+</html>
