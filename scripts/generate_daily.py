@@ -1,337 +1,175 @@
 import os
 import re
 import json
-import random
-import html
 import urllib.request
-import urllib.parse
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
-import feedparser
+from google import genai
+from google.genai import types
 
-# 新聞來源：BBC 科學環境、NASA、ScienceDaily 動物與太空
+# 國際科學、太空、自然生態與科技突破新聞來源 RSS（純內建讀取，免裝外掛）
 RSS_FEEDS = [
-    ("BBC Science & Nature", "http://feeds.bbci.co.uk/news/science_and_environment/rss.xml"),
-    ("NASA Breaking News", "https://www.nasa.gov/news-release/feed/"),
-    ("ScienceDaily Animals", "https://www.sciencedaily.com/rss/plants_animals.xml"),
-    ("ScienceDaily Space", "https://www.sciencedaily.com/rss/space_time.xml"),
+    "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",
+    "https://www.sciencedaily.com/rss/top/science.xml",
+    "https://www.sciencedaily.com/rss/plants_animals.xml",
+    "https://www.nasa.gov/news-release/feed/"
 ]
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
-}
-
-
-def http_get_text(url: str, timeout: int = 10, max_bytes: int = 200000) -> str:
-    req = urllib.request.Request(url, headers=HEADERS)
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
-        raw = resp.read(max_bytes)
-        return raw.decode("utf-8", errors="ignore")
-
-
-def upgrade_image_quality(url: str) -> str:
-    """將常見新聞縮圖網址升級為較清晰的尺寸"""
-    if not url:
-        return ""
-    url = html.unescape(url.strip())
-    if url.startswith("//"):
-        url = "https:" + url
-    if "ichef.bbci.co.uk" in url:
-        url = re.sub(r"/news/\d+/", "/news/976/", url)
-    return url
-
-
-def extract_rss_image(entry) -> str:
-    """第一順位：從 RSS 項目中尋找新聞原圖"""
-    for media in entry.get("media_content", []) or []:
-        url = media.get("url", "")
-        medium = media.get("medium", "")
-        mtype = media.get("type", "")
-        if url and ("image" in medium or "image" in mtype or re.search(r"\.(jpg|jpeg|png|webp)", url, re.I)):
-            return upgrade_image_quality(url)
-
-    for thumb in entry.get("media_thumbnail", []) or []:
-        if thumb.get("url"):
-            return upgrade_image_quality(thumb["url"])
-
-    for link in entry.get("links", []) or []:
-        if "image" in link.get("type", "") and link.get("href"):
-            return upgrade_image_quality(link["href"])
-
-    summary_html = entry.get("summary", "") or ""
-    match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', summary_html, re.I)
-    if match:
-        return upgrade_image_quality(match.group(1))
-
-    return ""
-
-
-def extract_og_image(article_url: str) -> str:
-    """第二順位：連線到新聞原網頁抓取公開封面大圖 (og:image)"""
-    if not article_url:
-        return ""
-    try:
-        text = http_get_text(article_url, timeout=10, max_bytes=70000)
-        patterns = [
-            r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']',
-            r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']',
-            r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']',
-        ]
-        for pat in patterns:
-            m = re.search(pat, text, re.I)
-            if m:
-                img_url = urllib.parse.urljoin(article_url, html.unescape(m.group(1)))
-                if not any(bad in img_url.lower() for bad in ["logo", "favicon", "default-share"]):
-                    return upgrade_image_quality(img_url)
-    except Exception as e:
-        print(f"og:image 抓取略過: {e}")
-    return ""
-
-
-def search_wikimedia_photo(query: str) -> tuple:
-    """第三順位備案：若原新聞無圖，從維基共享資源搜尋真實照片"""
-    if not query:
-        return "", ""
-    try:
-        q = urllib.parse.quote(query)
-        api_url = (
-            "https://commons.wikimedia.org/w/api.php"
-            f"?action=query&generator=search&gsrnamespace=6&gsrsearch={q}"
-            "&gsrlimit=5&prop=imageinfo&iiprop=url&iiurlwidth=960&format=json"
-        )
-        req = urllib.request.Request(api_url, headers={"User-Agent": "IngridRomanDailyReader/1.0"})
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-        pages = data.get("query", {}).get("pages", {})
-        for _, page in pages.items():
-            title = page.get("title", "").lower()
-            if not title.endswith((".jpg", ".jpeg", ".png", ".webp")):
-                continue
-            info_list = page.get("imageinfo", [])
-            if info_list:
-                thumb_url = info_list[0].get("thumburl") or info_list[0].get("url", "")
-                if thumb_url:
-                    return thumb_url, "Photo via Wikimedia Commons"
-    except Exception as e:
-        print(f"Wikimedia 備用圖搜尋略過: {e}")
-    return "", ""
-
-
-def clean_html(raw_html: str) -> str:
-    clean = re.sub(r"<[^>]+>", " ", raw_html or "")
-    return re.sub(r"\s+", " ", html.unescape(clean)).strip()
-
-
-def fetch_candidate_articles():
-    candidates = []
-    for source_name, feed_url in RSS_FEEDS:
+def fetch_news_candidates():
+    headlines = []
+    headers = {'User-Agent': 'Mozilla/5.0 (KidsEnglishReader/2.0)'}
+    for url in RSS_FEEDS:
         try:
-            feed = feedparser.parse(feed_url)
-            for entry in feed.entries[:8]:
-                title = clean_html(entry.get("title", ""))
-                summary = clean_html(entry.get("summary", "") or entry.get("description", ""))
-                link = entry.get("link", "")
-                if len(title) < 10 or len(summary) < 40:
-                    continue
-                lower_text = f"{title} {summary}".lower()
-                if any(w in lower_text for w in ["murder", "war", "suicide", "terror", "sexual", "shooting", "deadly crash"]):
-                    continue
-                rss_img = extract_rss_image(entry)
-                candidates.append({
-                    "source": source_name,
-                    "title": title,
-                    "summary": summary,
-                    "link": link,
-                    "rss_image": rss_img,
-                })
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=12) as response:
+                xml_data = response.read()
+                root = ET.fromstring(xml_data)
+                for item in root.findall('.//item')[:5]:
+                    title = item.findtext('title', '')
+                    desc = item.findtext('description', '')
+                    if title:
+                        headlines.append(f"Title: {title}\nSummary: {desc}\n")
         except Exception as e:
-            print(f"讀取 RSS 失敗 ({source_name}): {e}")
-    return candidates
+            print(f"Warning: Failed to fetch {url}: {e}")
+    return "\n---\n".join(headlines[:15])
 
-
-def get_candidate_models(api_key: str) -> list:
-    """自動向 Google 查詢此金鑰目前可用的 Gemini Flash 文字模型"""
-    discovered = []
+def get_candidate_models(client):
+    """自動向 Google 查詢目前帳號可用的最新 Flash 模型"""
+    candidates = ["gemini-3.8-flash", "gemini-flash-latest"]
+    skip_words = ("2.5", "2.0", "1.5", "tts", "image", "imagen", "audio", "live", "embedding", "veo")
     try:
-        list_url = f"https://generativelanguage.googleapis.com/v1beta/models?key={api_key}"
-        req = urllib.request.Request(list_url)
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-        for m in data.get("models", []):
-            name = m.get("name", "").replace("models/", "")
-            methods = m.get("supportedGenerationMethods", [])
-            if "generateContent" not in methods:
+        discovered = []
+        for m in client.models.list():
+            name = (m.name or "").replace("models/", "")
+            actions = getattr(m, "supported_actions", None) or getattr(m, "supported_generation_methods", None) or []
+            if actions and "generateContent" not in actions:
                 continue
-            lower = name.lower()
-            if "gemini" not in lower:
-                continue
-            if any(skip in lower for skip in ["tts", "image", "vision", "embedding", "aqa", "audio", "robotics", "computer-use"]):
-                continue
-            discovered.append(name)
+            if "gemini" in name and "flash" in name and not any(w in name for w in skip_words):
+                discovered.append(name)
+        for d in sorted(discovered, reverse=True):
+            if d not in candidates:
+                candidates.append(d)
     except Exception as e:
         print(f"自動查詢模型清單略過: {e}")
+    return candidates
 
-    # 優先使用 flash 系列（速度快、額度最充裕），由新到舊排列
-    flash_models = sorted([m for m in discovered if "flash" in m and "lite" not in m], reverse=True)
-    other_models = sorted([m for m in discovered if m not in flash_models], reverse=True)
-    fallbacks = ["gemini-2.5-flash", "gemini-2.0-flash"]
-
-    ordered = []
-    for m in flash_models + other_models + fallbacks:
-        if m not in ordered:
-            ordered.append(m)
-    return ordered
-
-
-def generate_json_with_gemini(api_key: str, prompt: str) -> dict:
-    """逐一嘗試可用模型，確保不會因為單一模型停用而失敗"""
-    models = get_candidate_models(api_key)
-    print(f"偵測到候選模型順序: {models[:6]}")
-
-    payload = {
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {
-            "temperature": 0.5,
-            "responseMimeType": "application/json",
-        },
-    }
-    body_bytes = json.dumps(payload).encode("utf-8")
-
-    last_error = None
-    for model_name in models:
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
-        req = urllib.request.Request(url, data=body_bytes, headers={"Content-Type": "application/json"}, method="POST")
-        try:
-            print(f"正在嘗試模型: {model_name} ...")
-            with urllib.request.urlopen(req, timeout=60) as resp:
-                result = json.loads(resp.read().decode("utf-8"))
-            raw_text = result["candidates"][0]["content"]["parts"][0]["text"].strip()
-            raw_text = re.sub(r"^```(?:json)?\s*", "", raw_text)
-            raw_text = re.sub(r"\s*```$", "", raw_text)
-            parsed = json.loads(raw_text)
-            print(f"✅ 成功使用模型: {model_name}")
-            return parsed
-        except Exception as e:
-            print(f"⚠️ 模型 {model_name} 無法使用，自動換下一個 ({e})")
-            last_error = e
-
-    raise RuntimeError(f"所有候選模型皆無法完成請求，最後錯誤: {last_error}")
-
+def parse_json_safely(raw_text):
+    text = raw_text.strip()
+    if text.startswith("```"):
+        text = re.sub(r"^```(?:json)?\s*", "", text)
+        text = re.sub(r"\s*```$", "", text)
+    start = text.find("{")
+    end = text.rfind("}")
+    if start != -1 and end != -1:
+        text = text[start:end + 1]
+    return json.loads(text)
 
 def main():
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
-        raise RuntimeError("找不到 GEMINI_API_KEY，請確認 GitHub Secrets 設定！")
+        raise ValueError("找不到 GEMINI_API_KEY！請確認已在 GitHub Secrets 設定。")
 
-    candidates = fetch_candidate_articles()
-    if not candidates:
-        raise RuntimeError("今天沒有抓到可用的新聞候選清單。")
+    news_raw = fetch_news_candidates()
+    tw_tz = timezone(timedelta(hours=8))
+    today_str = datetime.now(tw_tz).strftime("%Y-%m-%d")
 
-    # 優先挑選本身就有附圖的新聞
-    with_images = [c for c in candidates if c["rss_image"]]
-    pool = with_images if len(with_images) >= 3 else candidates
-    chosen = random.choice(pool[:12])
-
-    print(f"今日選中新聞: [{chosen['source']}] {chosen['title']}")
-
-    image_url = chosen["rss_image"]
-    image_credit = f"News photo from {chosen['source']}"
-    if not image_url:
-        og_img = extract_og_image(chosen["link"])
-        if og_img:
-            image_url = og_img
-            image_credit = f"News photo from {chosen['source']}"
+    client = genai.Client(api_key=api_key)
 
     prompt = f"""
-You are creating a daily English news reading lesson for two Taiwanese kids (upper elementary to Grade 7, targeting US Grade 5-6 informational reading level, engaging and clear).
+You are an elite American middle-school science & world-news editor (writing at the caliber of Smithsonian TweenTribune Grade 7–8, NPR Science, and Time Edge) teamed up with an expert bilingual literacy teacher in Taiwan.
 
-Source News:
-- Source: {chosen['source']}
-- Original Title: {chosen['title']}
-- Original Summary: {chosen['summary']}
+From the news candidates below, choose the SINGLE most intellectually fascinating topic (scientific discoveries, space exploration, wildlife behavior, climate solutions, archaeology, or innovative engineering; strictly NO graphic violence, partisan politics, war, or tragic crime).
 
-Rewrite this real news story into an engaging, accurate 3-paragraph article (around 220-300 words total). Do NOT invent fake facts beyond the summary and well-established science background.
+Write an authentic, thought-provoking feature article calibrated strictly to **US Grade 7–8 native student level (Lexile 1000L–1150L / CEFR B2)**:
+- **Length & Structure:** 380 to 480 English words across 4 to 5 well-developed paragraphs (1. Compelling journalistic lead & core discovery; 2. Scientific mechanism or historical context; 3. Deeper inquiry, researcher perspective, or remaining challenges; 4. Broader global significance & forward-looking conclusion).
+- **Syntax & Tone:** Use sophisticated yet clear academic prose—incorporating complex sentences, relative clauses, participial phrases, and logical transitions (e.g., "consequently," "nevertheless," "by contrast," "remarkably"). Never talk down to the reader.
 
-Return ONLY valid JSON matching this exact structure:
+Return ONLY valid JSON matching this exact schema:
 {{
-  "title": "Engaging English headline for kids",
-  "category": "Science & Nature",
-  "image_caption": "1 short, clear English sentence explaining what this news story is about, suitable under a photo.",
-  "image_caption_zh": "圖片說明的繁體中文翻譯（台灣用語）",
-  "backup_image_query": "2 to 3 concrete English nouns for searching a real photo if needed, e.g. 'sea otter' or 'mars rover'",
+  "date": "{today_str}",
+  "category": "Emoji + Category (e.g., 🔭 Space & Cosmos / 🧬 Science Frontier / 🌍 Planet & Wildlife / 💡 Future Tech)",
+  "level": "US Grade 7–8 (Lexile 1050L｜CEFR B2)",
+  "title": "Engaging Journalistic English Headline",
+  "title_zh": "精準吸睛的台灣繁體中文新聞標題",
   "paragraphs": [
     {{
-      "en": "Paragraph 1 in natural, vivid English (around 70-100 words).",
-      "zh": "第一段自然流暢的繁體中文翻譯（台灣慣用語）。"
-    }},
-    {{
-      "en": "Paragraph 2...",
-      "zh": "第二段繁體中文翻譯..."
-    }},
-    {{
-      "en": "Paragraph 3...",
-      "zh": "第三段繁體中文翻譯..."
+      "en": "Full US Grade 7-8 English paragraph...",
+      "zh": "自然流暢、具科普雜誌質感的台灣繁體中文翻譯..."
     }}
   ],
-  "vocab": [
-    {{
-      "word": "key word from the article",
-      "pos": "n. / v. / adj. / adv.",
-      "zh": "繁體中文解釋（簡潔清楚）",
-      "example": "A short example sentence for kids."
+  "vocabulary": {{
+    "exact_lowercase_word_in_article": {{
+      "word": "dictionary base form (e.g., phenomenon)",
+      "syllables": "syllable breakdown with dots (e.g., phe·nom·e·non)",
+      "pos": "詞性 (e.g., n. 名詞 / v. 動詞 / adj. 形容詞 / adv. 副詞)",
+      "zh": "貼合本文語境的精準繁體中文意思",
+      "explanation": "用清楚易懂的台灣繁體中文解析此學術字彙在文中的核心概念與語感（約 25-40 字）",
+      "example": "A natural US Grade 7-8 level English example sentence."
     }}
-  ],
-  "questions": [
+  }},
+  "quiz": [
     {{
-      "q": "Reading comprehension question",
-      "options": ["Option A", "Option B", "Option C", "Option D"],
+      "question": "1. Rigorous US Grade 7-8 reading comprehension question?",
+      "options": [
+        "A. Well-crafted, plausible option",
+        "B. Well-crafted, plausible option",
+        "C. Well-crafted, plausible option",
+        "D. Well-crafted, plausible option"
+      ],
       "answer": 0,
-      "explanation": "用繁體中文溫和清楚地解釋為什麼這個選項正確。"
+      "explanation": "深度且溫和鼓勵的台灣繁體中文解析：引導學生回到文章線索進行推理，並說明為何此選項最精確。"
     }}
   ]
 }}
 
-Requirements:
-- Exactly 3 paragraphs in `paragraphs`.
-- 8 to 10 useful vocabulary words in `vocab` that actually appear in the article.
-- Exactly 4 multiple-choice questions in `questions`, `answer` is index 0, 1, 2, or 3.
-- Use Traditional Chinese (Taiwan phrasing, e.g., 太空人, 科學家, 資訊, 影片).
+CRITICAL RULES:
+1. Include **12 to 15 Tier-2 academic or key domain words** in `vocabulary`. Each JSON key in `vocabulary` MUST be the **exact lowercase word form as it literally appears in the English paragraphs** (without punctuation) so the frontend word highlighter matches every single one!
+2. Create **6 rigorous `quiz` questions** aligned with US Common Core Reading Informational Text (RI.7–8) standards, using smart, non-obvious distractors:
+   - Q1: Central Idea & Objective Summary
+   - Q2: Textual Evidence & Key Detail
+   - Q3: Academic Vocabulary in Context
+   - Q4: Logical Inference (drawing conclusions from implicit clues)
+   - Q5: Author's Craft / Text Structure (purpose of a specific paragraph, quote, or comparison)
+   - Q6: Cause-and-Effect or Scientific Implications
+   `answer` MUST be the 0-based integer index (0, 1, 2, or 3).
+3. Use Traditional Chinese (Taiwan usage, 台灣繁體中文) for all Chinese text.
+
+News Candidates:
+{news_raw}
 """
 
-    lesson_data = generate_json_with_gemini(api_key, prompt)
+    response = None
+    last_err = None
+    for model_name in get_candidate_models(client):
+        try:
+            print(f"🚀 嘗試使用模型: {model_name} ...")
+            response = client.models.generate_content(
+                model=model_name,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    temperature=0.65
+                )
+            )
+            print(f"🎉 成功使用模型: {model_name}！")
+            break
+        except Exception as e:
+            print(f"⚠️ 模型 {model_name} 無法使用，自動切換下一個 ({e})")
+            last_err = e
 
-    if not image_url:
-        backup_query = lesson_data.get("backup_image_query", "")
-        wiki_url, wiki_credit = search_wikimedia_photo(backup_query)
-        if wiki_url:
-            image_url = wiki_url
-            image_credit = wiki_credit
+    if response is None:
+        raise RuntimeError(f"所有候選模型皆無法呼叫: {last_err}")
 
-    tw_now = datetime.now(timezone(timedelta(hours=8)))
-    date_str = tw_now.strftime("%Y-%m-%d")
-
-    final_json = {
-        "date": date_str,
-        "source_name": chosen["source"],
-        "source_url": chosen["link"],
-        "title": lesson_data["title"],
-        "category": lesson_data.get("category", "Science News"),
-        "image_url": image_url,
-        "image_caption": lesson_data.get("image_caption", ""),
-        "image_caption_zh": lesson_data.get("image_caption_zh", ""),
-        "image_credit": image_credit if image_url else "",
-        "paragraphs": lesson_data["paragraphs"],
-        "vocab": lesson_data["vocab"],
-        "questions": lesson_data["questions"],
-    }
+    data = parse_json_safely(response.text)
 
     os.makedirs("data/archive", exist_ok=True)
     with open("data/today.json", "w", encoding="utf-8") as f:
-        json.dump(final_json, f, ensure_ascii=False, indent=2)
-    with open(f"data/archive/{date_str}.json", "w", encoding="utf-8") as f:
-        json.dump(final_json, f, ensure_ascii=False, indent=2)
+        json.dump(data, f, ensure_ascii=False, indent=2)
 
-    print(f"🎉 成功產生今日教材！圖片網址: {image_url or '無（前端將自動隱藏圖片框）'}")
+    with open(f"data/archive/{today_str}.json", "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
 
+    print(f"✅ 成功產生 {today_str} 的 US Grade 7-8 英文新聞：{data.get('title')}")
 
 if __name__ == "__main__":
     main()
