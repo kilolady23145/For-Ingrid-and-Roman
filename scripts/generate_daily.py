@@ -31,6 +31,27 @@ def fetch_news_candidates():
             print(f"Warning: Failed to fetch {url}: {e}")
     return "\n---\n".join(headlines[:12])
 
+def get_candidate_models(client):
+    """自動向 Google 查詢目前帳號可用的最新 Flash 文字模型，永遠不怕改版！"""
+    candidates = ["gemini-3.8-flash", "gemini-flash-latest"]
+    skip_words = ("2.5", "2.0", "1.5", "tts", "image", "imagen", "audio", "live", "embedding", "veo")
+    try:
+        discovered = []
+        for m in client.models.list():
+            name = (m.name or "").replace("models/", "")
+            actions = getattr(m, "supported_actions", None) or getattr(m, "supported_generation_methods", None) or []
+            if actions and "generateContent" not in actions:
+                continue
+            if "gemini" in name and "flash" in name and not any(w in name for w in skip_words):
+                discovered.append(name)
+        for d in sorted(discovered, reverse=True):
+            if d not in candidates:
+                candidates.append(d)
+    except Exception as e:
+        print(f"自動查詢模型清單略過: {e}")
+    print("📋 準備依序嘗試的模型清單:", candidates)
+    return candidates
+
 def main():
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
@@ -90,16 +111,33 @@ News Candidates:
 {news_raw}
 """
 
-    response = client.models.generate_content(
-        model="gemini-3.0-flash",
-        contents=prompt,
-        config=types.GenerateContentConfig(
-            response_mime_type="application/json",
-            temperature=0.6
-        )
-    )
+    response = None
+    last_err = None
+    for model_name in get_candidate_models(client):
+        try:
+            print(f"🚀 嘗試使用模型: {model_name} ...")
+            response = client.models.generate_content(
+                model=model_name,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    temperature=0.6
+                )
+            )
+            print(f"🎉 成功使用模型: {model_name}！")
+            break
+        except Exception as e:
+            print(f"⚠️ 模型 {model_name} 無法使用，自動切換下一個 ({e})")
+            last_err = e
 
-    data = json.loads(response.text)
+    if response is None:
+        raise RuntimeError(f"所有候選模型皆無法呼叫: {last_err}")
+
+    raw_text = response.text.strip()
+    if raw_text.startswith("```"):
+        raw_text = raw_text.strip("`").removeprefix("json").strip()
+
+    data = json.loads(raw_text)
 
     os.makedirs("data/archive", exist_ok=True)
     with open("data/today.json", "w", encoding="utf-8") as f:
