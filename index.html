@@ -1,536 +1,840 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ingrid & Roman's Daily English News</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>🌟 每日英文伴讀小報 | For Ingrid & Roman</title>
   <style>
     :root {
-      --bg: #f4f7fb;
+      --bg: #f8fafc;
       --card: #ffffff;
       --primary: #2563eb;
       --primary-light: #dbeafe;
       --accent: #f59e0b;
+      --accent-bg: #fef3c7;
       --text: #1e293b;
       --muted: #64748b;
       --success: #16a34a;
+      --success-bg: #dcfce7;
       --danger: #dc2626;
+      --danger-bg: #fee2e2;
+      --border: #e2e8f0;
     }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+      padding: 0 0 80px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang TC", "Microsoft JhengHei", sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.7;
-      padding-bottom: 60px;
+      line-height: 1.75;
     }
-    header {
-      background: linear-gradient(135deg, #1d4ed8, #3b82f6);
-      color: white;
-      padding: 24px 20px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
-    }
-    header h1 { margin: 0; font-size: 1.55rem; letter-spacing: 0.3px; }
-    header p { margin: 6px 0 0; opacity: 0.92; font-size: 0.95rem; }
 
-    .container { max-width: 820px; margin: 22px auto; padding: 0 16px; }
-    .card {
-      background: var(--card);
-      border-radius: 18px;
-      padding: 24px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 20px 16px;
     }
-    .meta-bar {
+
+    /* 頂部標題卡片 */
+    .hero {
+      background: linear-gradient(135deg, #1d4ed8 0%, #4338ca 100%);
+      color: #fff;
+      border-radius: 22px;
+      padding: 22px 24px;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.18);
+      margin-bottom: 16px;
+    }
+
+    .hero-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13.5px;
+      opacity: 0.95;
+      margin-bottom: 10px;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.22);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      margin: 4px 0 6px;
+      font-size: 25px;
+      line-height: 1.35;
+    }
+
+    .hero .subtitle-zh {
+      margin: 0;
+      font-size: 16.5px;
+      opacity: 0.94;
+      font-weight: 500;
+    }
+
+    /* 新聞封面大圖區 */
+    .photo-card {
+      background: var(--card);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+      margin-bottom: 16px;
+      display: none;
+    }
+
+    .photo-card img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-caption {
+      padding: 10px 16px;
+      font-size: 13.5px;
+      color: var(--muted);
+      background: #f8fafc;
+      border-top: 1px solid var(--border);
+    }
+
+    /* 語音控制與朗讀者選單列 */
+    .toolbar {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       align-items: center;
-      margin-bottom: 12px;
-      font-size: 0.88rem;
-      color: var(--muted);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
     }
-    .badge {
-      background: var(--primary-light);
-      color: var(--primary);
-      font-weight: 700;
-      padding: 4px 12px;
+
+    .btn {
+      border: none;
       border-radius: 999px;
+      padding: 9px 16px;
+      font-size: 14.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.12s ease, background 0.15s ease;
     }
-    h2.article-title {
-      margin: 6px 0 16px;
-      font-size: 1.55rem;
-      line-height: 1.35;
+
+    .btn:active { transform: scale(0.97); }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-outline { background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; }
+    .btn-outline.active { background: var(--primary-light); color: var(--primary); border-color: #93c5fd; }
+
+    .voice-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      padding-top: 8px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .voice-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .voice-select {
+      flex: 1;
+      min-width: 190px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1.5px solid #94a3b8;
+      background: #fff;
+      color: var(--text);
+      font-size: 14.5px;
+      font-weight: 600;
+    }
+
+    .tip-bar {
+      background: #eff6ff;
+      border-left: 4px solid var(--primary);
+      color: #1e40af;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      margin: 0 0 14px;
+      font-size: 19px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
       color: #0f172a;
     }
 
-    /* 新聞真實圖片區塊 */
-    .news-figure {
-      margin: 0 0 20px 0;
-      border-radius: 14px;
-      overflow: hidden;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-    }
-    .news-figure img {
-      width: 100%;
-      max-height: 430px;
-      object-fit: cover;
-      display: block;
-    }
-    .news-caption {
-      padding: 10px 14px;
-      font-size: 0.9rem;
-      color: #334155;
-      background: #f8fafc;
-      line-height: 1.45;
-    }
-    .news-caption .cap-zh {
-      display: block;
-      color: var(--muted);
-      font-size: 0.84rem;
-      margin-top: 3px;
-    }
-    .news-credit {
-      display: block;
-      font-size: 0.76rem;
-      color: #94a3b8;
-      margin-top: 4px;
+    .paragraph-block {
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px dashed #e2e8f0;
     }
 
-    .toolbar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
+    .paragraph-block:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
     }
-    button.btn {
+
+    .en-text {
+      font-size: 19px;
+      line-height: 1.9;
+      color: #0f172a;
+      margin: 0 0 8px;
+    }
+
+    .para-speak-btn {
+      background: #eff6ff;
+      color: var(--primary);
       border: none;
-      background: var(--primary);
-      color: white;
-      padding: 9px 15px;
-      border-radius: 10px;
-      font-size: 0.92rem;
+      border-radius: 8px;
+      padding: 3px 9px;
+      font-size: 13px;
       font-weight: 600;
       cursor: pointer;
-      transition: transform 0.1s, opacity 0.2s;
-    }
-    button.btn.secondary {
-      background: #e2e8f0;
-      color: #1e293b;
-    }
-    button.btn:active { transform: scale(0.98); }
-
-    .tip-box {
-      background: #fffbeb;
-      border-left: 4px solid var(--accent);
-      padding: 10px 14px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      color: #92400e;
-      margin-bottom: 18px;
+      margin-right: 6px;
+      vertical-align: middle;
     }
 
-    .para-block { margin-bottom: 18px; }
-    .para-en { font-size: 1.14rem; line-height: 1.85; margin: 0; }
-    .para-zh {
+    .word-token {
+      cursor: pointer;
+      border-radius: 5px;
+      padding: 1px 2px;
+      transition: background 0.12s;
+    }
+
+    .word-token:hover, .word-token:active { background: #dbeafe; }
+
+    .word-highlight {
+      background: var(--accent-bg);
+      border-bottom: 2px solid var(--accent);
+      font-weight: 600;
+      padding: 1px 4px;
+    }
+
+    .zh-text {
       margin: 8px 0 0;
       padding: 10px 14px;
       background: #f8fafc;
       border-radius: 10px;
       color: #475569;
-      font-size: 0.96rem;
+      font-size: 15.5px;
       display: none;
     }
-    .show-zh .para-zh { display: block; }
 
-    .word-token {
-      cursor: pointer;
-      border-radius: 4px;
-      padding: 0 2px;
-      transition: background 0.15s;
-    }
-    .word-token:hover { background: #dbeafe; }
-    .word-token.is-vocab {
-      border-bottom: 2px dotted var(--primary);
-      font-weight: 500;
-    }
+    .zh-text.show { display: block; }
 
     .vocab-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+      gap: 10px;
     }
-    .vocab-item {
-      border: 1px solid #e2e8f0;
+
+    .vocab-chip {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
       border-radius: 12px;
-      padding: 12px 14px;
-      background: #fcfdff;
-    }
-    .vocab-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 700;
-      color: var(--primary);
-      font-size: 1.05rem;
-    }
-    .speak-mini {
-      background: var(--primary-light);
-      color: var(--primary);
-      border: none;
-      border-radius: 8px;
-      padding: 4px 8px;
-      cursor: pointer;
-      font-size: 0.85rem;
-    }
-
-    .q-block {
-      margin-bottom: 22px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid #f1f5f9;
-    }
-    .q-title { font-weight: 700; margin-bottom: 10px; font-size: 1.05rem; }
-    .opt-btn {
-      display: block;
-      width: 100%;
-      text-align: left;
-      margin-bottom: 8px;
-      padding: 11px 14px;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 10px;
-      background: white;
-      font-size: 0.98rem;
-      cursor: pointer;
-    }
-    .opt-btn.correct { background: #dcfce7; border-color: var(--success); color: #14532d; font-weight: 600; }
-    .opt-btn.wrong { background: #fee2e2; border-color: var(--danger); color: #7f1d1d; }
-    .q-exp {
-      display: none;
-      margin-top: 8px;
       padding: 10px 12px;
-      background: #f0fdf4;
-      border-radius: 8px;
-      font-size: 0.92rem;
-      color: #166534;
-    }
-
-    #wordModal {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: min(92vw, 430px);
-      background: #0f172a;
-      color: white;
-      border-radius: 16px;
-      padding: 16px 18px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.28);
-      display: none;
-      z-index: 999;
-    }
-    #wordModal .close-btn {
-      float: right;
-      background: transparent;
-      border: none;
-      color: #94a3b8;
-      font-size: 1.2rem;
       cursor: pointer;
     }
+
+    .vocab-chip strong { display: block; font-size: 16px; color: #92400e; }
+    .vocab-chip span { font-size: 13.5px; color: #78350f; }
+
+    /* 測驗題卡片 */
+    .quiz-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .quiz-q {
+      font-weight: 700;
+      font-size: 17px;
+      margin: 0 0 12px;
+      color: #0f172a;
+    }
+
+    .quiz-options { display: grid; gap: 8px; }
+
+    .opt-btn {
+      text-align: left;
+      padding: 11px 14px;
+      border-radius: 10px;
+      border: 1.5px solid #cbd5e1;
+      background: #fff;
+      font-size: 15.5px;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .opt-btn.correct { background: var(--success-bg); border-color: var(--success); color: #14532d; font-weight: 700; }
+    .opt-btn.wrong { background: var(--danger-bg); border-color: var(--danger); color: #7f1d1d; }
+
+    .quiz-exp {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: #eff6ff;
+      color: #1e3a8a;
+      font-size: 14.5px;
+      display: none;
+    }
+
+    .score-banner {
+      text-align: center;
+      padding: 16px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #dcfce7, #dbeafe);
+      font-weight: 700;
+      font-size: 18px;
+      color: #0f172a;
+      display: none;
+      margin-top: 12px;
+    }
+
+    /* 彈出式點讀字典卡 */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.45);
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      z-index: 999;
+      padding: 12px;
+    }
+
+    .modal-backdrop.open { display: flex; }
+
+    .dict-card {
+      background: #fff;
+      width: 100%;
+      max-width: 520px;
+      border-radius: 22px;
+      padding: 20px 22px 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .dict-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+    .dict-word { font-size: 26px; font-weight: 800; color: var(--primary); margin: 0; }
+    .dict-sub { font-size: 14px; color: var(--muted); margin-top: 2px; }
+    .close-btn { background: #f1f5f9; border: none; border-radius: 999px; width: 34px; height: 34px; font-size: 18px; cursor: pointer; }
+    .dict-zh { font-size: 20px; font-weight: 700; color: #0f172a; margin: 12px 0 6px; }
+    .dict-exp { font-size: 15px; color: #334155; background: #f8fafc; padding: 10px 12px; border-radius: 10px; margin-bottom: 10px; }
+    .dict-example { font-size: 14.5px; color: #475569; font-style: italic; margin-bottom: 14px; }
+    .dict-actions { display: flex; gap: 10px; flex-wrap: wrap; }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>🌍 Ingrid & Roman's Daily News</h1>
-  <p>每天 15 分鐘，看真實世界新聞學英文！</p>
-</header>
-
-<div class="container">
-  <div class="card" id="articleCard">
-    <div class="meta-bar">
-      <span class="badge" id="catBadge">Loading...</span>
-      <span id="dateText"></span>
-      <span id="sourceText"></span>
+  <div class="container">
+    <div class="hero">
+      <div class="hero-top">
+        <span class="badge" id="newsCategory">🌟 Daily News</span>
+        <span id="newsMeta">載入中...</span>
+      </div>
+      <h1 id="newsTitle">Loading today's story...</h1>
+      <p class="subtitle-zh" id="newsTitleZh">正在載入今日新聞與題目...</p>
     </div>
 
-    <h2 class="article-title" id="articleTitle">正在載入今天的新聞...</h2>
+    <!-- 新聞真實配圖區 -->
+    <div class="photo-card" id="photoCard">
+      <img id="newsImage" alt="Today's News Visual" onerror="handleImgError(this)" />
+      <div class="photo-caption" id="newsCaption"></div>
+    </div>
 
-    <figure class="news-figure" id="newsFigure" style="display: none;">
-      <img id="newsImage" alt="Daily news photo" referrerpolicy="no-referrer" />
-      <figcaption class="news-caption" id="newsCaptionBox">
-        <span id="newsCaptionEn"></span>
-        <span class="cap-zh" id="newsCaptionZh"></span>
-        <span class="news-credit" id="newsCredit"></span>
-      </figcaption>
-    </figure>
-
+    <!-- 朗讀與男女聲音切換工具列 -->
     <div class="toolbar">
-      <button class="btn" onclick="speakArticle(0.92)">🔊 朗讀全文</button>
-      <button class="btn secondary" onclick="speakArticle(0.75)">🐢 慢速朗讀</button>
-      <button class="btn secondary" onclick="stopSpeak()">⏹️ 停止</button>
-      <button class="btn secondary" onclick="toggleZh()">🈶 顯示 / 隱藏中文翻譯</button>
+      <button class="btn btn-primary" id="playAllBtn" onclick="togglePlayArticle()">🔊 聽整篇新聞</button>
+      <button class="btn btn-outline" id="speedBtn" onclick="toggleSpeed()">🐢 語速：0.9x 適中</button>
+      <button class="btn btn-outline" id="zhToggleBtn" onclick="toggleAllZh()">👀 顯示中文翻譯</button>
+
+      <div class="voice-group">
+        <span class="voice-label">🎙️ 朗讀老師：</span>
+        <select id="voiceSelect" class="voice-select" onchange="onVoiceChange()">
+          <option value="">🇺🇸 自動挑選美式發音 (預設)</option>
+        </select>
+        <button class="btn btn-outline" onclick="testSelectedVoice()">🔔 試聽聲音</button>
+      </div>
     </div>
 
-    <div class="tip-box">
-      💡 <strong>小提示：</strong>文章裡有底線的是今日重點單字；遇到<strong>任何不認識的字</strong>，直接點它就能聽發音、看中文意思喔！
+    <div class="tip-bar">
+      💡 <strong>點讀魔法：</strong><strong>黃底字</strong>為今日重點學術字彙，而且<strong>整篇文章「每一個英文字」都可以直接點一下</strong>聽發音、看中文翻譯！
     </div>
 
-    <div id="paragraphsBox"></div>
+    <div class="card">
+      <h2 class="section-title">📖 今日深度新聞閱讀</h2>
+      <div id="articleBody"></div>
+    </div>
+
+    <div class="card">
+      <h2 class="section-title">🔑 核心學術單字卡（點擊聽發音）</h2>
+      <div class="vocab-grid" id="vocabGrid"></div>
+    </div>
+
+    <div class="card">
+      <h2 class="section-title">🎯 閱讀理解素養挑戰</h2>
+      <div id="quizContainer"></div>
+      <div class="score-banner" id="scoreBanner"></div>
+    </div>
   </div>
 
-  <div class="card">
-    <h3>📚 今日重點單字 (Key Vocabulary)</h3>
-    <div class="vocab-grid" id="vocabBox"></div>
-  </div>
-
-  <div class="card">
-    <h3>🧠 閱讀理解挑戰 (Reading Quiz)</h3>
-    <div id="quizBox"></div>
-    <div id="scoreBox" style="font-weight:700; font-size:1.1rem; color:var(--primary);"></div>
-  </div>
-</div>
-
-<div id="wordModal">
-  <button class="close-btn" onclick="document.getElementById('wordModal').style.display='none'">✕</button>
-  <div style="font-size:1.25rem; font-weight:700;" id="mWord">word</div>
-  <div style="font-size:0.9rem; color:#93c5fd; margin:4px 0;" id="mPos"></div>
-  <div style="font-size:1rem; margin:6px 0;" id="mMeaning">查詢中...</div>
-  <div style="margin-top:10px; display:flex; gap:8px;">
-    <button class="btn" style="padding:6px 12px; font-size:0.85rem;" id="mSpeakBtn">🔊 美式發音</button>
-    <button class="btn secondary" style="padding:6px 12px; font-size:0.85rem;" id="mSlowBtn">🐢 慢速</button>
-  </div>
-</div>
-
-<script>
-  let lesson = null;
-  let vocabMap = {};
-  let answeredCount = 0;
-  let correctCount = 0;
-  let dictAudioUrl = "";
-
-  async function loadLesson() {
-    const res = await fetch('./data/today.json?t=' + Date.now());
-    lesson = await res.json();
-
-    document.getElementById('catBadge').textContent = lesson.category || 'Daily News';
-    document.getElementById('dateText').textContent = '📅 ' + (lesson.date || '');
-    const srcEl = document.getElementById('sourceText');
-    srcEl.textContent = '';
-    if (lesson.source_name) {
-      if (lesson.source_url) {
-        srcEl.append('📰 來源：');
-        const link = document.createElement('a');
-        link.href = lesson.source_url;
-        link.target = '_blank';
-        link.rel = 'noopener';
-        link.style.color = '#2563eb';
-        link.style.textDecoration = 'none';
-        link.textContent = lesson.source_name;
-        srcEl.appendChild(link);
-      } else {
-        srcEl.textContent = '📰 來源：' + lesson.source_name;
-      }
-    }
-    document.getElementById('articleTitle').textContent = lesson.title;
-
-    const fig = document.getElementById('newsFigure');
-    const img = document.getElementById('newsImage');
-    if (lesson.image_url) {
-      img.onerror = () => { fig.style.display = 'none'; };
-      img.onload = () => { fig.style.display = 'block'; };
-      img.src = lesson.image_url;
-
-      document.getElementById('newsCaptionEn').textContent = lesson.image_caption || '';
-      document.getElementById('newsCaptionZh').textContent = lesson.image_caption_zh || '';
-      document.getElementById('newsCredit').textContent = lesson.image_credit ? `📷 ${lesson.image_credit}` : '';
-    } else {
-      fig.style.display = 'none';
-    }
-
-    vocabMap = {};
-    (lesson.vocab || []).forEach(v => {
-      vocabMap[v.word.toLowerCase()] = v;
-    });
-
-    const pBox = document.getElementById('paragraphsBox');
-    pBox.innerHTML = '';
-    (lesson.paragraphs || []).forEach(p => {
-      const block = document.createElement('div');
-      block.className = 'para-block';
-
-      const pEn = document.createElement('p');
-      pEn.className = 'para-en';
-      pEn.innerHTML = tokenizeParagraph(p.en);
-
-      const pZh = document.createElement('p');
-      pZh.className = 'para-zh';
-      pZh.textContent = p.zh;
-
-      block.appendChild(pEn);
-      block.appendChild(pZh);
-      pBox.appendChild(block);
-    });
-
-    const vBox = document.getElementById('vocabBox');
-    vBox.innerHTML = '';
-    (lesson.vocab || []).forEach(v => {
-      const item = document.createElement('div');
-      item.className = 'vocab-item';
-      item.innerHTML = `
-        <div class="vocab-head">
-          <span>${v.word} <small style="color:#64748b;font-weight:400;">${v.pos || ''}</small></span>
-          <button class="speak-mini" onclick="speakWord('${v.word.replace(/'/g, "\\'")}', 0.9)">🔊</button>
+  <!-- 單字發音字典視窗 -->
+  <div class="modal-backdrop" id="dictModal" onclick="closeModalOnBg(event)">
+    <div class="dict-card">
+      <div class="dict-header">
+        <div>
+          <h3 class="dict-word" id="modalWord">word</h3>
+          <div class="dict-sub" id="modalSub"></div>
         </div>
-        <div style="margin-top:4px;font-weight:600;">${v.zh}</div>
-        <div style="margin-top:4px;font-size:0.86rem;color:#64748b;">${v.example || ''}</div>
-      `;
-      vBox.appendChild(item);
-    });
+        <button class="close-btn" onclick="closeDictModal()">✕</button>
+      </div>
+      <div class="dict-zh" id="modalZh">查詢中...</div>
+      <div class="dict-exp" id="modalExp"></div>
+      <div class="dict-example" id="modalExample"></div>
+      <div class="dict-actions">
+        <button class="btn btn-primary" onclick="speakModalWord(false)">🔊 正常發音</button>
+        <button class="btn btn-outline" onclick="speakModalWord(true)">🐢 慢速跟讀</button>
+      </div>
+    </div>
+  </div>
 
-    const qBox = document.getElementById('quizBox');
-    qBox.innerHTML = '';
-    answeredCount = 0;
-    correctCount = 0;
-    document.getElementById('scoreBox').textContent = '';
-    (lesson.questions || []).forEach((q, qIdx) => {
-      const qb = document.createElement('div');
-      qb.className = 'q-block';
-      const title = document.createElement('div');
-      title.className = 'q-title';
-      title.textContent = `${qIdx + 1}. ${q.q}`;
-      qb.appendChild(title);
+  <script>
+    let articleData = null;
+    let speechRate = 0.9;
+    let showZh = false;
+    let isPlayingAll = false;
+    let availableVoices = [];
+    let currentModalWord = "";
+    let currentModalAudioUrl = "";
+    let answeredCount = 0;
+    let correctCount = 0;
 
-      const exp = document.createElement('div');
-      exp.className = 'q-exp';
-      exp.textContent = '💡 ' + q.explanation;
+    const BACKUP_PHOTO = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80";
 
-      q.options.forEach((opt, oIdx) => {
-        const btn = document.createElement('button');
-        btn.className = 'opt-btn';
-        btn.textContent = `${String.fromCharCode(65 + oIdx)}. ${opt}`;
-        btn.onclick = () => checkAnswer(qb, btn, oIdx, q.answer, exp, lesson.questions.length);
-        qb.appendChild(btn);
+    function handleImgError(imgEl) {
+      if (imgEl.dataset.retried) {
+        document.getElementById('photoCard').style.display = 'none';
+        return;
+      }
+      imgEl.dataset.retried = "1";
+      imgEl.src = BACKUP_PHOTO;
+    }
+
+    // 載入裝置上所有英文男女聲音
+    function loadVoices() {
+      if (!('speechSynthesis' in window)) return;
+      const all = window.speechSynthesis.getVoices();
+      const enVoices = all.filter(v => /^en(-|_)/i.test(v.lang));
+      if (enVoices.length === 0) return;
+
+      enVoices.sort((a, b) => {
+        const aUS = /US/i.test(a.lang) ? 0 : (/GB/i.test(a.lang) ? 1 : 2);
+        const bUS = /US/i.test(b.lang) ? 0 : (/GB/i.test(b.lang) ? 1 : 2);
+        if (aUS !== bUS) return aUS - bUS;
+        return a.name.localeCompare(b.name);
       });
 
-      qb.appendChild(exp);
-      qBox.appendChild(qb);
-    });
-  }
+      availableVoices = enVoices;
+      const select = document.getElementById('voiceSelect');
+      const savedURI = localStorage.getItem('preferredVoiceURI') || '';
 
-  function tokenizeParagraph(text) {
-    return text.replace(/([A-Za-z]+(?:'[A-Za-z]+)?)/g, (match) => {
-      const lower = match.toLowerCase();
-      const isVocab = vocabMap[lower] || vocabMap[lower.replace(/s$|ed$|ing$/, '')];
-      const cls = isVocab ? 'word-token is-vocab' : 'word-token';
-      const safe = match.replace(/'/g, "\\'");
-      return `<span class="${cls}" onclick="lookupWord('${safe}')">${match}</span>`;
-    });
-  }
-
-  function checkAnswer(qb, clickedBtn, chosen, ans, expEl, total) {
-    if (qb.dataset.done) return;
-    qb.dataset.done = '1';
-    const buttons = qb.querySelectorAll('.opt-btn');
-    buttons[ans].classList.add('correct');
-    if (chosen === ans) {
-      correctCount++;
-    } else {
-      clickedBtn.classList.add('wrong');
+      select.innerHTML = '<option value="">🇺🇸 自動挑選美式發音 (預設)</option>';
+      enVoices.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v.voiceURI;
+        let flag = '🌐';
+        if (/US/i.test(v.lang)) flag = '🇺🇸 美式';
+        else if (/GB/i.test(v.lang)) flag = '🇬🇧 英式';
+        else if (/AU/i.test(v.lang)) flag = '🇦🇺 澳式';
+        opt.textContent = `${flag}｜${v.name}`;
+        if (v.voiceURI === savedURI) opt.selected = true;
+        select.appendChild(opt);
+      });
     }
-    expEl.style.display = 'block';
-    answeredCount++;
-    if (answeredCount === total) {
-      document.getElementById('scoreBox').textContent = `🎉 完成今日挑戰！得分：${correctCount} / ${total}`;
+
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.onvoiceschanged = loadVoices;
+      setTimeout(loadVoices, 200);
+      setTimeout(loadVoices, 1000);
     }
-  }
 
-  function toggleZh() {
-    document.getElementById('articleCard').classList.toggle('show-zh');
-  }
-
-  function speakTextWithTTS(text, rate = 0.9) {
-    if (!('speechSynthesis' in window)) return;
-    window.speechSynthesis.cancel();
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = 'en-US';
-    utter.rate = rate;
-    const voices = window.speechSynthesis.getVoices();
-    const usVoice = voices.find(v => v.lang === 'en-US' && /Samantha|Ava|Alex|Google US/i.test(v.name))
-                 || voices.find(v => v.lang === 'en-US');
-    if (usVoice) utter.voice = usVoice;
-    window.speechSynthesis.speak(utter);
-  }
-
-  function speakWord(word, rate = 0.9) {
-    if (dictAudioUrl && rate >= 0.85) {
-      const audio = new Audio(dictAudioUrl);
-      audio.play().catch(() => speakTextWithTTS(word, rate));
-      return;
+    function onVoiceChange() {
+      const val = document.getElementById('voiceSelect').value;
+      localStorage.setItem('preferredVoiceURI', val);
+      testSelectedVoice();
     }
-    speakTextWithTTS(word, rate);
-  }
 
-  function speakArticle(rate) {
-    if (!lesson) return;
-    const fullText = lesson.title + '. ' + lesson.paragraphs.map(p => p.en).join(' ');
-    speakTextWithTTS(fullText, rate);
-  }
-
-  function stopSpeak() {
-    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-  }
-
-  async function lookupWord(word) {
-    const modal = document.getElementById('wordModal');
-    const mWord = document.getElementById('mWord');
-    const mPos = document.getElementById('mPos');
-    const mMeaning = document.getElementById('mMeaning');
-    dictAudioUrl = "";
-
-    modal.style.display = 'block';
-    mWord.textContent = word;
-    mPos.textContent = '';
-    mMeaning.textContent = '查詢中...';
-
-    document.getElementById('mSpeakBtn').onclick = () => speakWord(word, 0.92);
-    document.getElementById('mSlowBtn').onclick = () => speakTextWithTTS(word, 0.65);
-
-    const lower = word.toLowerCase();
-    const hit = vocabMap[lower] || vocabMap[lower.replace(/s$|ed$|ing$/, '')];
-
-    try {
-      const dRes = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(lower)}`);
-      if (dRes.ok) {
-        const dJson = await dRes.json();
-        const phonetics = dJson[0]?.phonetics || [];
-        const usAudio = phonetics.find(p => p.audio && p.audio.includes('-us')) || phonetics.find(p => p.audio);
-        if (usAudio?.audio) dictAudioUrl = usAudio.audio;
-        const phoneticText = dJson[0]?.phonetic || phonetics.find(p => p.text)?.text || '';
-        if (phoneticText) mPos.textContent = phoneticText;
+    function getSelectedVoice() {
+      if (availableVoices.length === 0) loadVoices();
+      const savedURI = localStorage.getItem('preferredVoiceURI');
+      if (savedURI) {
+        const exact = availableVoices.find(v => v.voiceURI === savedURI);
+        if (exact) return exact;
       }
-    } catch (e) {}
-
-    speakWord(word, 0.92);
-
-    if (hit) {
-      mPos.textContent = (mPos.textContent ? mPos.textContent + ' · ' : '') + (hit.pos || '');
-      mMeaning.textContent = hit.zh;
-      return;
+      return (
+        availableVoices.find(v => /US/i.test(v.lang) && /Evan|Nathan|Ava|Allison|Samantha|Alex/i.test(v.name)) ||
+        availableVoices.find(v => /US/i.test(v.lang)) ||
+        availableVoices[0] ||
+        null
+      );
     }
 
-    try {
-      const tRes = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(lower)}&langpair=en|zh-TW`);
-      const tJson = await tRes.json();
-      mMeaning.textContent = tJson?.responseData?.translatedText || '請參考上下文理解字義';
-    } catch (e) {
-      mMeaning.textContent = '目前無法連線翻譯服務';
+    function speakText(text, customRate = null, onEndCallback = null) {
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(text);
+      const voice = getSelectedVoice();
+      if (voice) {
+        utter.voice = voice;
+        utter.lang = voice.lang;
+      } else {
+        utter.lang = 'en-US';
+      }
+      utter.rate = customRate !== null ? customRate : speechRate;
+      utter.onend = () => { if (onEndCallback) onEndCallback(); };
+      utter.onerror = () => { if (onEndCallback) onEndCallback(); };
+      window.speechSynthesis.speak(utter);
     }
-  }
 
-  loadLesson();
-</script>
+    function testSelectedVoice() {
+      isPlayingAll = false;
+      updatePlayBtn();
+      speakText("Hi Ingrid and Roman! Ready for today's story?");
+    }
+
+    function togglePlayArticle() {
+      if (!articleData) return;
+      if (isPlayingAll) {
+        window.speechSynthesis.cancel();
+        isPlayingAll = false;
+        updatePlayBtn();
+        return;
+      }
+      const paras = (articleData.paragraphs || []).map(p => typeof p === 'string' ? p : (p.en || p.text || ''));
+      const fullText = [articleData.title, ...paras].join(' ');
+      isPlayingAll = true;
+      updatePlayBtn();
+      speakText(fullText, speechRate, () => {
+        isPlayingAll = false;
+        updatePlayBtn();
+      });
+    }
+
+    function updatePlayBtn() {
+      document.getElementById('playAllBtn').textContent = isPlayingAll ? '⏹️ 停止朗讀' : '🔊 聽整篇新聞';
+    }
+
+    function toggleSpeed() {
+      const speeds = [
+        { val: 0.75, label: '🐢 語速：0.75x 慢速' },
+        { val: 0.9,  label: '🐢 語速：0.9x 適中' },
+        { val: 1.0,  label: '🐇 語速：1.0x 正常' }
+      ];
+      const idx = speeds.findIndex(s => Math.abs(s.val - speechRate) < 0.03);
+      const next = speeds[(idx + 1) % speeds.length];
+      speechRate = next.val;
+      document.getElementById('speedBtn').textContent = next.label;
+    }
+
+    function toggleAllZh() {
+      showZh = !showZh;
+      document.querySelectorAll('.zh-text').forEach(el => el.classList.toggle('show', showZh));
+      const btn = document.getElementById('zhToggleBtn');
+      btn.classList.toggle('active', showZh);
+      btn.textContent = showZh ? '🙈 隱藏中文翻譯' : '👀 顯示中文翻譯';
+    }
+
+    async function loadTodayNews() {
+      try {
+        const res = await fetch(`data/today.json?t=${Date.now()}`);
+        articleData = await res.json();
+        renderArticle();
+      } catch (err) {
+        document.getElementById('newsTitle').textContent = '尚無今日新聞資料';
+        document.getElementById('newsTitleZh').textContent = '請先到 GitHub Actions 執行一次 Run workflow 喔！';
+      }
+    }
+
+    function cleanWord(raw) {
+      return raw.toLowerCase().replace(/^[^a-z]+|[^a-z]+$/gi, '');
+    }
+
+    // 相容各種新舊 JSON 欄位名稱，確保永遠不會空白！
+    function normalizeVocab(rawVocab) {
+      if (!rawVocab) return {};
+      if (Array.isArray(rawVocab)) {
+        const map = {};
+        rawVocab.forEach(item => {
+          const k = cleanWord(item.word || item.term || '');
+          if (k) map[k] = item;
+        });
+        return map;
+      }
+      return rawVocab;
+    }
+
+    function renderArticle() {
+      document.getElementById('newsCategory').textContent = articleData.category || '🌟 Daily News';
+      document.getElementById('newsMeta').textContent = `📅 ${articleData.date || ''} ｜ ${articleData.level || 'US Grade 7–8'}`;
+      document.getElementById('newsTitle').textContent = articleData.title || '';
+      document.getElementById('newsTitleZh').textContent = articleData.title_zh || articleData.subtitle || '';
+
+      // 顯示新聞圖片（若舊資料沒圖也給備援科普大圖）
+      const imgUrl = articleData.image_url || articleData.image || BACKUP_PHOTO;
+      const photoCard = document.getElementById('photoCard');
+      const imgEl = document.getElementById('newsImage');
+      imgEl.src = imgUrl;
+      document.getElementById('newsCaption').textContent = articleData.image_caption || `📸 今日新聞主題視覺｜${articleData.title_zh || articleData.title}`;
+      photoCard.style.display = 'block';
+
+      const vocabMap = normalizeVocab(articleData.vocabulary || articleData.vocab);
+      articleData._vocabMap = vocabMap;
+
+      const bodyEl = document.getElementById('articleBody');
+      bodyEl.innerHTML = '';
+
+      const paras = articleData.paragraphs || (articleData.content ? [{ en: articleData.content, zh: articleData.translation || '' }] : []);
+      paras.forEach((paraObj, idx) => {
+        const enStr = typeof paraObj === 'string' ? paraObj : (paraObj.en || paraObj.text || '');
+        const zhStr = typeof paraObj === 'string' ? '' : (paraObj.zh || paraObj.translation || '');
+
+        const block = document.createElement('div');
+        block.className = 'paragraph-block';
+
+        const enP = document.createElement('p');
+        enP.className = 'en-text';
+
+        const pBtn = document.createElement('button');
+        pBtn.className = 'para-speak-btn';
+        pBtn.textContent = `🔊 第 ${idx + 1} 段`;
+        pBtn.onclick = () => {
+          isPlayingAll = false;
+          updatePlayBtn();
+          speakText(enStr);
+        };
+        enP.appendChild(pBtn);
+
+        enStr.split(/(\s+)/).forEach(tok => {
+          if (/^\s+$/.test(tok)) {
+            enP.appendChild(document.createTextNode(tok));
+            return;
+          }
+          const cleaned = cleanWord(tok);
+          if (!cleaned) {
+            enP.appendChild(document.createTextNode(tok));
+            return;
+          }
+          const span = document.createElement('span');
+          span.className = 'word-token' + (vocabMap[cleaned] ? ' word-highlight' : '');
+          span.textContent = tok;
+          span.onclick = () => openWordLookup(cleaned);
+          enP.appendChild(span);
+        });
+
+        block.appendChild(enP);
+        if (zhStr) {
+          const zhP = document.createElement('p');
+          zhP.className = 'zh-text' + (showZh ? ' show' : '');
+          zhP.textContent = zhStr;
+          block.appendChild(zhP);
+        }
+        bodyEl.appendChild(block);
+      });
+
+      const grid = document.getElementById('vocabGrid');
+      grid.innerHTML = '';
+      Object.entries(vocabMap).forEach(([key, info]) => {
+        const chip = document.createElement('div');
+        chip.className = 'vocab-chip';
+        chip.innerHTML = `<strong>🔊 ${info.word || key}</strong><span>${info.zh || info.meaning || ''}</span>`;
+        chip.onclick = () => openWordLookup(key);
+        grid.appendChild(chip);
+      });
+
+      renderQuiz();
+    }
+
+    function renderQuiz() {
+      const container = document.getElementById('quizContainer');
+      container.innerHTML = '';
+      answeredCount = 0;
+      correctCount = 0;
+      document.getElementById('scoreBanner').style.display = 'none';
+
+      const quizList = articleData.quiz || articleData.questions || [];
+      if (quizList.length === 0) {
+        container.innerHTML = '<p style="color:#64748b;">正在等待最新題目產生，請在 GitHub Actions 執行一次 Run workflow 即可更新！</p>';
+        return;
+      }
+
+      quizList.forEach(qItem => {
+        const box = document.createElement('div');
+        box.className = 'quiz-item';
+
+        const qTitle = document.createElement('p');
+        qTitle.className = 'quiz-q';
+        qTitle.textContent = qItem.question;
+        box.appendChild(qTitle);
+
+        const optsDiv = document.createElement('div');
+        optsDiv.className = 'quiz-options';
+        const expDiv = document.createElement('div');
+        expDiv.className = 'quiz-exp';
+
+        const ansIdx = typeof qItem.answer === 'number' ? qItem.answer : (qItem.correct_index ?? 0);
+
+        (qItem.options || []).forEach((optText, optIdx) => {
+          const btn = document.createElement('button');
+          btn.className = 'opt-btn';
+          btn.textContent = optText;
+          btn.onclick = () => {
+            if (optsDiv.dataset.locked === '1') return;
+            optsDiv.dataset.locked = '1';
+            answeredCount++;
+
+            const allBtns = optsDiv.querySelectorAll('.opt-btn');
+            if (optIdx === ansIdx) {
+              btn.classList.add('correct');
+              correctCount++;
+              expDiv.innerHTML = `✅ <strong>太棒了答對囉！</strong> ${qItem.explanation || ''}`;
+            } else {
+              btn.classList.add('wrong');
+              if (allBtns[ansIdx]) allBtns[ansIdx].classList.add('correct');
+              expDiv.innerHTML = `💡 <strong>解析：</strong> ${qItem.explanation || ''}`;
+            }
+            expDiv.style.display = 'block';
+
+            if (answeredCount === quizList.length) {
+              const banner = document.getElementById('scoreBanner');
+              banner.style.display = 'block';
+              banner.textContent = `🎉 今日挑戰完成！得分：${correctCount} / ${quizList.length} 題！`;
+            }
+          };
+          optsDiv.appendChild(btn);
+        });
+
+        box.appendChild(optsDiv);
+        box.appendChild(expDiv);
+        container.appendChild(box);
+      });
+    }
+
+    async function openWordLookup(cleanedKey) {
+      currentModalWord = cleanedKey;
+      currentModalAudioUrl = "";
+
+      const modal = document.getElementById('dictModal');
+      const vocabMap = (articleData && articleData._vocabMap) || {};
+      const localInfo = vocabMap[cleanedKey];
+
+      modal.classList.add('open');
+      isPlayingAll = false;
+      updatePlayBtn();
+
+      speakText(localInfo ? (localInfo.word || cleanedKey) : cleanedKey, 0.88);
+
+      if (localInfo) {
+        document.getElementById('modalWord').textContent = localInfo.word || cleanedKey;
+        document.getElementById('modalSub').textContent = [localInfo.syllables, localInfo.pos].filter(Boolean).join(' ｜ ');
+        document.getElementById('modalZh').textContent = localInfo.zh || localInfo.meaning || '';
+        document.getElementById('modalExp').textContent = `💬 ${localInfo.explanation || ''}`;
+        document.getElementById('modalExample').textContent = localInfo.example ? `例句：${localInfo.example}` : '';
+        fetchDictionaryAudioOnly(localInfo.word || cleanedKey);
+      } else {
+        document.getElementById('modalWord').textContent = cleanedKey;
+        document.getElementById('modalSub').textContent = '即時字典查詢中...';
+        document.getElementById('modalZh').textContent = '⏳ 正在查詢中文意思...';
+        document.getElementById('modalExp').textContent = '正在載入英文解釋...';
+        document.getElementById('modalExample').textContent = '';
+        fetchLiveWordInfo(cleanedKey);
+      }
+    }
+
+    async function fetchDictionaryAudioOnly(word) {
+      try {
+        const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`);
+        if (!res.ok) return;
+        const json = await res.json();
+        const phonetics = (json[0] && json[0].phonetics) || [];
+        const usAudio = phonetics.find(p => p.audio && p.audio.includes('-us')) || phonetics.find(p => p.audio);
+        if (usAudio && usAudio.audio) currentModalAudioUrl = usAudio.audio;
+      } catch (_) {}
+    }
+
+    async function fetchLiveWordInfo(word) {
+      const zhPromise = fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=en|zh-TW`).then(r => r.json()).catch(() => null);
+      const dictPromise = fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`).then(r => r.ok ? r.json() : null).catch(() => null);
+      const [zhData, dictData] = await Promise.all([zhPromise, dictPromise]);
+      if (currentModalWord !== word) return;
+
+      const zhText = zhData && zhData.responseData && zhData.responseData.translatedText;
+      document.getElementById('modalZh').textContent = zhText || '（請參考下方英文解釋）';
+
+      if (dictData && dictData[0]) {
+        const entry = dictData[0];
+        const phonetic = entry.phonetic || ((entry.phonetics || []).find(p => p.text)?.text) || '';
+        const phonetics = entry.phonetics || [];
+        const usAudio = phonetics.find(p => p.audio && p.audio.includes('-us')) || phonetics.find(p => p.audio);
+        if (usAudio && usAudio.audio) currentModalAudioUrl = usAudio.audio;
+
+        const firstMeaning = (entry.meanings && entry.meanings[0]) || {};
+        const defObj = (firstMeaning.definitions && firstMeaning.definitions[0]) || {};
+        document.getElementById('modalSub').textContent = [phonetic, firstMeaning.partOfSpeech].filter(Boolean).join(' ｜ ');
+        document.getElementById('modalExp').textContent = defObj.definition ? `📘 英文解釋：${defObj.definition}` : '點擊下方按鈕可重複聽發音！';
+        document.getElementById('modalExample').textContent = defObj.example ? `例句：${defObj.example}` : '';
+      } else {
+        document.getElementById('modalSub').textContent = '單字點讀';
+        document.getElementById('modalExp').textContent = '點擊下方按鈕可重複聽正常或慢速發音！';
+      }
+    }
+
+    function speakModalWord(slow = false) {
+      if (!currentModalWord) return;
+      if (!slow && currentModalAudioUrl) {
+        const audio = new Audio(currentModalAudioUrl);
+        audio.play().catch(() => speakText(currentModalWord, 0.9));
+      } else {
+        speakText(currentModalWord, slow ? 0.6 : 0.9);
+      }
+    }
+
+    function closeDictModal() { document.getElementById('dictModal').classList.remove('open'); }
+    function closeModalOnBg(e) { if (e.target.id === 'dictModal') closeDictModal(); }
+
+    loadTodayNews();
+  </script>
 </body>
 </html>
