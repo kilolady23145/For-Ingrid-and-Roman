@@ -1,13 +1,16 @@
 import os
 import re
+import sys
 import json
+import shutil
+import asyncio
+import subprocess
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 from google import genai
 from google.genai import types
 
-# 國際科學、太空、自然生態與科技新聞 RSS（純內建讀取，免裝 feedparser 絕不報錯！）
 RSS_FEEDS = [
     "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",
     "https://www.nasa.gov/news-release/feed/",
@@ -15,7 +18,6 @@ RSS_FEEDS = [
     "https://www.sciencedaily.com/rss/top/science.xml"
 ]
 
-# 萬一原新聞剛好沒附圖，依主題自動配上的高畫質無版權科普配圖
 FALLBACK_IMAGES = {
     "space": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
     "animal": "https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=1200&q=80",
@@ -23,15 +25,21 @@ FALLBACK_IMAGES = {
     "science": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1200&q=80"
 }
 
+# 4 位雲端真人級神經語音主播（手機、平板、電腦打開都能聽！）
+CLOUD_VOICES = {
+    "cloud_uk_male":   {"voice": "en-GB-RyanNeural",        "label": "🇬🇧 雲端真人級｜UK English Male (英式男主播)"},
+    "cloud_us_male":   {"voice": "en-US-ChristopherNeural", "label": "🇺🇸 雲端真人級｜US English Male (美式男主播)"},
+    "cloud_uk_female": {"voice": "en-GB-SoniaNeural",       "label": "🇬🇧 雲端真人級｜UK English Female (英式女主播)"},
+    "cloud_us_female": {"voice": "en-US-AvaNeural",         "label": "🇺🇸 雲端真人級｜US English Female (美式女主播)"}
+}
+
 def extract_image_from_item(item, raw_desc=""):
-    """從 RSS 項目中搜尋新聞真實配圖（支援 BBC / NASA / 一般 RSS 圖檔標籤）"""
     for elem in item.iter():
         tag = elem.tag.lower()
         if tag.endswith("thumbnail") or tag.endswith("content") or tag.endswith("enclosure"):
             url = elem.attrib.get("url", "")
             mtype = elem.attrib.get("type", "")
             if url.startswith("http") and ("image" in mtype or re.search(r"\.(jpg|jpeg|png|webp)", url, re.I) or "ichef.bbci" in url or "nasa.gov" in url):
-                # 把 BBC 縮圖自動放大成高畫質寬圖
                 url = re.sub(r"/standard/\d+/", "/standard/976/", url)
                 return url
     img_match = re.search(r'<img[^>]+src=["\'](https?://[^"\']+)["\']', raw_desc, re.I)
@@ -41,7 +49,7 @@ def extract_image_from_item(item, raw_desc=""):
 
 def fetch_news_candidates():
     candidates = []
-    headers = {'User-Agent': 'Mozilla/5.0 (KidsEnglishReader/3.0)'}
+    headers = {'User-Agent': 'Mozilla/5.0 (KidsEnglishReader/3.5)'}
     idx = 1
     for feed_url in RSS_FEEDS:
         try:
@@ -53,7 +61,6 @@ def fetch_news_candidates():
                     title = (item.findtext('title') or '').strip()
                     desc = (item.findtext('description') or '').strip()
                     link = (item.findtext('link') or '').strip()
-                    # 也檢查 content:encoded 裡有沒有圖片
                     encoded = ""
                     for child in item:
                         if child.tag.lower().endswith("encoded") and child.text:
@@ -108,11 +115,69 @@ def pick_fallback_image(category_text, title_text):
     combined = f"{category_text} {title_text}".lower()
     if any(k in combined for k in ("space", "nasa", "planet", "star", "moon", "mars", "galaxy", "cosmos")):
         return FALLBACK_IMAGES["space"]
-    if any(k in combined for k in ("animal", "wildlife", "bird", "ocean", "whale", "species", "nature", "forest")):
+    if any(k in combined for k in ("animal", "wildlife", "bird", "ocean", "whale", "species", "nature", "forest", "marine", "sea")):
         return FALLBACK_IMAGES["animal"]
     if any(k in combined for k in ("tech", "robot", "ai", "computer", "engineer", "energy")):
         return FALLBACK_IMAGES["tech"]
     return FALLBACK_IMAGES["science"]
+
+def generate_cloud_audio(data):
+    """自動安裝並使用雲端神經語音錄製今日新聞 MP3（若遇網路波動亦不影響新聞發佈）"""
+    try:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "-q", "-U", "edge-tts"])
+        import edge_tts
+    except Exception as e:
+        print(f"⚠️ 雲端語音模組略過: {e}")
+        return {}
+
+    audio_dir = "data/archive/audio"
+    shutil.rmtree(audio_dir, ignore_errors=True)
+    os.makedirs(audio_dir, exist_ok=True)
+
+    title_text = data.get("title", "")
+    paras = [p.get("en", "") for p in data.get("paragraphs", []) if p.get("en")]
+
+    async def synth_clip(sem, text, voice_name, out_path):
+        async with sem:
+            for attempt in range(2):
+                try:
+                    comm = edge_tts.Communicate(text, voice_name)
+                    await comm.save(out_path)
+                    if os.path.exists(out_path) and os.path.getsize(out_path) > 200:
+                        return True
+                except Exception as err:
+                    if attempt == 1:
+                        print(f"⚠️ 音檔錄製失敗 ({out_path}): {err}")
+                    await asyncio.sleep(0.8)
+            return False
+
+    async def build_all():
+        sem = asyncio.Semaphore(4)
+        result_map = {}
+        for v_key, v_info in CLOUD_VOICES.items():
+            v_name = v_info["voice"]
+            title_path = f"{audio_dir}/{v_key}_title.mp3"
+            para_paths = [f"{audio_dir}/{v_key}_p{i}.mp3" for i in range(len(paras))]
+
+            tasks = [synth_clip(sem, title_text, v_name, title_path)]
+            for idx, p_text in enumerate(paras):
+                tasks.append(synth_clip(sem, p_text, v_name, para_paths[idx]))
+
+            statuses = await asyncio.gather(*tasks)
+            if all(statuses):
+                result_map[v_key] = {
+                    "label": v_info["label"],
+                    "title": title_path,
+                    "paragraphs": para_paths
+                }
+                print(f"🎙️ 已完成雲端錄音: {v_info['label']}")
+        return result_map
+
+    try:
+        return asyncio.run(build_all())
+    except Exception as e:
+        print(f"⚠️ 雲端語音產生略過: {e}")
+        return {}
 
 def main():
     api_key = os.environ.get("GEMINI_API_KEY")
@@ -212,12 +277,14 @@ News Candidates:
 
     data = parse_json_safely(response.text)
 
-    # 自動把選中新聞的真實圖片與原文連結掛上去（若無圖則自動補上高畫質科普圖）
     chosen_id = data.get("selected_id")
     matched = next((c for c in candidates if c["id"] == chosen_id), None)
     real_img = matched["image_url"] if (matched and matched.get("image_url")) else ""
     data["image_url"] = real_img or pick_fallback_image(data.get("category", ""), data.get("title", ""))
     data["source_url"] = matched["source_url"] if matched else ""
+
+    # 錄製雲端真人級英式／美式男女主播 MP3
+    data["cloud_audio"] = generate_cloud_audio(data)
 
     os.makedirs("data/archive", exist_ok=True)
     with open("data/today.json", "w", encoding="utf-8") as f:
@@ -225,7 +292,7 @@ News Candidates:
     with open(f"data/archive/{today_str}.json", "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ 成功產生 {today_str} 新聞：{data.get('title')} | 圖片：{data.get('image_url')}")
+    print(f"✅ 成功產生 {today_str} 新聞與雲端語音：{data.get('title')}")
 
 if __name__ == "__main__":
     main()
