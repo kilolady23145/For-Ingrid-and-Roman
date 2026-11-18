@@ -1,0 +1,121 @@
+{
+  "date": "2026-11-18",
+  "category": "🐾 Animal World",
+  "level": "國小高年級 (A2)",
+  "title": "Clever Sea Otters Use Rocks as Tools!",
+  "title_zh": "聰明的海獺會用石頭當工具！",
+  "paragraphs": [
+    {
+      "en": "Scientists in California discovered something amazing about sea otters. These cute marine animals use small rocks as tools to open hard shells!",
+      "zh": "加州的科學家發現了關於海獺的驚人祕密。這些可愛的海洋動物會把小石頭當作工具，用來敲開堅硬的貝殼！"
+    },
+    {
+      "en": "By using rocks, sea otters can eat bigger crabs and snails without hurting their teeth. Some otters even keep their favorite rock in a special pocket under their arm!",
+      "zh": "藉由使用石頭，海獺可以吃到更大的螃蟹和海螺，而且不會弄傷牙齒。有些海獺甚至會把最心愛的石頭收在腋下的專屬小口袋裡呢！"
+    }
+  ],
+  "vocabulary": {
+    "scientists": {
+      "word": "scientist",
+      "syllables": "sci·en·tist",
+      "pos": "n. 名詞",
+      "zh": "科學家",
+      "explanation": "專門觀察大自然、做實驗來解開世界謎團的人。",
+      "example": "The scientist studies ocean animals every day."
+    },
+    "discovered": {
+      "word": "discover",
+      "syllables": "dis·cov·er",
+      "pos": "v. 動詞",
+      "zh": "發現",
+      "explanation": "找到以前沒人知道的新事物或祕密。",
+      "example": "They discovered a secret cave on the island."
+    },
+    "amazing": {
+      "word": "amazing",
+      "syllables": "a·maz·ing",
+      "pos": "adj. 形容詞",
+      "zh": "令人驚奇的、超棒的",
+      "explanation": "讓人忍不住睜大眼睛說「哇！」的事情。",
+      "example": "Dolphins can jump very high. It is amazing!"
+    },
+    "marine": {
+      "word": "marine",
+      "syllables": "ma·rine",
+      "pos": "adj. 形容詞",
+      "zh": "海洋的",
+      "explanation": "跟大海有關的，或是住在海裡面的。",
+      "example": "Whales and sea turtles are marine animals."
+    },
+    "shells": {
+      "word": "shell",
+      "syllables": "shell",
+      "pos": "n. 名詞",
+      "zh": "貝殼、硬殼",
+      "explanation": "保護螃蟹、蝸牛或貝類身體的堅硬外殼。",
+      "example": "We found pretty shells on the beach."
+    },
+    "favorite": {
+      "word": "favorite",
+      "syllables": "fa·vor·ite",
+      "pos": "adj. 形容詞",
+      "zh": "最喜愛的",
+      "explanation": "在所有東西裡面，你第一名喜歡的那一個。",
+      "example": "Apples are my favorite fruit."
+    },
+    "pocket": {
+      "word": "pocket",
+      "syllables": "pock·et",
+      "pos": "n. 名詞",
+      "zh": "口袋",
+      "explanation": "衣服上（或動物皮膚皺摺裡）用來裝小東西的小袋子。",
+      "example": "He put a shiny coin in his pocket."
+    }
+  },
+  "quiz": [
+    {
+      "question": "1. What is the main idea of this news story?",
+      "options": [
+        "Sea otters love to swim in cold water.",
+        "Sea otters smartly use rocks to help them eat.",
+        "Scientists in California are looking for crabs.",
+        "Crabs and snails have very sharp teeth."
+      ],
+      "answer": 1,
+      "explanation": "整篇新聞主要在介紹海獺非常聰明，會利用石頭敲開硬殼來吃東西並保護牙齒喔！"
+    },
+    {
+      "question": "2. Why do sea otters use rocks to open hard shells?",
+      "options": [
+        "So they will not hurt their teeth.",
+        "Because they want to build a stone house.",
+        "To play games with scientists.",
+        "Because rocks taste delicious."
+      ],
+      "answer": 0,
+      "explanation": "第二段提到 'without hurting their teeth'，用石頭敲開硬殼才不會咬壞自己的牙齒！"
+    },
+    {
+      "question": "3. Where does a sea otter keep its favorite rock?",
+      "options": [
+        "Inside a crab shell",
+        "On top of its head",
+        "In a special pocket under its arm",
+        "On the sandy beach"
+      ],
+      "answer": 2,
+      "explanation": "文章最後一句提到，海獺腋下有鬆鬆的皮膚皺摺，就像專屬小口袋（pocket under their arm）一樣可以收石頭！"
+    },
+    {
+      "question": "4. Look at the word 'marine' in Paragraph 1. Which animal is also a 'marine' animal?",
+      "options": [
+        "A lion on the grass",
+        "An eagle in the sky",
+        "A dolphin in the ocean",
+        "A monkey in the tree"
+      ],
+      "answer": 2,
+      "explanation": "'marine' 是「海洋的」意思，選項中只有住在海裡的海豚（dolphin）是海洋動物喔！"
+    }
+  ]
+}
