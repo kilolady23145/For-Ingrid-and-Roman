@@ -1,537 +1,337 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ingrid & Roman's Daily English News</title>
-  <style>
-    :root {
-      --bg: #f4f7fb;
-      --card: #ffffff;
-      --primary: #2563eb;
-      --primary-light: #dbeafe;
-      --accent: #f59e0b;
-      --text: #1e293b;
-      --muted: #64748b;
-      --success: #16a34a;
-      --danger: #dc2626;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      padding-bottom: 60px;
-    }
-    header {
-      background: linear-gradient(135deg, #1d4ed8, #3b82f6);
-      color: white;
-      padding: 24px 20px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
-    }
-    header h1 { margin: 0; font-size: 1.55rem; letter-spacing: 0.3px; }
-    header p { margin: 6px 0 0; opacity: 0.92; font-size: 0.95rem; }
+import os
+import re
+import json
+import random
+import html
+import urllib.request
+import urllib.parse
+from datetime import datetime, timezone, timedelta
+import feedparser
 
-    .container { max-width: 820px; margin: 22px auto; padding: 0 16px; }
-    .card {
-      background: var(--card);
-      border-radius: 18px;
-      padding: 24px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
-    }
-    .meta-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      margin-bottom: 12px;
-      font-size: 0.88rem;
-      color: var(--muted);
-    }
-    .badge {
-      background: var(--primary-light);
-      color: var(--primary);
-      font-weight: 700;
-      padding: 4px 12px;
-      border-radius: 999px;
-    }
-    h2.article-title {
-      margin: 6px 0 16px;
-      font-size: 1.55rem;
-      line-height: 1.35;
-      color: #0f172a;
-    }
+# 新聞來源：BBC 科學環境、NASA、ScienceDaily 動物與太空
+RSS_FEEDS = [
+    ("BBC Science & Nature", "http://feeds.bbci.co.uk/news/science_and_environment/rss.xml"),
+    ("NASA Breaking News", "https://www.nasa.gov/news-release/feed/"),
+    ("ScienceDaily Animals", "https://www.sciencedaily.com/rss/plants_animals.xml"),
+    ("ScienceDaily Space", "https://www.sciencedaily.com/rss/space_time.xml"),
+]
 
-    /* 新聞真實圖片區塊 */
-    .news-figure {
-      margin: 0 0 20px 0;
-      border-radius: 14px;
-      overflow: hidden;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-    }
-    .news-figure img {
-      width: 100%;
-      max-height: 430px;
-      object-fit: cover;
-      display: block;
-    }
-    .news-caption {
-      padding: 10px 14px;
-      font-size: 0.9rem;
-      color: #334155;
-      background: #f8fafc;
-      line-height: 1.45;
-    }
-    .news-caption .cap-zh {
-      display: block;
-      color: var(--muted);
-      font-size: 0.84rem;
-      margin-top: 3px;
-    }
-    .news-credit {
-      display: block;
-      font-size: 0.76rem;
-      color: #94a3b8;
-      margin-top: 4px;
-    }
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+}
 
-    .toolbar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
+
+def http_get_text(url: str, timeout: int = 10, max_bytes: int = 200000) -> str:
+    req = urllib.request.Request(url, headers=HEADERS)
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        raw = resp.read(max_bytes)
+        return raw.decode("utf-8", errors="ignore")
+
+
+def upgrade_image_quality(url: str) -> str:
+    """將常見新聞縮圖網址升級為較清晰的尺寸"""
+    if not url:
+        return ""
+    url = html.unescape(url.strip())
+    if url.startswith("//"):
+        url = "https:" + url
+    if "ichef.bbci.co.uk" in url:
+        url = re.sub(r"/news/\d+/", "/news/976/", url)
+    return url
+
+
+def extract_rss_image(entry) -> str:
+    """第一順位：從 RSS 項目中尋找新聞原圖"""
+    for media in entry.get("media_content", []) or []:
+        url = media.get("url", "")
+        medium = media.get("medium", "")
+        mtype = media.get("type", "")
+        if url and ("image" in medium or "image" in mtype or re.search(r"\.(jpg|jpeg|png|webp)", url, re.I)):
+            return upgrade_image_quality(url)
+
+    for thumb in entry.get("media_thumbnail", []) or []:
+        if thumb.get("url"):
+            return upgrade_image_quality(thumb["url"])
+
+    for link in entry.get("links", []) or []:
+        if "image" in link.get("type", "") and link.get("href"):
+            return upgrade_image_quality(link["href"])
+
+    summary_html = entry.get("summary", "") or ""
+    match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', summary_html, re.I)
+    if match:
+        return upgrade_image_quality(match.group(1))
+
+    return ""
+
+
+def extract_og_image(article_url: str) -> str:
+    """第二順位：連線到新聞原網頁抓取公開封面大圖 (og:image)"""
+    if not article_url:
+        return ""
+    try:
+        text = http_get_text(article_url, timeout=10, max_bytes=70000)
+        patterns = [
+            r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']',
+            r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']',
+            r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']',
+        ]
+        for pat in patterns:
+            m = re.search(pat, text, re.I)
+            if m:
+                img_url = urllib.parse.urljoin(article_url, html.unescape(m.group(1)))
+                if not any(bad in img_url.lower() for bad in ["logo", "favicon", "default-share"]):
+                    return upgrade_image_quality(img_url)
+    except Exception as e:
+        print(f"og:image 抓取略過: {e}")
+    return ""
+
+
+def search_wikimedia_photo(query: str) -> tuple:
+    """第三順位備案：若原新聞無圖，從維基共享資源搜尋真實照片"""
+    if not query:
+        return "", ""
+    try:
+        q = urllib.parse.quote(query)
+        api_url = (
+            "https://commons.wikimedia.org/w/api.php"
+            f"?action=query&generator=search&gsrnamespace=6&gsrsearch={q}"
+            "&gsrlimit=5&prop=imageinfo&iiprop=url&iiurlwidth=960&format=json"
+        )
+        req = urllib.request.Request(api_url, headers={"User-Agent": "IngridRomanDailyReader/1.0"})
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        pages = data.get("query", {}).get("pages", {})
+        for _, page in pages.items():
+            title = page.get("title", "").lower()
+            if not title.endswith((".jpg", ".jpeg", ".png", ".webp")):
+                continue
+            info_list = page.get("imageinfo", [])
+            if info_list:
+                thumb_url = info_list[0].get("thumburl") or info_list[0].get("url", "")
+                if thumb_url:
+                    return thumb_url, "Photo via Wikimedia Commons"
+    except Exception as e:
+        print(f"Wikimedia 備用圖搜尋略過: {e}")
+    return "", ""
+
+
+def clean_html(raw_html: str) -> str:
+    clean = re.sub(r"<[^>]+>", " ", raw_html or "")
+    return re.sub(r"\s+", " ", html.unescape(clean)).strip()
+
+
+def fetch_candidate_articles():
+    candidates = []
+    for source_name, feed_url in RSS_FEEDS:
+        try:
+            feed = feedparser.parse(feed_url)
+            for entry in feed.entries[:8]:
+                title = clean_html(entry.get("title", ""))
+                summary = clean_html(entry.get("summary", "") or entry.get("description", ""))
+                link = entry.get("link", "")
+                if len(title) < 10 or len(summary) < 40:
+                    continue
+                lower_text = f"{title} {summary}".lower()
+                if any(w in lower_text for w in ["murder", "war", "suicide", "terror", "sexual", "shooting", "deadly crash"]):
+                    continue
+                rss_img = extract_rss_image(entry)
+                candidates.append({
+                    "source": source_name,
+                    "title": title,
+                    "summary": summary,
+                    "link": link,
+                    "rss_image": rss_img,
+                })
+        except Exception as e:
+            print(f"讀取 RSS 失敗 ({source_name}): {e}")
+    return candidates
+
+
+def get_candidate_models(api_key: str) -> list:
+    """自動向 Google 查詢此金鑰目前可用的 Gemini Flash 文字模型"""
+    discovered = []
+    try:
+        list_url = f"https://generativelanguage.googleapis.com/v1beta/models?key={api_key}"
+        req = urllib.request.Request(list_url)
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        for m in data.get("models", []):
+            name = m.get("name", "").replace("models/", "")
+            methods = m.get("supportedGenerationMethods", [])
+            if "generateContent" not in methods:
+                continue
+            lower = name.lower()
+            if "gemini" not in lower:
+                continue
+            if any(skip in lower for skip in ["tts", "image", "vision", "embedding", "aqa", "audio", "robotics", "computer-use"]):
+                continue
+            discovered.append(name)
+    except Exception as e:
+        print(f"自動查詢模型清單略過: {e}")
+
+    # 優先使用 flash 系列（速度快、額度最充裕），由新到舊排列
+    flash_models = sorted([m for m in discovered if "flash" in m and "lite" not in m], reverse=True)
+    other_models = sorted([m for m in discovered if m not in flash_models], reverse=True)
+    fallbacks = ["gemini-2.5-flash", "gemini-2.0-flash"]
+
+    ordered = []
+    for m in flash_models + other_models + fallbacks:
+        if m not in ordered:
+            ordered.append(m)
+    return ordered
+
+
+def generate_json_with_gemini(api_key: str, prompt: str) -> dict:
+    """逐一嘗試可用模型，確保不會因為單一模型停用而失敗"""
+    models = get_candidate_models(api_key)
+    print(f"偵測到候選模型順序: {models[:6]}")
+
+    payload = {
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {
+            "temperature": 0.5,
+            "responseMimeType": "application/json",
+        },
     }
-    button.btn {
-      border: none;
-      background: var(--primary);
-      color: white;
-      padding: 9px 15px;
-      border-radius: 10px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.1s, opacity 0.2s;
-    }
-    button.btn.secondary {
-      background: #e2e8f0;
-      color: #1e293b;
-    }
-    button.btn:active { transform: scale(0.98); }
+    body_bytes = json.dumps(payload).encode("utf-8")
 
-    .tip-box {
-      background: #fffbeb;
-      border-left: 4px solid var(--accent);
-      padding: 10px 14px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      color: #92400e;
-      margin-bottom: 18px;
-    }
+    last_error = None
+    for model_name in models:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
+        req = urllib.request.Request(url, data=body_bytes, headers={"Content-Type": "application/json"}, method="POST")
+        try:
+            print(f"正在嘗試模型: {model_name} ...")
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                result = json.loads(resp.read().decode("utf-8"))
+            raw_text = result["candidates"][0]["content"]["parts"][0]["text"].strip()
+            raw_text = re.sub(r"^```(?:json)?\s*", "", raw_text)
+            raw_text = re.sub(r"\s*```$", "", raw_text)
+            parsed = json.loads(raw_text)
+            print(f"✅ 成功使用模型: {model_name}")
+            return parsed
+        except Exception as e:
+            print(f"⚠️ 模型 {model_name} 無法使用，自動換下一個 ({e})")
+            last_error = e
 
-    .para-block { margin-bottom: 18px; }
-    .para-en { font-size: 1.14rem; line-height: 1.85; margin: 0; }
-    .para-zh {
-      margin: 8px 0 0;
-      padding: 10px 14px;
-      background: #f8fafc;
-      border-radius: 10px;
-      color: #475569;
-      font-size: 0.96rem;
-      display: none;
-    }
-    .show-zh .para-zh { display: block; }
+    raise RuntimeError(f"所有候選模型皆無法完成請求，最後錯誤: {last_error}")
 
-    .word-token {
-      cursor: pointer;
-      border-radius: 4px;
-      padding: 0 2px;
-      transition: background 0.15s;
-    }
-    .word-token:hover { background: #dbeafe; }
-    .word-token.is-vocab {
-      border-bottom: 2px dotted var(--primary);
-      font-weight: 500;
-    }
 
-    /* 單字卡區塊 */
-    .vocab-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 12px;
-    }
-    .vocab-item {
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 12px 14px;
-      background: #fcfdff;
-    }
-    .vocab-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 700;
-      color: var(--primary);
-      font-size: 1.05rem;
-    }
-    .speak-mini {
-      background: var(--primary-light);
-      color: var(--primary);
-      border: none;
-      border-radius: 8px;
-      padding: 4px 8px;
-      cursor: pointer;
-      font-size: 0.85rem;
-    }
+def main():
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        raise RuntimeError("找不到 GEMINI_API_KEY，請確認 GitHub Secrets 設定！")
 
-    /* 測驗區塊 */
-    .q-block {
-      margin-bottom: 22px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid #f1f5f9;
-    }
-    .q-title { font-weight: 700; margin-bottom: 10px; font-size: 1.05rem; }
-    .opt-btn {
-      display: block;
-      width: 100%;
-      text-align: left;
-      margin-bottom: 8px;
-      padding: 11px 14px;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 10px;
-      background: white;
-      font-size: 0.98rem;
-      cursor: pointer;
-    }
-    .opt-btn.correct { background: #dcfce7; border-color: var(--success); color: #14532d; font-weight: 600; }
-    .opt-btn.wrong { background: #fee2e2; border-color: var(--danger); color: #7f1d1d; }
-    .q-exp {
-      display: none;
-      margin-top: 8px;
-      padding: 10px 12px;
-      background: #f0fdf4;
-      border-radius: 8px;
-      font-size: 0.92rem;
-      color: #166534;
-    }
+    candidates = fetch_candidate_articles()
+    if not candidates:
+        raise RuntimeError("今天沒有抓到可用的新聞候選清單。")
 
-    /* 點字彈出視窗 */
-    #wordModal {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: min(92vw, 430px);
-      background: #0f172a;
-      color: white;
-      border-radius: 16px;
-      padding: 16px 18px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.28);
-      display: none;
-      z-index: 999;
-    }
-    #wordModal .close-btn {
-      float: right;
-      background: transparent;
-      border: none;
-      color: #94a3b8;
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
+    # 優先挑選本身就有附圖的新聞
+    with_images = [c for c in candidates if c["rss_image"]]
+    pool = with_images if len(with_images) >= 3 else candidates
+    chosen = random.choice(pool[:12])
 
-<header>
-  <h1>🌍 Ingrid & Roman's Daily News</h1>
-  <p>每天 15 分鐘，看真實世界新聞學英文！</p>
-</header>
+    print(f"今日選中新聞: [{chosen['source']}] {chosen['title']}")
 
-<div class="container">
-  <div class="card" id="articleCard">
-    <div class="meta-bar">
-      <span class="badge" id="catBadge">Loading...</span>
-      <span id="dateText"></span>
-      <span id="sourceText"></span>
-    </div>
+    image_url = chosen["rss_image"]
+    image_credit = f"News photo from {chosen['source']}"
+    if not image_url:
+        og_img = extract_og_image(chosen["link"])
+        if og_img:
+            image_url = og_img
+            image_credit = f"News photo from {chosen['source']}"
 
-    <h2 class="article-title" id="articleTitle">正在載入今天的新聞...</h2>
+    prompt = f"""
+You are creating a daily English news reading lesson for two Taiwanese kids (upper elementary to Grade 7, targeting US Grade 5-6 informational reading level, engaging and clear).
 
-    <!-- 新聞真實照片框（有照片才顯示，載入失敗自動隱藏防破圖） -->
-    <figure class="news-figure" id="newsFigure" style="display: none;">
-      <img id="newsImage" alt="Daily news photo" referrerpolicy="no-referrer" />
-      <figcaption class="news-caption" id="newsCaptionBox">
-        <span id="newsCaptionEn"></span>
-        <span class="cap-zh" id="newsCaptionZh"></span>
-        <span class="news-credit" id="newsCredit"></span>
-      </figcaption>
-    </figure>
+Source News:
+- Source: {chosen['source']}
+- Original Title: {chosen['title']}
+- Original Summary: {chosen['summary']}
 
-    <div class="toolbar">
-      <button class="btn" onclick="speakArticle(0.92)">🔊 朗讀全文</button>
-      <button class="btn secondary" onclick="speakArticle(0.75)">🐢 慢速朗讀</button>
-      <button class="btn secondary" onclick="stopSpeak()">⏹️ 停止</button>
-      <button class="btn secondary" onclick="toggleZh()">🈶 顯示 / 隱藏中文翻譯</button>
-    </div>
+Rewrite this real news story into an engaging, accurate 3-paragraph article (around 220-300 words total). Do NOT invent fake facts beyond the summary and well-established science background.
 
-    <div class="tip-box">
-      💡 <strong>小提示：</strong>文章裡有底線的是今日重點單字；遇到<strong>任何不認識的字</strong>，直接點它就能聽發音、看中文意思喔！
-    </div>
+Return ONLY valid JSON matching this exact structure:
+{{
+  "title": "Engaging English headline for kids",
+  "category": "Science & Nature",
+  "image_caption": "1 short, clear English sentence explaining what this news story is about, suitable under a photo.",
+  "image_caption_zh": "圖片說明的繁體中文翻譯（台灣用語）",
+  "backup_image_query": "2 to 3 concrete English nouns for searching a real photo if needed, e.g. 'sea otter' or 'mars rover'",
+  "paragraphs": [
+    {{
+      "en": "Paragraph 1 in natural, vivid English (around 70-100 words).",
+      "zh": "第一段自然流暢的繁體中文翻譯（台灣慣用語）。"
+    }},
+    {{
+      "en": "Paragraph 2...",
+      "zh": "第二段繁體中文翻譯..."
+    }},
+    {{
+      "en": "Paragraph 3...",
+      "zh": "第三段繁體中文翻譯..."
+    }}
+  ],
+  "vocab": [
+    {{
+      "word": "key word from the article",
+      "pos": "n. / v. / adj. / adv.",
+      "zh": "繁體中文解釋（簡潔清楚）",
+      "example": "A short example sentence for kids."
+    }}
+  ],
+  "questions": [
+    {{
+      "q": "Reading comprehension question",
+      "options": ["Option A", "Option B", "Option C", "Option D"],
+      "answer": 0,
+      "explanation": "用繁體中文溫和清楚地解釋為什麼這個選項正確。"
+    }}
+  ]
+}}
 
-    <div id="paragraphsBox"></div>
-  </div>
+Requirements:
+- Exactly 3 paragraphs in `paragraphs`.
+- 8 to 10 useful vocabulary words in `vocab` that actually appear in the article.
+- Exactly 4 multiple-choice questions in `questions`, `answer` is index 0, 1, 2, or 3.
+- Use Traditional Chinese (Taiwan phrasing, e.g., 太空人, 科學家, 資訊, 影片).
+"""
 
-  <div class="card">
-    <h3>📚 今日重點單字 (Key Vocabulary)</h3>
-    <div class="vocab-grid" id="vocabBox"></div>
-  </div>
+    lesson_data = generate_json_with_gemini(api_key, prompt)
 
-  <div class="card">
-    <h3>🧠 閱讀理解挑戰 (Reading Quiz)</h3>
-    <div id="quizBox"></div>
-    <div id="scoreBox" style="font-weight:700; font-size:1.1rem; color:var(--primary);"></div>
-  </div>
-</div>
+    if not image_url:
+        backup_query = lesson_data.get("backup_image_query", "")
+        wiki_url, wiki_credit = search_wikimedia_photo(backup_query)
+        if wiki_url:
+            image_url = wiki_url
+            image_credit = wiki_credit
 
-<div id="wordModal">
-  <button class="close-btn" onclick="document.getElementById('wordModal').style.display='none'">✕</button>
-  <div style="font-size:1.25rem; font-weight:700;" id="mWord">word</div>
-  <div style="font-size:0.9rem; color:#93c5fd; margin:4px 0;" id="mPos"></div>
-  <div style="font-size:1rem; margin:6px 0;" id="mMeaning">查詢中...</div>
-  <div style="margin-top:10px; display:flex; gap:8px;">
-    <button class="btn" style="padding:6px 12px; font-size:0.85rem;" id="mSpeakBtn">🔊 美式發音</button>
-    <button class="btn secondary" style="padding:6px 12px; font-size:0.85rem;" id="mSlowBtn">🐢 慢速</button>
-  </div>
-</div>
+    tw_now = datetime.now(timezone(timedelta(hours=8)))
+    date_str = tw_now.strftime("%Y-%m-%d")
 
-<script>
-  let lesson = null;
-  let vocabMap = {};
-  let answeredCount = 0;
-  let correctCount = 0;
-  let dictAudioUrl = "";
-
-  async function loadLesson() {
-    const res = await fetch('./data/today.json?t=' + Date.now());
-    lesson = await res.json();
-
-    document.getElementById('catBadge').textContent = lesson.category || 'Daily News';
-    document.getElementById('dateText').textContent = '📅 ' + (lesson.date || '');
-    if (lesson.source_name) {
-      const srcEl = document.getElementById('sourceText');
-      if (lesson.source_url) {
-        srcEl.innerHTML = `📰 來源：<a href="${lesson.source_url}" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">${lesson.source_name}</a>`;
-      } else {
-        srcEl.textContent = '📰 來源：' + lesson.source_name;
-      }
-    }
-    document.getElementById('articleTitle').textContent = lesson.title;
-
-    // 處理真實新聞圖片顯示與防破圖
-    const fig = document.getElementById('newsFigure');
-    const img = document.getElementById('newsImage');
-    if (lesson.image_url) {
-      img.onerror = () => { fig.style.display = 'none'; };
-      img.onload = () => { fig.style.display = 'block'; };
-      img.src = lesson.image_url;
-
-      document.getElementById('newsCaptionEn').textContent = lesson.image_caption || '';
-      document.getElementById('newsCaptionZh').textContent = lesson.image_caption_zh || '';
-      document.getElementById('newsCredit').textContent = lesson.image_credit ? `📷 ${lesson.image_credit}` : '';
-    } else {
-      fig.style.display = 'none';
+    final_json = {
+        "date": date_str,
+        "source_name": chosen["source"],
+        "source_url": chosen["link"],
+        "title": lesson_data["title"],
+        "category": lesson_data.get("category", "Science News"),
+        "image_url": image_url,
+        "image_caption": lesson_data.get("image_caption", ""),
+        "image_caption_zh": lesson_data.get("image_caption_zh", ""),
+        "image_credit": image_credit if image_url else "",
+        "paragraphs": lesson_data["paragraphs"],
+        "vocab": lesson_data["vocab"],
+        "questions": lesson_data["questions"],
     }
 
-    // 建立重點單字索引
-    vocabMap = {};
-    (lesson.vocab || []).forEach(v => {
-      vocabMap[v.word.toLowerCase()] = v;
-    });
+    os.makedirs("data/archive", exist_ok=True)
+    with open("data/today.json", "w", encoding="utf-8") as f:
+        json.dump(final_json, f, ensure_ascii=False, indent=2)
+    with open(f"data/archive/{date_str}.json", "w", encoding="utf-8") as f:
+        json.dump(final_json, f, ensure_ascii=False, indent=2)
 
-    // 渲染文章段落（每個單字可點擊）
-    const pBox = document.getElementById('paragraphsBox');
-    pBox.innerHTML = '';
-    (lesson.paragraphs || []).forEach(p => {
-      const block = document.createElement('div');
-      block.className = 'para-block';
+    print(f"🎉 成功產生今日教材！圖片網址: {image_url or '無（前端將自動隱藏圖片框）'}")
 
-      const pEn = document.createElement('p');
-      pEn.className = 'para-en';
-      pEn.innerHTML = tokenizeParagraph(p.en);
 
-      const pZh = document.createElement('p');
-      pZh.className = 'para-zh';
-      pZh.textContent = p.zh;
-
-      block.appendChild(pEn);
-      block.appendChild(pZh);
-      pBox.appendChild(block);
-    });
-
-    // 渲染單字卡
-    const vBox = document.getElementById('vocabBox');
-    vBox.innerHTML = '';
-    (lesson.vocab || []).forEach(v => {
-      const item = document.createElement('div');
-      item.className = 'vocab-item';
-      item.innerHTML = `
-        <div class="vocab-head">
-          <span>${v.word} <small style="color:#64748b;font-weight:400;">${v.pos || ''}</small></span>
-          <button class="speak-mini" onclick="speakWord('${v.word.replace(/'/g, "\\'")}', 0.9)">🔊</button>
-        </div>
-        <div style="margin-top:4px;font-weight:600;">${v.zh}</div>
-        <div style="margin-top:4px;font-size:0.86rem;color:#64748b;">${v.example || ''}</div>
-      `;
-      vBox.appendChild(item);
-    });
-
-    // 渲染閱讀測驗
-    const qBox = document.getElementById('quizBox');
-    qBox.innerHTML = '';
-    answeredCount = 0;
-    correctCount = 0;
-    (lesson.questions || []).forEach((q, qIdx) => {
-      const qb = document.createElement('div');
-      qb.className = 'q-block';
-      const title = document.createElement('div');
-      title.className = 'q-title';
-      title.textContent = `${qIdx + 1}. ${q.q}`;
-      qb.appendChild(title);
-
-      const exp = document.createElement('div');
-      exp.className = 'q-exp';
-      exp.textContent = '💡 ' + q.explanation;
-
-      q.options.forEach((opt, oIdx) => {
-        const btn = document.createElement('button');
-        btn.className = 'opt-btn';
-        btn.textContent = `${String.fromCharCode(65 + oIdx)}. ${opt}`;
-        btn.onclick = () => checkAnswer(qb, btn, oIdx, q.answer, exp, lesson.questions.length);
-        qb.appendChild(btn);
-      });
-
-      qb.appendChild(exp);
-      qBox.appendChild(qb);
-    });
-  }
-
-  function tokenizeParagraph(text) {
-    return text.replace(/([A-Za-z]+(?:'[A-Za-z]+)?)/g, (match) => {
-      const lower = match.toLowerCase();
-      const isVocab = vocabMap[lower] || vocabMap[lower.replace(/s$|ed$|ing$/, '')];
-      const cls = isVocab ? 'word-token is-vocab' : 'word-token';
-      const safe = match.replace(/'/g, "\\'");
-      return `<span class="${cls}" onclick="lookupWord('${safe}')">${match}</span>`;
-    });
-  }
-
-  function checkAnswer(qb, clickedBtn, chosen, ans, expEl, total) {
-    if (qb.dataset.done) return;
-    qb.dataset.done = '1';
-    const buttons = qb.querySelectorAll('.opt-btn');
-    buttons[ans].classList.add('correct');
-    if (chosen === ans) {
-      correctCount++;
-    } else {
-      clickedBtn.classList.add('wrong');
-    }
-    expEl.style.display = 'block';
-    answeredCount++;
-    if (answeredCount === total) {
-      document.getElementById('scoreBox').textContent = `🎉 完成今日挑戰！得分：${correctCount} / ${total}`;
-    }
-  }
-
-  function toggleZh() {
-    document.getElementById('articleCard').classList.toggle('show-zh');
-  }
-
-  function speakTextWithTTS(text, rate = 0.9) {
-    if (!('speechSynthesis' in window)) return;
-    window.speechSynthesis.cancel();
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = 'en-US';
-    utter.rate = rate;
-    const voices = window.speechSynthesis.getVoices();
-    const usVoice = voices.find(v => v.lang === 'en-US' && /Samantha|Ava|Alex|Google US/i.test(v.name))
-                 || voices.find(v => v.lang === 'en-US');
-    if (usVoice) utter.voice = usVoice;
-    window.speechSynthesis.speak(utter);
-  }
-
-  function speakWord(word, rate = 0.9) {
-    // 若字典 API 有提供真人錄音 mp3 且為正常語速，優先播放真人 mp3（對手機相容性更友善）
-    if (dictAudioUrl && rate >= 0.85) {
-      const audio = new Audio(dictAudioUrl);
-      audio.play().catch(() => speakTextWithTTS(word, rate));
-      return;
-    }
-    speakTextWithTTS(word, rate);
-  }
-
-  function speakArticle(rate) {
-    if (!lesson) return;
-    const fullText = lesson.title + '. ' + lesson.paragraphs.map(p => p.en).join(' ');
-    speakTextWithTTS(fullText, rate);
-  }
-
-  function stopSpeak() {
-    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-  }
-
-  async function lookupWord(word) {
-    const modal = document.getElementById('wordModal');
-    const mWord = document.getElementById('mWord');
-    const mPos = document.getElementById('mPos');
-    const mMeaning = document.getElementById('mMeaning');
-    dictAudioUrl = "";
-
-    modal.style.display = 'block';
-    mWord.textContent = word;
-    mPos.textContent = '';
-    mMeaning.textContent = '查詢中...';
-
-    document.getElementById('mSpeakBtn').onclick = () => speakWord(word, 0.92);
-    document.getElementById('mSlowBtn').onclick = () => speakTextWithTTS(word, 0.65);
-
-    const lower = word.toLowerCase();
-    const hit = vocabMap[lower] || vocabMap[lower.replace(/s$|ed$|ing$/, '')];
-
-    // 嘗試向免費字典抓真人發音 mp3 與音標
-    try {
-      const dRes = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(lower)}`);
-      if (dRes.ok) {
-        const dJson = await dRes.json();
-        const phonetics = dJson[0]?.phonetics || [];
-        const usAudio = phonetics.find(p => p.audio && p.audio.includes('-us')) || phonetics.find(p => p.audio);
-        if (usAudio?.audio) dictAudioUrl = usAudio.audio;
-        const phoneticText = dJson[0]?.phonetic || phonetics.find(p => p.text)?.text || '';
-        if (phoneticText) mPos.textContent = phoneticText;
-      }
-    } catch (e) {}
-
-    speakWord(word, 0.92);
-
-    if (hit) {
-      mPos.textContent = (mPos.textContent ? mPos.textContent + ' · ' : '') + (hit.pos || '');
-      mMeaning.textContent = hit.zh;
-      return;
-    }
-
-    try {
-      const tRes = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(lower)}&langpair=en|zh-TW`);
-      const tJson = await tRes.json();
-      mMeaning.textContent = tJson?.responseData?.translatedText || '請參考上下文理解字義';
-    } catch (e) {
-      mMeaning.textContent = '目前無法連線翻譯服務';
-    }
-  }
-
-  loadLesson();
-</script>
-</body>
-</html>
+if __name__ == "__main__":
+    main()
