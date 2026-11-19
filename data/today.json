@@ -1,197 +1,205 @@
 {
-  "selected_id": 13,
-  "date": "2026-11-18",
-  "category": "🌍 Planet & Wildlife",
+  "selected_id": 9,
+  "date": "2026-11-19",
+  "category": "🔭 Space & Cosmos",
   "level": "US Grade 7–8 (Lexile 1050L｜CEFR B2)",
-  "title": "Hidden Ecosystems: Scientists Discover Thousands of Animals Inside Deep-Sea Rocks",
-  "title_zh": "隱藏的生態系統：科學家在深海岩石中發現數千種生物",
-  "image_caption": "Tiny, metal-rich nodules on the ocean floor provide a sanctuary for diverse marine life. 深海岩床中富含金屬的結核為多樣化的海洋生物提供了避風港。",
+  "title": "One Light-Day Away: Empire State Building Honors Voyager’s Historic Journey",
+  "title_zh": "航向一光天之遙：帝國大廈金光璀璨，致敬航海家一號劃時代星際壯舉",
+  "image_caption": "The Empire State Building glows in radiant gold to commemorate NASA's Voyager 1 reaching an unprecedented distance of one light-day from Earth. (紐約帝國大廈亮起璀璨金光，慶祝美國太空總署航海家一號探測器突破離地『一光天』的歷史性里程碑。)",
   "paragraphs": [
     {
-      "en": "Deep beneath the Pacific Ocean, where sunlight never penetrates, researchers have uncovered a remarkable secret hidden within the seafloor. While examining metal-rich nodules—small, potato-sized rocks that take millions of years to form—scientists were astonished to find a bustling, hidden ecosystem. Within the cracks and cavities of just 244 of these rocks, the team identified over 4,100 individual animals, representing a diverse community of life that thrives in total darkness.",
-      "zh": "在陽光無法穿透的太平洋深處，研究人員在海底發現了一個驚人的秘密。當科學家檢查富含金屬的結核（一種需要數百萬年才能形成的馬鈴薯大小岩石）時，驚訝地發現了一個隱藏的繁華生態系統。在僅 244 個這類岩石的裂縫與空腔中，研究團隊鑑定出超過 4,100 個個體生物，展現了一個在全黑環境下蓬勃發展的多樣化生命群落。"
+      "en": "On a brisk November evening, the iconic spire of the Empire State Building radiated a brilliant golden hue across the Manhattan skyline, commemorating one of humanity’s most astonishing scientific feats. Far beyond the orbit of Pluto, NASA’s Voyager 1 spacecraft crossed an unprecedented milestone: it became the first artificial object in history to venture one full light-day away from Earth. Launched in 1977, this valiant robotic emissary has spent nearly half a century traversing the cold expanse of the cosmos. Reaching this threshold means that the distance separating our home planet from the intrepid probe now equals the staggering distance light travels across an entire twenty-four-hour period.",
+      "zh": "在十一月一個微涼的夜晚，紐約帝國大廈標誌性的尖塔向曼哈頓天際線灑下璀璨的金黃光芒，紀念人類最驚人的科學壯舉之一。遠在冥王星軌道之外，美國太空總署（NASA）的航海家一號太空船跨越了一座史無前例的里程碑：它成為歷史上第一個航行至距離地球足足「一光天」之遙的人造物體。這艘英勇的機器人使者於 1977 年發射升空，在酷寒浩瀚的宇宙中穿梭了近半個世紀。跨入這個門檻意味著，將我們母星與這具勇敢探測器隔開的距離，已等同於光在整整 24 小時內所奔馳的驚人長度。"
     },
     {
-      "en": "These miniature habitats are fundamentally different from the surrounding seafloor mud, which scientists previously assumed was the primary home for deep-sea creatures. The nodules act as a solid foundation, offering a stable surface for various organisms to cling to or hide within. This discovery suggests that these rocky formations are not merely geological curiosities but are essential biological hubs that support biodiversity in an otherwise barren, sediment-heavy environment.",
-      "zh": "這些微型棲息地與周圍的海底淤泥截然不同，科學家先前曾假設淤泥是深海生物的主要家園。這些結核就像一個穩固的基石，為各種生物提供了附著或躲藏的穩定表面。這項發現表明，這些岩石構造不僅是地質上的奇觀，更是關鍵的生物樞紐，在貧瘠且充滿沉積物的環境中支撐著生物多樣性。"
+      "en": "To fathom the scale of this achievement, one must grasp the physics governing interstellar distance. Light travels at roughly 186,000 miles per second, translating to an astonishing journey of approximately 16 billion miles in a single day. Consequently, communicating with Voyager 1 requires profound patience from flight engineers at NASA’s Jet Propulsion Laboratory. Whenever scientists transmit a radio command, the signal travels across the pitch-black vacuum for twenty-four hours before arriving; receiving an acknowledgement requires another full day. In essence, researchers are not conversing with the spacecraft in real time, but rather deciphering delayed signals that illuminate the enigmatic conditions outside our sun's protective heliosphere.",
+      "zh": "若要徹底理解這項成就的規模，就必須掌握支配星際距離的物理定律。光以每秒約 186,000 英里（約 30 萬公里）的極速前進，換算下來，光在單單一天內便能奔馳大約 160 億英里。因此，與航海家一號進行通訊，極度考驗 NASA 噴射推進實驗室飛行工程師的無比耐心。每當科學家發送一項無線電指令時，訊號必須穿越漆黑的真空長達 24 小時才能送達；而要接收到對方的確認回覆，又需要另外整整一天。本質上，研究人員並非與太空船進行即時交談，而是在解讀延遲傳回的訊號，以揭開太陽保護層（日球層）外神祕環境的真實面貌。"
     },
     {
-      "en": "However, the researchers expressed significant concern regarding the future of these fragile communities. The same metal-rich rocks that provide shelter for thousands of animals are highly sought after by mining companies for their valuable minerals. As industries look to the deep sea to harvest resources for modern technology, the potential for habitat destruction looms large, posing a serious threat to these newly discovered, isolated ecosystems.",
-      "zh": "然而，研究人員對這些脆弱群落的未來表示深切擔憂。這些為數千種動物提供庇護的含金屬岩石，因其珍貴的礦物質而受到採礦業的高度追捧。隨著工業界將目光投向深海以獲取現代科技所需的資源，棲息地破壞的可能性日益增加，對這些新發現的孤立生態系統構成了嚴重威脅。"
+      "en": "Sustaining an operational probe in this unforgiving environment presents relentless engineering hurdles. Voyager 1 relies on decaying radioisotope thermoelectric generators, which convert heat from plutonium-238 into electrical currents. As this nuclear reserve gradually diminishes, mission controllers systematically deactivate non-essential heaters and scientific instruments to conserve precious power. Furthermore, decades of bombardment by cosmic radiation have repeatedly compromised its antique computer circuits, occasionally corrupting telemetry data and triggering confounding glitches. Yet, whenever anomalies threaten to sever contact permanently, flight engineers devise ingenious software patches, persistently rescuing an artifact manufactured before personal computers were ever conceived.",
+      "zh": "在如此嚴酷的環境中維持探測器的運作，帶來了接踵而來的工程難題。航海家一號仰賴正在衰變的放射性同位素熱電發電機，將鈽-238 產生的熱能轉化為電流。隨著這份核能儲備逐漸遞減，任務控制團隊有系統地關閉非必要的加熱器與科學儀器，以節省寶貴電力。此外，數十年來宇宙輻射的無情轟擊屢次損害其老舊的電腦電路，偶爾會破壞遙測數據並引發令人困惑的故障。然而，每當突發異常威脅要永久中斷通訊時，飛行工程師總能構思出巧妙的軟體修補程式，持續挽救這件早在個人電腦誕生前就已製造完成的歷史古董。"
     },
     {
-      "en": "Ultimately, this study highlights the complexity of our oceans and the urgency of scientific exploration. Before we alter deep-sea environments through industrial activity, we must first understand the delicate webs of life they sustain. Protecting these hidden ecosystems is vital, as they represent a unique chapter in the story of Earth’s biodiversity that we are only just beginning to read and comprehend.",
-      "zh": "總結來說，這項研究凸顯了海洋的複雜性以及科學探索的緊迫性。在我們透過工業活動改變深海環境之前，必須先了解它們所維持的脆弱生命網。保護這些隱藏的生態系統至關重要，因為它們代表了地球生物多樣性故事中獨特的一章，而我們才剛剛開始閱讀與理解。"
+      "en": "The golden glow illuminating New York’s landmark specifically honored the iconic Golden Record affixed to the probe’s chassis—a gold-plated phonograph containing greetings, earthly music, and natural sounds designed for potential extraterrestrial discovery. Long after Voyager’s final electronic whisper fades and its transmitters fall silent, this durable capsule will drift endlessly among the stars. In an era marked by rapid technological obsolescence, Voyager 1 endures as a profound testament to human curiosity and resilience, demonstrating that our modest civilization can cast an eternal message into the cosmic ocean.",
+      "zh": "點亮這座紐約地標的金色光輝，特別致敬了安裝在探測器底盤上的代表性金唱片——這是一張鍍金留聲機唱片，收錄了人類問候語、地球音樂與自然聲響，專為未來潛在的地外文明所設計。即使在航海家一號最後的電子低語消逝、其發射器歸於沉寂之後，這枚耐久的時間膠囊仍將在繁星之間永恆漂流。在一個以科技迅速淘汰過時為特徵的時代，航海家一號作為人類好奇心與堅毅韌性的深遠見證長存於世，向全宇宙證明：我們渺小的文明也能將永恆的訊息投向無垠的宇宙汪洋。"
     }
   ],
   "vocabulary": {
-    "penetrates": {
-      "word": "penetrate",
-      "syllables": "pen·e·trate",
+    "commemorating": {
+      "word": "commemorate",
+      "syllables": "com·mem·o·rate",
       "pos": "v. 動詞",
-      "zh": "穿透",
-      "explanation": "指物體或光線進入、穿過某個介質或空間，文中形容陽光無法到達深海。",
-      "example": "The moonlight barely penetrates the dense canopy of the forest."
+      "zh": "紀念；慶祝",
+      "explanation": "指透過特定儀式、活動或象徵物向重大歷史事件或非凡成就致敬。",
+      "example": "The museum opened a special exhibition commemorating the first moon landing."
     },
-    "astonished": {
-      "word": "astonish",
-      "syllables": "as·ton·ish",
-      "pos": "v. 動詞",
-      "zh": "使大吃一驚",
-      "explanation": "指因為某事極度出乎意料或令人驚奇而產生的強烈震驚感。",
-      "example": "The scientists were astonished by the sudden discovery of the rare species."
-    },
-    "fundamentally": {
-      "word": "fundamental",
-      "syllables": "fun·da·men·tal·ly",
-      "pos": "adv. 副詞",
-      "zh": "根本地",
-      "explanation": "從基礎、本質或核心層面來看，強調與其他事物的根本差異。",
-      "example": "The two theories are fundamentally different in their approach to physics."
-    },
-    "organisms": {
-      "word": "organism",
-      "syllables": "or·gan·ism",
-      "pos": "n. 名詞",
-      "zh": "生物",
-      "explanation": "指任何獨立生存的生命體，如植物、動物或微生物。",
-      "example": "The microscope revealed many tiny organisms living in the water sample."
-    },
-    "geological": {
-      "word": "geological",
-      "syllables": "ge·o·log·i·cal",
+    "unprecedented": {
+      "word": "unprecedented",
+      "syllables": "un·prec·e·dent·ed",
       "pos": "adj. 形容詞",
-      "zh": "地質學的",
-      "explanation": "與地球的岩石、結構或地殼演變過程相關的事物。",
-      "example": "The canyon provides a fascinating look into the geological history of the region."
+      "zh": "前所未有的；史無前例的",
+      "explanation": "用於形容從未發生過、沒有任何先例可循的開創性突破或非凡現象。",
+      "example": "The deep-space telescope captured images with unprecedented clarity and detail."
     },
-    "curiosities": {
-      "word": "curiosity",
-      "syllables": "cu·ri·os·i·ty",
+    "emissary": {
+      "word": "emissary",
+      "syllables": "em·is·sar·y",
       "pos": "n. 名詞",
-      "zh": "稀奇之物",
-      "explanation": "指罕見、奇特或引人注目的事物，常用於描述自然界中的奇觀。",
-      "example": "The museum display featured many historical curiosities from around the world."
+      "zh": "使者；特使",
+      "explanation": "文中擬人化比喻太空探測器代表全人類深入未知的星際空間進行探索。",
+      "example": "The robot rover acted as an emissary sent to uncover ancient water on Mars."
     },
-    "biodiversity": {
-      "word": "biodiversity",
-      "syllables": "bi·o·di·ver·si·ty",
-      "pos": "n. 名詞",
-      "zh": "生物多樣性",
-      "explanation": "指在特定環境中生命形式的豐富程度與種類多樣化。",
-      "example": "Protecting rainforests is essential for maintaining global biodiversity."
+    "fathom": {
+      "word": "fathom",
+      "syllables": "fath·om",
+      "pos": "v. 動詞",
+      "zh": "徹底理解；深入領會",
+      "explanation": "指經過深度思索以真正領悟極其複雜、深奧或極為龐大的事物概念。",
+      "example": "It is difficult to fathom the sheer size of galaxies located billions of light-years away."
     },
-    "sediment": {
-      "word": "sediment",
-      "syllables": "sed·i·ment",
-      "pos": "n. 名詞",
-      "zh": "沉積物",
-      "explanation": "指沉澱在液體底部或地表的物質，如沙、泥土或礦物質。",
-      "example": "The riverbed was covered in a thick layer of sediment."
-    },
-    "fragile": {
-      "word": "fragile",
-      "syllables": "frag·ile",
+    "profound": {
+      "word": "profound",
+      "syllables": "pro·found",
       "pos": "adj. 形容詞",
-      "zh": "脆弱的",
-      "explanation": "指容易受損或破壞，需要特別小心保護的狀態。",
-      "example": "The fragile coral reefs are easily harmed by pollution and temperature changes."
+      "zh": "極度的；深遠的",
+      "explanation": "修飾某種品質、情緒或影響，表示其程度極為深厚且非比尋常。",
+      "example": "The astronaut felt a profound sense of wonder while gazing down at Earth."
     },
-    "minerals": {
-      "word": "mineral",
-      "syllables": "min·er·al",
+    "acknowledgement": {
+      "word": "acknowledgement",
+      "syllables": "ac·knowl·edge·ment",
       "pos": "n. 名詞",
-      "zh": "礦物質",
-      "explanation": "自然界中發現的無機物質，通常具有特定的化學組成。",
-      "example": "Many essential minerals are found deep within the earth's crust."
+      "zh": "確認回覆；答認",
+      "explanation": "在通訊與科學語境中，指接收端收到指令後傳回以證明確認的訊號。",
+      "example": "Mission control celebrated when they received an acknowledgement from the satellite."
     },
-    "looms": {
-      "word": "loom",
-      "syllables": "loom",
-      "pos": "v. 動詞",
-      "zh": "隱約顯現（負面事物）",
-      "explanation": "指威脅或危險即將發生，帶有壓迫感或不祥的意味。",
-      "example": "The threat of a storm loomed over the city as the clouds turned dark."
+    "enigmatic": {
+      "word": "enigmatic",
+      "syllables": "en·ig·mat·ic",
+      "pos": "adj. 形容詞",
+      "zh": "神祕難解的",
+      "explanation": "形容星際深空中未經完整探索、充滿謎團且難以捉摸的未知環境。",
+      "example": "The probe collected data to unravel the enigmatic nature of interstellar dust."
     },
-    "comprehend": {
-      "word": "comprehend",
-      "syllables": "com·pre·hend",
+    "diminishes": {
+      "word": "diminish",
+      "syllables": "di·min·ish",
       "pos": "v. 動詞",
-      "zh": "理解",
-      "explanation": "指深入了解事物的意義或複雜性，不僅是知道，還包括吸收知識。",
-      "example": "It is difficult to comprehend the vast scale of the entire universe."
+      "zh": "減少；減弱",
+      "explanation": "指放射性核能原料隨時間自然衰減，使探測器可用的電能持續下降。",
+      "example": "As daylight diminishes during autumn, the temperature steadily drops."
+    },
+    "telemetry": {
+      "word": "telemetry",
+      "syllables": "te·lem·e·try",
+      "pos": "n. 名詞",
+      "zh": "遙測數據；遠程監控資訊",
+      "explanation": "指航天儀器從遙遠太空自動量測並發回地球的設備運作狀態與環境數據。",
+      "example": "Engineers analyzed the telemetry to confirm that the thrusters had fired successfully."
+    },
+    "anomalies": {
+      "word": "anomaly",
+      "syllables": "a·nom·a·ly",
+      "pos": "n. 名詞",
+      "zh": "異常情況；反常現象",
+      "explanation": "指儀器或系統偏離正常運轉規律的意外故障或難以解釋的偏差訊號。",
+      "example": "Sensors detected unexpected anomalies in the spacecraft's solar panels."
+    },
+    "ingenious": {
+      "word": "ingenious",
+      "syllables": "in·gen·ious",
+      "pos": "adj. 形容詞",
+      "zh": "巧妙的；別出心裁的",
+      "explanation": "形容工程師展現極高智謀與創造力，所提出的高明且獨創之解決方案。",
+      "example": "The scientists invented an ingenious filtration system using everyday recycled materials."
+    },
+    "obsolescence": {
+      "word": "obsolescence",
+      "syllables": "ob·so·les·cence",
+      "pos": "n. 名詞",
+      "zh": "過時；淘汰",
+      "explanation": "指科技產品或設備因時代進步與新發明湧現，而迅速變得陳舊退役的現象。",
+      "example": "Rapid advancements in computing often lead to the rapid obsolescence of smartphones."
+    },
+    "resilience": {
+      "word": "resilience",
+      "syllables": "re·sil·ience",
+      "pos": "n. 名詞",
+      "zh": "韌性；堅毅復原力",
+      "explanation": "指航天系統或人類精神在歷經極端逆境與漫長歲月考驗下仍屹立不搖的特質。",
+      "example": "The team admired the resilience of the ancient pine tree growing on the barren cliff."
     }
   },
   "quiz": [
     {
-      "question": "1. What is the central idea of this article?",
+      "question": "What is the central idea of the article?",
       "options": [
-        "A. Deep-sea mining is the most efficient way to gather minerals.",
-        "B. Scientists discovered a diverse ecosystem living inside deep-sea rocks.",
-        "C. The Pacific Ocean is currently the most polluted region on Earth.",
-        "D. Potato-sized rocks are the primary cause of ocean floor erosion."
+        "A. The Empire State Building has switched entirely to gold LED lighting to conserve electricity in New York City.",
+        "B. Voyager 1 reached an unprecedented distance of one light-day from Earth, highlighting both historic human ingenuity and enduring exploration.",
+        "C. NASA is developing a replacement robotic probe to retrieve the Golden Record before its battery completely dies.",
+        "D. Scientists have discovered that radio communications cannot penetrate through the solar system's outer heliosphere."
       ],
       "answer": 1,
-      "explanation": "文章主旨為介紹科學家在深海結核中發現隱藏的豐富生態系統，以及對其面臨威脅的擔憂。"
+      "explanation": "本文的核心主旨為：航海家一號探測器達成距離地球「一光天」的歷史里程碑，帝國大廈為此亮起金光致敬，展現了人類面對極端工程挑戰的卓越智慧與永恆探索精神。"
     },
     {
-      "question": "2. According to the text, why are these nodules important to deep-sea life?",
+      "question": "According to the article, why does communicating with Voyager 1 require at least two full days for a round-trip exchange?",
       "options": [
-        "A. They provide a stable surface for organisms to live on in a muddy environment.",
-        "B. They produce oxygen that the animals need to survive.",
-        "C. They act as a food source for most of the animals found.",
-        "D. They protect animals from the intense heat of the ocean floor."
+        "A. The spacecraft’s main computers must reboot for 24 hours between receiving instructions and sending replies.",
+        "B. Intense solar radiation near Pluto blocks satellite communication channels for half of each week.",
+        "C. A radio signal traveling at light speed takes 24 hours to reach the probe and another 24 hours for the reply to return.",
+        "D. Ground engineers at NASA must manually decode analog signals using paper punch cards."
+      ],
+      "answer": 2,
+      "explanation": "文本第二段明確指出，無線電訊號以光速行進，單程前往探測器需耗時 24 小時，回傳確認訊號又需耗時整整一天，因此來回通訊至少需要兩天。"
+    },
+    {
+      "question": "As used in paragraph 2, what does the word \"fathom\" most nearly mean?",
+      "options": [
+        "A. Measure the depth of water in the ocean",
+        "B. Fully comprehend or grasp a complex concept",
+        "C. Greatly underestimate the difficulty of a task",
+        "D. Design a new mathematical calculation tool"
+      ],
+      "answer": 1,
+      "explanation": "在第二段中，「To fathom the scale of this achievement」意指「若要徹底理解／領悟這項成就的規模」，因此 fathom 在此作動詞，表示全面理解（comprehend/grasp）。"
+    },
+    {
+      "question": "What can be inferred about the computer systems aboard Voyager 1 based on paragraph 3?",
+      "options": [
+        "A. They are remarkably primitive compared to modern technology, making maintenance via software patches an extraordinary achievement.",
+        "B. They run on modern multi-core microprocessors that were upgraded during a secret shuttle servicing mission.",
+        "C. They have suffered no mechanical or electrical issues since launching in 1977 due to protective gold shielding.",
+        "D. They will automatically self-destruct once their nuclear power supply completely runs out."
       ],
       "answer": 0,
-      "explanation": "文中提到這些結核提供了穩固的基石，讓生物能附著或躲藏，這對淤泥環境中的生物至關重要。"
+      "explanation": "第三段指出該探測器是在個人電腦誕生前就已製造的「骨董古物（antique vintage circuits/artifact）」，且歷經宇宙輻射破壞，工程師卻能透過遠程編寫巧妙修補程式持續搶救，可推知其運算架構極為原始，維護難度非凡。"
     },
     {
-      "question": "3. What does the word 'penetrates' most likely mean in the first paragraph?",
+      "question": "How does the author structure the article to develop the topic?",
       "options": [
-        "A. To reflect off a surface.",
-        "B. To create a loud sound.",
-        "C. To move into or through something.",
-        "D. To disappear completely."
+        "A. By listing the costs of space missions and arguing that deep-space exploration should be immediately defunded.",
+        "B. By contrasting the launch of Voyager 1 with ancient astronomical observatories in different world cultures.",
+        "C. By opening with a striking visual tribute on Earth, explaining the scientific meaning and engineering challenges, and concluding with philosophical significance.",
+        "D. By presenting a chronological diary entry of an individual engineer at NASA during a single afternoon."
       ],
       "answer": 2,
-      "explanation": "在語境中，陽光無法「穿透」深海，因此是指進入或穿過某個空間。"
+      "explanation": "文章結構首先以紐約帝國大廈的金光致敬破題，接著解釋「一光天」的物理尺度與通訊延遲，再探討維護老舊探測器的工程難題，最後以金唱片的永恆象徵與人類探索精神作結。"
     },
     {
-      "question": "4. Based on the third paragraph, what is the main conflict regarding these rocks?",
+      "question": "What primary cause has forced NASA flight controllers to gradually shut down instruments on Voyager 1?",
       "options": [
-        "A. The rocks are too heavy to be studied in a lab.",
-        "B. Animals living in the rocks are moving to the surface.",
-        "C. The rocks contain valuable minerals that industries want to extract.",
-        "D. Scientists are arguing about how old the rocks actually are."
+        "A. The probe's camera lenses were shattered by an unexpected collision with space debris.",
+        "B. Ground controllers lost the original operating manuals during an office relocation.",
+        "C. The radioactive decay of plutonium-238 steadily reduces the electrical power available on board.",
+        "D. The probe entered an icy interstellar cloud that completely froze its mechanical joints."
       ],
       "answer": 2,
-      "explanation": "第三段明確指出這些岩石因富含礦物質而受到採礦業覬覦，這構成了生態保護與工業開發的衝突。"
-    },
-    {
-      "question": "5. What is the author's primary purpose in writing this article?",
-      "options": [
-        "A. To explain how to mine minerals from the ocean floor.",
-        "B. To describe the physical appearance of various deep-sea fish.",
-        "C. To raise awareness about a newly discovered ecosystem and its vulnerability.",
-        "D. To argue that deep-sea exploration should be completely banned."
-      ],
-      "answer": 2,
-      "explanation": "作者旨在介紹這項科學發現，並提醒大眾這些脆弱生態系統面臨工業威脅的嚴重性。"
-    },
-    {
-      "question": "6. What is the cause-and-effect relationship mentioned in the final paragraph?",
-      "options": [
-        "A. Industrial activity causes deep-sea environments to grow faster.",
-        "B. Understanding life webs is necessary before altering deep-sea environments.",
-        "C. Biodiversity causes the ocean to become more polluted over time.",
-        "D. Scientific exploration causes the destruction of hidden ecosystems."
-      ],
-      "answer": 1,
-      "explanation": "最後一段強調在進行工業活動前，必須先理解深海的生命網絡，這是一種因果行動建議。"
+      "explanation": "第三段明確解釋了因果關係：探測器仰賴的鈽-238 放射性同位素發電機熱能儲備逐漸衰減（diminishes），為了節省有限的電力，控制人員必須有系統地關閉非核心加熱器與科學儀器。"
     }
   ],
-  "image_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
-  "source_url": "https://www.sciencedaily.com/releases/2026/11/261114202133.htm",
+  "image_url": "https://www.nasa.gov/wp-content/uploads/2026/11/55658604092-c6f0765cc5-o.jpg?w=2048",
+  "source_url": "https://www.nasa.gov/image-article/empire-state-building-goes-gold-for-voyager/",
   "cloud_audio": {
     "cloud_uk_male": {
       "label": "🇬🇧 雲端真人級｜UK English Male (英式男主播)",
