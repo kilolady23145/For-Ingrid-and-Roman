@@ -1,0 +1,245 @@
+{
+  "selected_id": 3,
+  "date": "2026-11-23",
+  "category": "🔭 Space & Cosmos",
+  "level": "US Grade 7–8 (Lexile 1050L｜CEFR B2)",
+  "title": "Destination Mercury: A Spacecraft Arrives After an Eight-Year Epic Journey",
+  "title_zh": "歷經八年漫長遠征！歐日聯合探測器 BepiColombo 成功抵達神秘水星",
+  "image_caption": "The BepiColombo spacecraft approaches Mercury after an arduous eight-year journey through the inner solar system. 歐日聯合水星探測器 BepiColombo 在經歷八年艱辛的太陽系內部航程後成功抵達水星軌道。",
+  "paragraphs": [
+    {
+      "en": "After navigating through the harsh realm of the inner solar system for eight years, an ambitious robotic spacecraft has finally arrived at its destination: Mercury, the smallest and innermost planet orbiting our Sun. The joint European and Japanese mission, named BepiColombo, completed an unprecedented interplanetary voyage covering billions of kilometers. Because Mercury orbits exceptionally close to the Sun, reaching it presented formidable engineering hurdles that required extraordinary precision. Astronomers across the globe celebrated this momentous achievement as the spacecraft entered orbit, preparing to capture the most detailed images and scientific data ever collected from this enigmatic world.",
+      "zh": "在太陽系內圍的嚴酷環境中穿梭航行了八年之後，一艘雄心勃勃的機器人太空船終於抵達了目的地：水星——太陽系中最渺小且最靠近太陽的行星。這項名為 BepiColombo 的歐洲與日本聯合太空任務，完成了跨越數十億公里的史無前例行星際航行。由於水星繞行太陽的軌道極近，要成功抵達並進入其軌道面臨著艱巨的工程瓶頸，需要極高精準度的控制。當太空船順利進入軌道，準備擷取這座神秘星球有史以來最詳盡的影像與科學數據時，全球天文學家紛紛為此重大成就歡呼。"
+    },
+    {
+      "en": "Reaching Mercury is deceptively difficult due to the immense gravitational pull exerted by the Sun. As a spacecraft travels inward toward the center of our solar system, solar gravity constantly accelerates it, making it difficult to slow down enough to enter a stable orbit. To counteract this relentless pull, mission engineers designed a complex path featuring multiple gravity-assist flybys past Earth, Venus, and Mercury itself. By utilizing the gravitational force of these planets to adjust its velocity and trajectories, BepiColombo gradually altered its course without exhausting all its fuel. Furthermore, the probe must endure extreme temperature fluctuations, ranging from scorching heat on the sunlit side to freezing cold in shadow.",
+      "zh": "由於太陽施加的巨大重力拉力，抵達水星的難度遠比想像中高得多。當太空船向太陽系中心內側飛行時，太陽重力會不斷為其加速，使其難以充分減速以進入穩定的環繞軌道。為了抵銷這種強大的拉力，任務工程師設計了一條複雜的飛行路線，利用多次飛掠地球、金星以及水星本身的「重力助推」技術。藉由這些行星的重力來調整速度與飛行軌跡，BepiColombo 在不耗盡所有燃料的情況下漸進式改變航道。此外，該探測器還必須忍受極端的溫度波動，從面向太陽側的烈日酷暑到陰影區的嚴寒低溫。"
+    },
+    {
+      "en": "The BepiColombo mission actually consists of two individual probes working in tandem: Europe’s Mercury Planetary Orbiter and Japan’s Mercury Magnetospheric Orbiter. Together, these sophisticated instruments will map the planet’s elemental surface composition and investigate its unusual global magnetic field. Scientists are particularly eager to examine permanently shadowed craters located near Mercury’s poles, where radar measurements suggest water ice might exist despite the blistering heat nearby. Gathering this data presents technical challenges, as intense solar radiation and solar wind threaten to degrade electronic systems. Researchers hope that real-time adjustments will help the instruments survive these hostile conditions.",
+      "zh": "BepiColombo 任務實際上由兩個協同工作的獨立探測器組成：歐洲的「水星行星軌道器」與日本的「水星磁層軌道器」。這套精密的科學儀器將共同繪製水星表面的元素成分地圖，並探測其不尋常的全球磁場。科學家特別急於研究位於水星極地附近、處於永久陰影中的隕石坑，儘管附近氣溫極高，雷達測量卻顯示該處可能存在水冰。然而收集這些數據面臨著重大技術挑戰，因為強烈的太陽輻射與太陽風隨時威脅著電子系統的運作，研究人員期望透過即時調整能幫助儀器在惡劣環境中存活。"
+    },
+    {
+      "en": "Unlocking the mysteries of Mercury holds profound significance for understanding how all terrestrial planets—including Earth, Venus, and Mars—formed and evolved over billions of years. Mercury’s unexpectedly large iron core and thin outer crust hint at a violent history marked by giant collisions during the early days of the solar system. By analyzing fresh insights gathered by BepiColombo, researchers can refine computer simulations of planetary formation throughout the galaxy. This international collaboration demonstrates how persistent human curiosity and technological innovation can conquer the solar system's most extreme environments, paving the way for future exploratory missions.",
+      "zh": "揭開水星的奧秘對於理解包含地球、金星與火星在內的所有類地行星如何在數十億年間形成與演化具有深遠意義。水星出乎意料巨大金屬鐵核與薄弱的外地殼，暗示著太陽系初期曾發生過巨型碰撞的猛烈歷史。透過分析 BepiColombo 收集到的全新洞見，研究人員得以修訂全銀河系行星形成的電腦模擬模型。這項國際合作展現了人類持續的好奇心與技術創新如何征服太陽系中最極端的環境，為未來的深空探索任務鋪平道路。"
+    }
+  ],
+  "vocabulary": {
+    "unprecedented": {
+      "word": "unprecedented",
+      "syllables": "un·prec·e·dent·ed",
+      "pos": "adj. 形容詞",
+      "zh": "史無前例的；前所未有的",
+      "explanation": "指過去從未發生過或未曾存在過的事情，常用於形容突破性的科學發現或成就。",
+      "example": "The scientists achieved unprecedented accuracy in measuring the distance to the distant galaxy."
+    },
+    "interplanetary": {
+      "word": "interplanetary",
+      "syllables": "in·ter·plan·e·tar·y",
+      "pos": "adj. 形容詞",
+      "zh": "行星際的；行星之間的",
+      "explanation": "指發生在太陽系內不同行星之間或跨越行星空間的活動或現象。",
+      "example": "Interplanetary space missions require years of precise calculation and advanced technology."
+    },
+    "formidable": {
+      "word": "formidable",
+      "syllables": "for·mi·da·ble",
+      "pos": "adj. 形容詞",
+      "zh": "艱巨的；令人敬畏的",
+      "explanation": "形容任務、挑戰或對手極其困難、強大，需要付出巨大的努力才能克服。",
+      "example": "Landing a rover on the rough Martian surface posed a formidable obstacle for engineers."
+    },
+    "enigmatic": {
+      "word": "enigmatic",
+      "syllables": "en·ig·mat·ic",
+      "pos": "adj. 形容詞",
+      "zh": "神秘的；難以捉摸的",
+      "explanation": "形容某事物充滿謎團、難以理解或解釋，令人好奇。",
+      "example": "The mysterious signal from outer space remained enigmatic despite months of signal analysis."
+    },
+    "gravitational": {
+      "word": "gravitational",
+      "syllables": "grav·i·ta·tion·al",
+      "pos": "adj. 形容詞",
+      "zh": "重力的；引力的",
+      "explanation": "與物體之間的相互吸引力（重力）相關的學術用語。",
+      "example": "The ocean tides on Earth are primarily caused by the gravitational attraction of the Moon."
+    },
+    "counteract": {
+      "word": "counteract",
+      "syllables": "coun·ter·act",
+      "pos": "v. 動詞",
+      "zh": "抵銷；對抗",
+      "explanation": "指採取行動以減弱或消弭某種作用力或不良影響。",
+      "example": "Astronauts exercise daily in space to counteract the negative effects of microgravity on bone density."
+    },
+    "trajectories": {
+      "word": "trajectory",
+      "syllables": "tra·jec·to·ries",
+      "pos": "n. 名詞",
+      "zh": "軌跡；飛行路線",
+      "explanation": "物體（如火箭、行星或探測器）在空間中移動時所遵循的彎曲路徑。",
+      "example": "Computers precisely calculate the spacecraft's trajectories to avoid collisions with space debris."
+    },
+    "fluctuations": {
+      "word": "fluctuation",
+      "syllables": "fluc·tu·a·tions",
+      "pos": "n. 名詞",
+      "zh": "波動；起伏",
+      "explanation": "指數量、溫度或狀態持續且不規則的上升與下降變化。",
+      "example": "Satellites must be built to endure massive temperature fluctuations in outer space."
+    },
+    "sophisticated": {
+      "word": "sophisticated",
+      "syllables": "so·phis·ti·cat·ed",
+      "pos": "adj. 形容詞",
+      "zh": "精密的；先進的",
+      "explanation": "形容系統、儀器或方法高度複雜、精確且技術先進。",
+      "example": "The observatory uses sophisticated sensors to detect invisible cosmic rays."
+    },
+    "composition": {
+      "word": "composition",
+      "syllables": "com·po·si·tion",
+      "pos": "n. 名詞",
+      "zh": "成分；構造",
+      "explanation": "指組成某個整體的不同元素、物質或部分的結合方式。",
+      "example": "Analysis of the rock sample revealed a unique chemical composition unlike anything on Earth."
+    },
+    "mysteries": {
+      "word": "mystery",
+      "syllables": "mys·ter·ies",
+      "pos": "n. 名詞",
+      "zh": "奧秘；謎團",
+      "explanation": "指尚未被解釋、理解或證實的科學現象或未解問題。",
+      "example": "Deep space missions help astronomers unravel the secrets and mysteries of planet formation."
+    },
+    "terrestrial": {
+      "word": "terrestrial",
+      "syllables": "ter·res·tri·al",
+      "pos": "adj. 形容詞",
+      "zh": "類地行星的；陸地的",
+      "explanation": "天文学中指主要由岩石與金屬構成、具有實體表面的行星（如水星、金星、地球、火星）。",
+      "example": "Unlike gas giants, terrestrial planets have solid rocky surfaces that rovers can explore."
+    },
+    "collaboration": {
+      "word": "collaboration",
+      "syllables": "col·lab·o·ra·tion",
+      "pos": "n. 名詞",
+      "zh": "合作；協同工作",
+      "explanation": "多個團體、機構或國家為了共同目標而聯合努力的過程。",
+      "example": "The successful space telescope project was the result of a global international collaboration."
+    }
+  },
+  "quiz": [
+    {
+      "question": "1. What is the central idea of the article?",
+      "options": [
+        "A. Scientists have recently discovered water ice across the bright surface of Mercury.",
+        "B. Solar radiation has destroyed the electronic systems of European and Japanese probes.",
+        "C. The BepiColombo spacecraft arrived at Mercury after an eight-year journey to study its surface and history.",
+        "D. NASA has launched a new mission to replace old planetary exploration satellites around Venus."
+      ],
+      "answer": 2,
+      "explanation": "全文核心在於報導歐日聯合探測器 BepiColombo 經過八年遠征成功進入水星軌道，並展開對水星構造與演化歷史的科學研究。"
+    },
+    {
+      "question": "2. According to paragraph 2, why is reaching Mercury orbit extremely challenging for space missions?",
+      "options": [
+        "A. The planet's powerful magnetic field repels incoming spacecraft.",
+        "B. The Sun's intense gravity speeds up the spacecraft, making it difficult to slow down.",
+        "C. Dense atmosphere around Mercury creates extreme friction and burns probes.",
+        "D. Spacecraft run out of fuel during the long flight toward the outer solar system."
+      ],
+      "answer": 1,
+      "explanation": "第二段明確指出，由於太陽強大的重力會不斷加速朝內太陽系飛行的太空船，使太空船極難減速至能進入穩定軌道的速度。"
+    },
+    {
+      "question": "3. In paragraph 2, what does the word 'counteract' most closely mean?",
+      "options": [
+        "A. To neutralize or offset an opposing force",
+        "B. To double the speed of an accelerating object",
+        "C. To ignore environmental factors completely",
+        "D. To measure the exact distance between two planets"
+      ],
+      "answer": 0,
+      "explanation": "文中 'counteract this relentless pull' 指透過重力助推飛掠路線來『抵銷』或『對抗』太陽強大的重力拉力。"
+    },
+    {
+      "question": "4. What can be inferred about the presence of ice near Mercury's poles?",
+      "options": [
+        "A. It exists because Mercury is the farthest planet from the Sun.",
+        "B. It remains preserved because deep craters shelter it from direct sunlight.",
+        "C. It was delivered recently by astronauts during a manned landing mission.",
+        "D. It melts completely every afternoon when temperatures rise."
+      ],
+      "answer": 1,
+      "explanation": "第三段提到科學家急於研究『永久陰影中的隕石坑』，可推論是因為這些深坑避開了陽光直射，使水冰得以在炙熱的水星上記錄並保存下來。"
+    },
+    {
+      "question": "5. What is the main purpose of paragraph 4?",
+      "options": [
+        "A. To detail the exact budget spent on the BepiColombo spacecraft build",
+        "B. To criticize past missions for failing to understand Mercury's iron core",
+        "C. To explain how studying Mercury helps scientists understand how terrestrial planets formed",
+        "D. To warn about the dangers of future manned space travel to the inner solar system"
+      ],
+      "answer": 2,
+      "explanation": "第四段旨在說明研究水星的全球重要性，即透過了解水星的鐵核與構造，幫助科學家建構與理解包含地球在內的類地行星形成與演化過程。"
+    },
+    {
+      "question": "6. Which cause-and-effect relationship is explicitly described in the text?",
+      "options": [
+        "A. Solar wind destroys Mercury's iron core, causing the planet to shrink.",
+        "B. The spacecraft used gravity-assist flybys to adjust velocity without draining all fuel.",
+        "C. Intense heat on Mercury caused BepiColombo to lose communication with Earth forever.",
+        "D. Liquid oceans on Mercury's surface created giant water-ice craters at the equator."
+      ],
+      "answer": 1,
+      "explanation": "第二段指出，因為工程師採用了行星的『重力助推（gravity-assist flybys）』飛掠技術，才使得太空船能在不耗盡所有燃料的情況下調整速度與軌跡。"
+    }
+  ],
+  "image_url": "https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/eca5/live/034a6cb0-e4c7-11f1-a094-5fdc692f3e33.png",
+  "source_url": "https://www.bbc.co.uk/news/articles/c39w9l4v1p9ro?at_medium=RSS&at_campaign=rss",
+  "cloud_audio": {
+    "cloud_uk_male": {
+      "label": "🇬🇧 雲端真人級｜UK English Male (英式男主播)",
+      "title": "data/archive/audio/cloud_uk_male_title.mp3",
+      "paragraphs": [
+        "data/archive/audio/cloud_uk_male_p0.mp3",
+        "data/archive/audio/cloud_uk_male_p1.mp3",
+        "data/archive/audio/cloud_uk_male_p2.mp3",
+        "data/archive/audio/cloud_uk_male_p3.mp3"
+      ]
+    },
+    "cloud_us_male": {
+      "label": "🇺🇸 雲端真人級｜US English Male (美式男主播)",
+      "title": "data/archive/audio/cloud_us_male_title.mp3",
+      "paragraphs": [
+        "data/archive/audio/cloud_us_male_p0.mp3",
+        "data/archive/audio/cloud_us_male_p1.mp3",
+        "data/archive/audio/cloud_us_male_p2.mp3",
+        "data/archive/audio/cloud_us_male_p3.mp3"
+      ]
+    },
+    "cloud_uk_female": {
+      "label": "🇬🇧 雲端真人級｜UK English Female (英式女主播)",
+      "title": "data/archive/audio/cloud_uk_female_title.mp3",
+      "paragraphs": [
+        "data/archive/audio/cloud_uk_female_p0.mp3",
+        "data/archive/audio/cloud_uk_female_p1.mp3",
+        "data/archive/audio/cloud_uk_female_p2.mp3",
+        "data/archive/audio/cloud_uk_female_p3.mp3"
+      ]
+    },
+    "cloud_us_female": {
+      "label": "🇺🇸 雲端真人級｜US English Female (美式女主播)",
+      "title": "data/archive/audio/cloud_us_female_title.mp3",
+      "paragraphs": [
+        "data/archive/audio/cloud_us_female_p0.mp3",
+        "data/archive/audio/cloud_us_female_p1.mp3",
+        "data/archive/audio/cloud_us_female_p2.mp3",
+        "data/archive/audio/cloud_us_female_p3.mp3"
+      ]
+    }
+  }
+}
