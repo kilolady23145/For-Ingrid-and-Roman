@@ -1,201 +1,209 @@
 {
-  "selected_id": 3,
-  "date": "2026-11-23",
+  "selected_id": 5,
+  "date": "2026-11-24",
   "category": "🔭 Space & Cosmos",
   "level": "US Grade 7–8 (Lexile 1050L｜CEFR B2)",
-  "title": "Destination Mercury: A Spacecraft Arrives After an Eight-Year Epic Journey",
-  "title_zh": "歷經八年漫長遠征！歐日聯合探測器 BepiColombo 成功抵達神秘水星",
-  "image_caption": "The BepiColombo spacecraft approaches Mercury after an arduous eight-year journey through the inner solar system. 歐日聯合水星探測器 BepiColombo 在經歷八年艱辛的太陽系內部航程後成功抵達水星軌道。",
+  "title": "Unlocking Mercury: Spacecraft Reaches the Solar System's Innermost Planet",
+  "title_zh": "揭開水星的神秘面紗：太空船歷經八年航行終抵極熱行星軌道",
+  "image_caption": "An artist's concept depicts a scientific probe orbiting Mercury against the backdrop of intense solar rays. 藝術概念圖展示了科學探測器在強烈太陽光束背景下繞行水星的畫面。",
   "paragraphs": [
     {
-      "en": "After navigating through the harsh realm of the inner solar system for eight years, an ambitious robotic spacecraft has finally arrived at its destination: Mercury, the smallest and innermost planet orbiting our Sun. The joint European and Japanese mission, named BepiColombo, completed an unprecedented interplanetary voyage covering billions of kilometers. Because Mercury orbits exceptionally close to the Sun, reaching it presented formidable engineering hurdles that required extraordinary precision. Astronomers across the globe celebrated this momentous achievement as the spacecraft entered orbit, preparing to capture the most detailed images and scientific data ever collected from this enigmatic world.",
-      "zh": "在太陽系內圍的嚴酷環境中穿梭航行了八年之後，一艘雄心勃勃的機器人太空船終於抵達了目的地：水星——太陽系中最渺小且最靠近太陽的行星。這項名為 BepiColombo 的歐洲與日本聯合太空任務，完成了跨越數十億公里的史無前例行星際航行。由於水星繞行太陽的軌道極近，要成功抵達並進入其軌道面臨著艱巨的工程瓶頸，需要極高精準度的控制。當太空船順利進入軌道，準備擷取這座神秘星球有史以來最詳盡的影像與科學數據時，全球天文學家紛紛為此重大成就歡呼。"
+      "en": "After traversing the inner solar system on an epic eight-year voyage, a joint European-Japanese spacecraft has finally arrived at Mercury, the innermost and least-explored terrestrial planet in our solar system. Navigating through the intense gravitational pull of the Sun, the sophisticated robotic probe executed a series of delicate maneuvers to prepare for insertion into orbit around this enigmatic, scorched world. Scientists around the globe celebrated as the mission successfully transmitted its initial telemetry, marking the beginning of an unprecedented scientific campaign intended to unravel the lingering mysteries of our solar system's smallest planetary neighbor.",
+      "zh": "經過八年在內太陽系的壯麗飛行，由歐洲與日本聯合研發的太空船終於抵達水星——這是太陽系中最靠近太陽、也是人類了解最少的岩石行星。這艘先進的機器探測器在太陽強烈的重力拉扯下，執行了一系列精密微妙的航行操作，準備進入這顆神秘且被烈日烘烤的星球軌道。隨著任務成功傳回首批遙測數據，全球科學家歡欣鼓舞，這標誌著一項前所未有的科學行動正式展開，旨在解開這顆太陽系最小行星鄰居長久以來的未解之謎。"
     },
     {
-      "en": "Reaching Mercury is deceptively difficult due to the immense gravitational pull exerted by the Sun. As a spacecraft travels inward toward the center of our solar system, solar gravity constantly accelerates it, making it difficult to slow down enough to enter a stable orbit. To counteract this relentless pull, mission engineers designed a complex path featuring multiple gravity-assist flybys past Earth, Venus, and Mercury itself. By utilizing the gravitational force of these planets to adjust its velocity and trajectories, BepiColombo gradually altered its course without exhausting all its fuel. Furthermore, the probe must endure extreme temperature fluctuations, ranging from scorching heat on the sunlit side to freezing cold in shadow.",
-      "zh": "由於太陽施加的巨大重力拉力，抵達水星的難度遠比想像中高得多。當太空船向太陽系中心內側飛行時，太陽重力會不斷為其加速，使其難以充分減速以進入穩定的環繞軌道。為了抵銷這種強大的拉力，任務工程師設計了一條複雜的飛行路線，利用多次飛掠地球、金星以及水星本身的「重力助推」技術。藉由這些行星的重力來調整速度與飛行軌跡，BepiColombo 在不耗盡所有燃料的情況下漸進式改變航道。此外，該探測器還必須忍受極端的溫度波動，從面向太陽側的烈日酷暑到陰影區的嚴寒低溫。"
+      "en": "Exploring Mercury poses extraordinary engineering challenges due to the planet's extreme proximity to the Sun, where solar radiation is overwhelming and surface temperatures fluctuate drastically from blistering daytime highs to freezing nighttime lows. To survive this extraordinarily hostile environment, the spacecraft incorporates advanced thermal shields, specialized radiators, and heat-resistant insulation designed to dissipate immense thermal energy. Furthermore, achieving orbit required precise gravity-assist flybys past Earth, Venus, and Mercury itself, gradually decelerating the probe without consuming unsustainable quantities of liquid fuel. These intricate orbital trajectories demonstrate how physics can be cleverer than brute force, allowing scientists to navigate deep space efficiently.",
+      "zh": "由於水星極度靠近太陽，太陽輻射極其強烈，且表面溫度會在極熱的白晝與冰冷的夜晚之間劇烈波動，因此探索水星帶來了極大的工程挑戰。為了在如此惡劣的環境中生存，太空船配備了先進的防熱盾、專用散熱器與耐熱絕緣材料，用以散發巨大的熱能。此外，進入水星軌道需要精確利用地球、金星及水星本身的重力助推飛越，在不消耗過多液體燃料的情況下使探測器逐漸減速。這些複雜的軌道飛行軌跡證明了物理學的巧妙能勝過蠻力，讓科學家得以高效地在深空航行。"
     },
     {
-      "en": "The BepiColombo mission actually consists of two individual probes working in tandem: Europe’s Mercury Planetary Orbiter and Japan’s Mercury Magnetospheric Orbiter. Together, these sophisticated instruments will map the planet’s elemental surface composition and investigate its unusual global magnetic field. Scientists are particularly eager to examine permanently shadowed craters located near Mercury’s poles, where radar measurements suggest water ice might exist despite the blistering heat nearby. Gathering this data presents technical challenges, as intense solar radiation and solar wind threaten to degrade electronic systems. Researchers hope that real-time adjustments will help the instruments survive these hostile conditions.",
-      "zh": "BepiColombo 任務實際上由兩個協同工作的獨立探測器組成：歐洲的「水星行星軌道器」與日本的「水星磁層軌道器」。這套精密的科學儀器將共同繪製水星表面的元素成分地圖，並探測其不尋常的全球磁場。科學家特別急於研究位於水星極地附近、處於永久陰影中的隕石坑，儘管附近氣溫極高，雷達測量卻顯示該處可能存在水冰。然而收集這些數據面臨著重大技術挑戰，因為強烈的太陽輻射與太陽風隨時威脅著電子系統的運作，研究人員期望透過即時調整能幫助儀器在惡劣環境中存活。"
+      "en": "Beyond pushing the boundaries of modern aerospace engineering, the mission seeks to answer fundamental scientific questions regarding Mercury's peculiar structural anomalies. Despite its diminutive size, the planet possesses a disproportionately massive metallic core and an active global magnetic field—phenomena that defy traditional models of planetary formation. Planetary scientists hypothesize that violent giant impacts during the early solar system may have stripped away Mercury's outer rocky crust, leaving behind an unusually dense planetary remnant. Instruments aboard the probe will meticulously map the surface composition, measure magnetic fluctuations, and probe the planet's internal architecture to test these intriguing hypotheses.",
+      "zh": "除了突破現代航太工程的極限外，該任務還試圖回答關於水星奇特結構異常的根本科學問題。儘管水星體積小巧，卻擁有不成比例的巨大金屬核心與活躍的全球磁場——這些現象挑戰了傳統的行星形成模型。行星科學家推測，太陽系早期的劇烈碰撞可能剝離了水星外層的岩石地殼，留下了一個異常緻密的行星殘骸。探測器搭載的儀器將精確繪製表面成分、測量磁場波動，並探測行星的內部結構，以驗證這些引人入勝的假設。"
     },
     {
-      "en": "Unlocking the mysteries of Mercury holds profound significance for understanding how all terrestrial planets—including Earth, Venus, and Mars—formed and evolved over billions of years. Mercury’s unexpectedly large iron core and thin outer crust hint at a violent history marked by giant collisions during the early days of the solar system. By analyzing fresh insights gathered by BepiColombo, researchers can refine computer simulations of planetary formation throughout the galaxy. This international collaboration demonstrates how persistent human curiosity and technological innovation can conquer the solar system's most extreme environments, paving the way for future exploratory missions.",
-      "zh": "揭開水星的奧秘對於理解包含地球、金星與火星在內的所有類地行星如何在數十億年間形成與演化具有深遠意義。水星出乎意料巨大金屬鐵核與薄弱的外地殼，暗示著太陽系初期曾發生過巨型碰撞的猛烈歷史。透過分析 BepiColombo 收集到的全新洞見，研究人員得以修訂全銀河系行星形成的電腦模擬模型。這項國際合作展現了人類持續的好奇心與技術創新如何征服太陽系中最極端的環境，為未來的深空探索任務鋪平道路。"
+      "en": "Ultimately, the insights gained from this long-awaited expedition extend far beyond the scorched surface of Mercury. By analyzing how intense solar radiation and energetic particles interact with a rocky world lacking a substantial atmosphere, researchers can refine theoretical models that apply to distant exoplanets discovered throughout our galaxy. This monumental mission underscores the immense value of international scientific collaboration, demonstrating that human curiosity can overcome daunting technological and spatial hurdles. As fresh streams of data begin arriving on Earth, this historic voyage will illuminate the turbulent origin and evolution of our celestial neighborhood.",
+      "zh": "最終，從這項令人期待已久的探索任務中獲得的見解，其影響遠遠超出水星焦黑的表面。透過分析強烈的太陽輻射與高能粒子如何與缺乏厚重大氣層的岩石世界相互作用，研究人員可以修正理論模型，並應用於整個銀河系中發現的遙遠系外行星。這項里程碑式的任務突顯了國際科學合作的巨大價值，證明了人類的好奇心能夠克服艱巨的技術與空間障礙。隨著最新數據持續傳回地球，這趟歷史性的旅程將照亮我們天體鄰居動盪不安的起源與演化歷程。"
     }
   ],
   "vocabulary": {
-    "unprecedented": {
-      "word": "unprecedented",
-      "syllables": "un·prec·e·dent·ed",
-      "pos": "adj. 形容詞",
-      "zh": "史無前例的；前所未有的",
-      "explanation": "指過去從未發生過或未曾存在過的事情，常用於形容突破性的科學發現或成就。",
-      "example": "The scientists achieved unprecedented accuracy in measuring the distance to the distant galaxy."
-    },
-    "interplanetary": {
-      "word": "interplanetary",
-      "syllables": "in·ter·plan·e·tar·y",
-      "pos": "adj. 形容詞",
-      "zh": "行星際的；行星之間的",
-      "explanation": "指發生在太陽系內不同行星之間或跨越行星空間的活動或現象。",
-      "example": "Interplanetary space missions require years of precise calculation and advanced technology."
-    },
-    "formidable": {
-      "word": "formidable",
-      "syllables": "for·mi·da·ble",
-      "pos": "adj. 形容詞",
-      "zh": "艱巨的；令人敬畏的",
-      "explanation": "形容任務、挑戰或對手極其困難、強大，需要付出巨大的努力才能克服。",
-      "example": "Landing a rover on the rough Martian surface posed a formidable obstacle for engineers."
+    "traversing": {
+      "word": "traverse",
+      "syllables": "trav·ers·ing",
+      "pos": "v. 動詞",
+      "zh": "橫越、穿越",
+      "explanation": "指在廣闊或艱難的區域中穿梭移動，文中形容太空船在太陽系內進行漫長飛行。",
+      "example": "The high-speed train spent six hours traversing the vast mountain range."
     },
     "enigmatic": {
       "word": "enigmatic",
       "syllables": "en·ig·mat·ic",
       "pos": "adj. 形容詞",
-      "zh": "神秘的；難以捉摸的",
-      "explanation": "形容某事物充滿謎團、難以理解或解釋，令人好奇。",
-      "example": "The mysterious signal from outer space remained enigmatic despite months of signal analysis."
+      "zh": "神秘的、難以捉摸的",
+      "explanation": "形容某事物充滿謎團或難以理解，文中指水星許多尚未被科學家解開的特徵。",
+      "example": "The detective was determined to solve the enigmatic puzzle surrounding the artifact."
     },
-    "gravitational": {
-      "word": "gravitational",
-      "syllables": "grav·i·ta·tion·al",
+    "telemetry": {
+      "word": "telemetry",
+      "syllables": "te·lem·e·try",
+      "pos": "n. 名詞",
+      "zh": "遙測技術、遙測數據",
+      "explanation": "指透過無線電將遠端設備的數據傳回基地台的技術與資料，文中指探測器傳送回來的訊號。",
+      "example": "Engineers monitored the rocket's telemetry to ensure all sensors were working during launch."
+    },
+    "unprecedented": {
+      "word": "unprecedented",
+      "syllables": "un·prec·e·dent·ed",
       "pos": "adj. 形容詞",
-      "zh": "重力的；引力的",
-      "explanation": "與物體之間的相互吸引力（重力）相關的學術用語。",
-      "example": "The ocean tides on Earth are primarily caused by the gravitational attraction of the Moon."
+      "zh": "前所未有的、史無前例的",
+      "explanation": "指過去從未發生過或未曾存在過的經驗，文中強調這項科學研究計畫的突破性。",
+      "example": "The discovery of liquid water on the distant planet was an unprecedented milestone."
     },
-    "counteract": {
-      "word": "counteract",
-      "syllables": "coun·ter·act",
+    "proximity": {
+      "word": "proximity",
+      "syllables": "prox·im·i·ty",
+      "pos": "n. 名詞",
+      "zh": "接近、鄰近",
+      "explanation": "指空間或時間上的靠近程度，文中形容水星距離太陽極近的危險位置。",
+      "example": "The house was highly valued due to its close proximity to the central park."
+    },
+    "fluctuate": {
+      "word": "fluctuate",
+      "syllables": "fluc·tu·ate",
       "pos": "v. 動詞",
-      "zh": "抵銷；對抗",
-      "explanation": "指採取行動以減弱或消弭某種作用力或不良影響。",
-      "example": "Astronauts exercise daily in space to counteract the negative effects of microgravity on bone density."
+      "zh": "波動、起伏不定",
+      "explanation": "指數量、溫度或狀態持續高低變動，文中形容水星表面晝夜溫差的劇烈變化。",
+      "example": "Prices of seasonal fruits tend to fluctuate based on weather and crop yield."
+    },
+    "dissipate": {
+      "word": "dissipate",
+      "syllables": "dis·si·pate",
+      "pos": "v. 動詞",
+      "zh": "消散、驅散（熱能）",
+      "explanation": "指使能量、熱量或氣體逐漸散去，文中指太空船的防護系統散發高溫。",
+      "example": "The metallic cooling fin helped dissipate heat generated by the computer processor."
     },
     "trajectories": {
       "word": "trajectory",
       "syllables": "tra·jec·to·ries",
       "pos": "n. 名詞",
-      "zh": "軌跡；飛行路線",
-      "explanation": "物體（如火箭、行星或探測器）在空間中移動時所遵循的彎曲路徑。",
-      "example": "Computers precisely calculate the spacecraft's trajectories to avoid collisions with space debris."
+      "zh": "軌道、飛行路徑",
+      "explanation": "指物體在空中或太空推進時所遵循的預定路徑，文中指探測器繞行行星的軌道。",
+      "example": "Calculations of satellite trajectories must account for atmospheric drag and gravity."
     },
-    "fluctuations": {
-      "word": "fluctuation",
-      "syllables": "fluc·tu·a·tions",
-      "pos": "n. 名詞",
-      "zh": "波動；起伏",
-      "explanation": "指數量、溫度或狀態持續且不規則的上升與下降變化。",
-      "example": "Satellites must be built to endure massive temperature fluctuations in outer space."
-    },
-    "sophisticated": {
-      "word": "sophisticated",
-      "syllables": "so·phis·ti·cat·ed",
+    "diminutive": {
+      "word": "diminutive",
+      "syllables": "di·min·u·tive",
       "pos": "adj. 形容詞",
-      "zh": "精密的；先進的",
-      "explanation": "形容系統、儀器或方法高度複雜、精確且技術先進。",
-      "example": "The observatory uses sophisticated sensors to detect invisible cosmic rays."
+      "zh": "極小的、小巧的",
+      "explanation": "形容體積或尺寸特別小，文中用以對比水星小巧的體積與其巨大的核心。",
+      "example": "Despite its diminutive frame, the hummingbird can fly vast distances during migration."
     },
-    "composition": {
-      "word": "composition",
-      "syllables": "com·po·si·tion",
+    "anomalies": {
+      "word": "anomaly",
+      "syllables": "a·nom·a·lies",
       "pos": "n. 名詞",
-      "zh": "成分；構造",
-      "explanation": "指組成某個整體的不同元素、物質或部分的結合方式。",
-      "example": "Analysis of the rock sample revealed a unique chemical composition unlike anything on Earth."
+      "zh": "異常現象、不規則之處",
+      "explanation": "指偏離常規、標準或預期的特殊現象，文中指水星內部結構不尋常之處。",
+      "example": "Scientists analyzed the satellite data to identify weather anomalies across the ocean."
     },
-    "mysteries": {
-      "word": "mystery",
-      "syllables": "mys·ter·ies",
+    "meticulously": {
+      "word": "meticulously",
+      "syllables": "me·tic·u·lous·ly",
+      "pos": "adv. 副詞",
+      "zh": "縝密地、精細地",
+      "explanation": "指極度注重細節且非常小心認真地做事，文中描述探測儀器精確地繪製地圖。",
+      "example": "The researchers meticulously documented every observation during the laboratory experiment."
+    },
+    "architecture": {
+      "word": "architecture",
+      "syllables": "ar·chi·tec·ture",
       "pos": "n. 名詞",
-      "zh": "奧秘；謎團",
-      "explanation": "指尚未被解釋、理解或證實的科學現象或未解問題。",
-      "example": "Deep space missions help astronomers unravel the secrets and mysteries of planet formation."
+      "zh": "結構、構造",
+      "explanation": "在此非指建築，而是指系統、物體或行星內部各部分的組織與排列方式。",
+      "example": "Seismologists study earth tremors to map the internal architecture of the planet."
     },
-    "terrestrial": {
-      "word": "terrestrial",
-      "syllables": "ter·res·tri·al",
-      "pos": "adj. 形容詞",
-      "zh": "類地行星的；陸地的",
-      "explanation": "天文学中指主要由岩石與金屬構成、具有實體表面的行星（如水星、金星、地球、火星）。",
-      "example": "Unlike gas giants, terrestrial planets have solid rocky surfaces that rovers can explore."
+    "refine": {
+      "word": "refine",
+      "syllables": "re·fine",
+      "pos": "v. 動詞",
+      "zh": "修正、改善",
+      "explanation": "指透過修改與補充使理論、計畫或技術更加完善精確，文中指優化行星科學模型。",
+      "example": "The physicist had to refine her original hypothesis after receiving new experimental data."
     },
     "collaboration": {
       "word": "collaboration",
       "syllables": "col·lab·o·ra·tion",
       "pos": "n. 名詞",
-      "zh": "合作；協同工作",
-      "explanation": "多個團體、機構或國家為了共同目標而聯合努力的過程。",
-      "example": "The successful space telescope project was the result of a global international collaboration."
+      "zh": "合作、共同研究",
+      "explanation": "指多個團體或國家為了共同目標一起努力工作，文中指跨國航太機構的合作。",
+      "example": "The international space station is a triumph of global scientific collaboration."
     }
   },
   "quiz": [
     {
       "question": "1. What is the central idea of the article?",
       "options": [
-        "A. Scientists have recently discovered water ice across the bright surface of Mercury.",
-        "B. Solar radiation has destroyed the electronic systems of European and Japanese probes.",
-        "C. The BepiColombo spacecraft arrived at Mercury after an eight-year journey to study its surface and history.",
-        "D. NASA has launched a new mission to replace old planetary exploration satellites around Venus."
-      ],
-      "answer": 2,
-      "explanation": "全文核心在於報導歐日聯合探測器 BepiColombo 經過八年遠征成功進入水星軌道，並展開對水星構造與演化歷史的科學研究。"
-    },
-    {
-      "question": "2. According to paragraph 2, why is reaching Mercury orbit extremely challenging for space missions?",
-      "options": [
-        "A. The planet's powerful magnetic field repels incoming spacecraft.",
-        "B. The Sun's intense gravity speeds up the spacecraft, making it difficult to slow down.",
-        "C. Dense atmosphere around Mercury creates extreme friction and burns probes.",
-        "D. Spacecraft run out of fuel during the long flight toward the outer solar system."
+        "A. Mercury is too hot and dangerous for any human space exploration.",
+        "B. A joint international space mission has reached Mercury to investigate its unique engineering and geological mysteries.",
+        "C. Scientists have determined that Mercury was once a earth-like planet covered in oceans.",
+        "D. Solar radiation near Mercury makes liquid fuel engines completely ineffective."
       ],
       "answer": 1,
-      "explanation": "第二段明確指出，由於太陽強大的重力會不斷加速朝內太陽系飛行的太空船，使太空船極難減速至能進入穩定軌道的速度。"
+      "explanation": "全文圍繞著歐日聯合太空船歷經八年飛行抵達水星，並即將開展針對水星工程挑戰與地質謎團的科學調查（段落 1 與 3）。選項 B 最符合全文主旨。"
     },
     {
-      "question": "3. In paragraph 2, what does the word 'counteract' most closely mean?",
+      "question": "2. According to paragraph 2, how did engineers enable the spacecraft to decelerate without running out of fuel?",
       "options": [
-        "A. To neutralize or offset an opposing force",
-        "B. To double the speed of an accelerating object",
-        "C. To ignore environmental factors completely",
-        "D. To measure the exact distance between two planets"
+        "A. By deploying giant solar sails that caught solar wind particles",
+        "B. By firing heavy thermal rockets continuously throughout the trip",
+        "C. By executing precise gravity-assist flybys past planets like Earth, Venus, and Mercury",
+        "D. By relying on Mercury's dense atmosphere to slow the craft down through friction"
+      ],
+      "answer": 2,
+      "explanation": "第二段明確指出太空船利用「飛越地球、金星與水星本身的重力助推（gravity-assist flybys）」逐漸減速，避免消耗大量液體燃料。"
+    },
+    {
+      "question": "3. In paragraph 3, what does the word 'diminutive' most nearly mean?",
+      "options": [
+        "A. Extremely small",
+        "B. Dangerously hot",
+        "C. Highly magnetic",
+        "D. Exceptionally dense"
       ],
       "answer": 0,
-      "explanation": "文中 'counteract this relentless pull' 指透過重力助推飛掠路線來『抵銷』或『對抗』太陽強大的重力拉力。"
+      "explanation": "'diminutive' 在文中形容水星體積「極小、小巧」，用以和其比例過大的金屬核心做對比。"
     },
     {
-      "question": "4. What can be inferred about the presence of ice near Mercury's poles?",
+      "question": "4. What can be inferred about existing theories of planetary formation based on paragraph 3?",
       "options": [
-        "A. It exists because Mercury is the farthest planet from the Sun.",
-        "B. It remains preserved because deep craters shelter it from direct sunlight.",
-        "C. It was delivered recently by astronauts during a manned landing mission.",
-        "D. It melts completely every afternoon when temperatures rise."
+        "A. They accurately predict the metallic core sizes of all solar system planets.",
+        "B. They cannot easily explain why a small planet like Mercury has such a massive iron core and global magnetic field.",
+        "C. They suggest that all planets in the solar system lost their outer crusts in ancient collisions.",
+        "D. They prove that magnetic fields can only exist on massive gas giant planets."
       ],
       "answer": 1,
-      "explanation": "第三段提到科學家急於研究『永久陰影中的隕石坑』，可推論是因為這些深坑避開了陽光直射，使水冰得以在炙熱的水星上記錄並保存下來。"
+      "explanation": "第三段指出水星巨大的核心與磁場「挑戰了傳統的行星形成模型（defy traditional models of planetary formation）」，由此可推論現有理論無法輕易解釋此現象。"
     },
     {
-      "question": "5. What is the main purpose of paragraph 4?",
+      "question": "5. What is the primary purpose of paragraph 4?",
       "options": [
-        "A. To detail the exact budget spent on the BepiColombo spacecraft build",
-        "B. To criticize past missions for failing to understand Mercury's iron core",
-        "C. To explain how studying Mercury helps scientists understand how terrestrial planets formed",
-        "D. To warn about the dangers of future manned space travel to the inner solar system"
+        "A. To criticize the astronomical community for spending resources on Mercury exploration",
+        "B. To compare the technology of European spacecraft with Japanese spacecraft",
+        "C. To explain how data from Mercury can enhance our broader understanding of exoplanets and cosmic history",
+        "D. To announce the launch of a follow-up expedition to distant solar systems"
       ],
       "answer": 2,
-      "explanation": "第四段旨在說明研究水星的全球重要性，即透過了解水星的鐵核與構造，幫助科學家建構與理解包含地球在內的類地行星形成與演化過程。"
+      "explanation": "第四段旨在說明水星研究的宏觀價值，即幫助科學家優化適用於系外行星的模型，並強調國際合作與探索宇宙起源的重要性。"
     },
     {
-      "question": "6. Which cause-and-effect relationship is explicitly described in the text?",
+      "question": "6. According to the text, what direct cause led scientists to hypothesize that giant collisions occurred in Mercury's early history?",
       "options": [
-        "A. Solar wind destroys Mercury's iron core, causing the planet to shrink.",
-        "B. The spacecraft used gravity-assist flybys to adjust velocity without draining all fuel.",
-        "C. Intense heat on Mercury caused BepiColombo to lose communication with Earth forever.",
-        "D. Liquid oceans on Mercury's surface created giant water-ice craters at the equator."
+        "A. The spacecraft detected active volcanic eruptions on Mercury's surface.",
+        "B. Mercury lacks any solar radiation shielding on its daylight side.",
+        "C. Mercury has an unusually dense composition with a disproportionately massive core.",
+        "D. Scientists observed new crater patterns formed by recent asteroid impacts."
       ],
-      "answer": 1,
-      "explanation": "第二段指出，因為工程師採用了行星的『重力助推（gravity-assist flybys）』飛掠技術，才使得太空船能在不耗盡所有燃料的情況下調整速度與軌跡。"
+      "answer": 2,
+      "explanation": "第三段提及科學家推測巨型碰撞的因果關係：由於水星體積小卻擁有「不成比例的巨大金屬核心與異常高密度」，科學家因而推論早期劇烈碰撞可能剝離了其外層岩石地殼。"
     }
   ],
   "image_url": "https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/eca5/live/034a6cb0-e4c7-11f1-a094-5fdc692f3e33.png",
