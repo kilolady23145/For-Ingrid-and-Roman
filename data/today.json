@@ -1,213 +1,213 @@
 {
-  "selected_id": 5,
-  "date": "2026-11-24",
+  "selected_id": 8,
+  "date": "2026-11-25",
   "category": "🔭 Space & Cosmos",
   "level": "US Grade 7–8 (Lexile 1050L｜CEFR B2)",
-  "title": "Unlocking Mercury: Spacecraft Reaches the Solar System's Innermost Planet",
-  "title_zh": "揭開水星的神秘面紗：太空船歷經八年航行終抵極熱行星軌道",
-  "image_caption": "An artist's concept depicts a scientific probe orbiting Mercury against the backdrop of intense solar rays. 藝術概念圖展示了科學探測器在強烈太陽光束背景下繞行水星的畫面。",
+  "title": "Chasing Cosmic Gold: How Amateur Stargazers Are Catching Elusive Kilonovae",
+  "title_zh": "追尋宇宙黃金：業餘天文愛好者如何攜手捕捉罕見的「千新星」",
+  "image_caption": "An artist's concept portrays two colliding neutron stars producing a blinding kilonova explosion that synthesizes precious heavy elements.（藝術概念圖描繪兩顆中子星劇烈相撞引發千新星爆發，並在宇宙中鍛造出珍貴的重金屬元素。）",
   "paragraphs": [
     {
-      "en": "After traversing the inner solar system on an epic eight-year voyage, a joint European-Japanese spacecraft has finally arrived at Mercury, the innermost and least-explored terrestrial planet in our solar system. Navigating through the intense gravitational pull of the Sun, the sophisticated robotic probe executed a series of delicate maneuvers to prepare for insertion into orbit around this enigmatic, scorched world. Scientists around the globe celebrated as the mission successfully transmitted its initial telemetry, marking the beginning of an unprecedented scientific campaign intended to unravel the lingering mysteries of our solar system's smallest planetary neighbor.",
-      "zh": "經過八年在內太陽系的壯麗飛行，由歐洲與日本聯合研發的太空船終於抵達水星——這是太陽系中最靠近太陽、也是人類了解最少的岩石行星。這艘先進的機器探測器在太陽強烈的重力拉扯下，執行了一系列精密微妙的航行操作，準備進入這顆神秘且被烈日烘烤的星球軌道。隨著任務成功傳回首批遙測數據，全球科學家歡欣鼓舞，這標誌著一項前所未有的科學行動正式展開，旨在解開這顆太陽系最小行星鄰居長久以來的未解之謎。"
+      "en": "Deep in the cosmos, dead stars occasionally stage some of the most violent collisions in the universe, and astronomers now need help from everyday stargazers to witness them. When pairs of neutron stars—city-sized stellar corpses packed with immense density—spiral toward one another, their catastrophic merger generates an explosion known as a kilonova. Unlike standard supernovae, which can illuminate galaxies for months, a kilonova produces a fleeting flash of optical light that vanishes within merely a few days. These brief cosmic spectacles are not just visually dazzling; they serve as celestial crucibles where intense pressures forge the majority of the universe's heaviest precious elements, including gold and platinum. Because these luminous flashes evaporate so rapidly, professional ground-based observatories frequently struggle to scan the vast night sky before the evidence disappears entirely.",
+      "zh": "在深邃的宇宙深處，死亡恆星偶爾會上演全宇宙最劇烈的撞擊，而天文學家現在需要民間觀星愛好者的協助來親眼見證這些奇觀。當中子星雙星——這些密度極高、體積僅如城市大小的恆星殘骸——彼此螺旋逼近時，它們的毀滅性合併會引發稱為「千新星」的爆炸。千新星不同於能照亮星系數月之久的典型超新星，它只會產生幾天內便消失殆盡的短暫可見光閃爍。這些短促的宇宙奇觀不僅視覺上令人驚嘆，更是孕育宇宙中多數沉重珍貴元素（如黃金與鉑金）的天然「天體熔爐」。正因為這些明亮的閃光消逝得太過迅速，大型專業地面天文台往往難以在證據完全消失前及時掃描遼闊的夜空。"
     },
     {
-      "en": "Exploring Mercury poses extraordinary engineering challenges due to the planet's extreme proximity to the Sun, where solar radiation is overwhelming and surface temperatures fluctuate drastically from blistering daytime highs to freezing nighttime lows. To survive this extraordinarily hostile environment, the spacecraft incorporates advanced thermal shields, specialized radiators, and heat-resistant insulation designed to dissipate immense thermal energy. Furthermore, achieving orbit required precise gravity-assist flybys past Earth, Venus, and Mercury itself, gradually decelerating the probe without consuming unsustainable quantities of liquid fuel. These intricate orbital trajectories demonstrate how physics can be cleverer than brute force, allowing scientists to navigate deep space efficiently.",
-      "zh": "由於水星極度靠近太陽，太陽輻射極其強烈，且表面溫度會在極熱的白晝與冰冷的夜晚之間劇烈波動，因此探索水星帶來了極大的工程挑戰。為了在如此惡劣的環境中生存，太空船配備了先進的防熱盾、專用散熱器與耐熱絕緣材料，用以散發巨大的熱能。此外，進入水星軌道需要精確利用地球、金星及水星本身的重力助推飛越，在不消耗過多液體燃料的情況下使探測器逐漸減速。這些複雜的軌道飛行軌跡證明了物理學的巧妙能勝過蠻力，讓科學家得以高效地在深空航行。"
+      "en": "The underlying mechanism behind a kilonova involves exotic physics operating under extreme gravitational conditions. As the dense remnants collide, they churn out a torrential spray of neutron-rich matter while simultaneously rippling the very fabric of spacetime with gravitational waves. Within this chaotic cosmic debris, free neutrons bombard atomic nuclei at an astonishing rate through a rapid sequence called the r-process. This nuclear reaction synthesizes heavy atoms, which subsequently undergo radioactive decay. As these newly created isotopes stabilize, they release tremendous thermal energy that powers the observable burst of light. Deciphering the shifting colors of this glow allows scientists to reconstruct the exact elemental makeup forged during the collision, offering unprecedented glimpses into how the building blocks of planets and treasures originated.",
+      "zh": "千新星背後的運作機制，涉及極端重力環境下的奇異物理現象。當緻密的殘骸猛烈碰撞時，它們會噴濺出大量富含中子的物質，同時以重力波劇烈震顫時空的結構。在這些混亂的宇宙碎片中，自由中子透過名為「快中子捕獲過程」（r-process）的快速連鎖反應，以驚人速率轟擊原子核。這項核反應合成了重原子，隨後引發放射性衰變。當這些新生成的同位素趨於穩定時，會釋放出巨大的熱能，進而驅動人類觀測到的耀眼光芒。解讀這道光輝不斷轉變的顏色，能讓科學家精準推導出撞擊過程中鍛造出的元素成分，為行星與貴重金屬的起源提供前所未有的洞察。"
     },
     {
-      "en": "Beyond pushing the boundaries of modern aerospace engineering, the mission seeks to answer fundamental scientific questions regarding Mercury's peculiar structural anomalies. Despite its diminutive size, the planet possesses a disproportionately massive metallic core and an active global magnetic field—phenomena that defy traditional models of planetary formation. Planetary scientists hypothesize that violent giant impacts during the early solar system may have stripped away Mercury's outer rocky crust, leaving behind an unusually dense planetary remnant. Instruments aboard the probe will meticulously map the surface composition, measure magnetic fluctuations, and probe the planet's internal architecture to test these intriguing hypotheses.",
-      "zh": "除了突破現代航太工程的極限外，該任務還試圖回答關於水星奇特結構異常的根本科學問題。儘管水星體積小巧，卻擁有不成比例的巨大金屬核心與活躍的全球磁場——這些現象挑戰了傳統的行星形成模型。行星科學家推測，太陽系早期的劇烈碰撞可能剝離了水星外層的岩石地殼，留下了一個異常緻密的行星殘骸。探測器搭載的儀器將精確繪製表面成分、測量磁場波動，並探測行星的內部結構，以驗證這些引人入勝的假設。"
+      "en": "Capturing these transient phenomena poses an immense logistical challenge for modern astrophysics. While space-based instruments can detect initial gamma-ray signals or gravitational perturbations, pinpointing the precise location of the optical source requires broad visual confirmation across large swaths of sky. That is where the \"Kilonova Catcher\" initiative steps in, mobilizing an international network of amateur astronomers equipped with backyard telescopes. By disseminating automated, real-time coordinates as soon as orbital satellites register an anomaly, scientists harness a decentralized army of observers. Amateurs can swiftly pivot their optical instruments toward target coordinates, cataloging photometric data and ruling out false alarms while massive institutional observatories calibrate their complex instruments.",
+      "zh": "捕捉這些稍縱即逝的天文現象，對現代天體物理學構成了龐大的後勤挑戰。雖然太空觀測儀器能偵測到初期的伽馬射線訊號或重力擾動，但要在浩瀚夜空中精準鎖定可見光源的位置，需要跨大面積天區的廣泛光學確認。這正是「千新星捕捉者」（Kilonova Catcher）計畫發揮作用之處：該計畫動員了由配備後院望遠鏡的業餘天文愛好者所組成的國際網絡。一旦軌道衛星記錄到異常訊號，系統便會即刻發布自動化即時座標，讓科學家得以調動這支分散各地的觀測大軍。在大型機構天文台校準其複雜儀器之際，業餘愛好者能迅速將光學儀器轉向目標座標、記錄測光數據並排除假警報。"
     },
     {
-      "en": "Ultimately, the insights gained from this long-awaited expedition extend far beyond the scorched surface of Mercury. By analyzing how intense solar radiation and energetic particles interact with a rocky world lacking a substantial atmosphere, researchers can refine theoretical models that apply to distant exoplanets discovered throughout our galaxy. This monumental mission underscores the immense value of international scientific collaboration, demonstrating that human curiosity can overcome daunting technological and spatial hurdles. As fresh streams of data begin arriving on Earth, this historic voyage will illuminate the turbulent origin and evolution of our celestial neighborhood.",
-      "zh": "最終，從這項令人期待已久的探索任務中獲得的見解，其影響遠遠超出水星焦黑的表面。透過分析強烈的太陽輻射與高能粒子如何與缺乏厚重大氣層的岩石世界相互作用，研究人員可以修正理論模型，並應用於整個銀河系中發現的遙遠系外行星。這項里程碑式的任務突顯了國際科學合作的巨大價值，證明了人類的好奇心能夠克服艱巨的技術與空間障礙。隨著最新數據持續傳回地球，這趟歷史性的旅程將照亮我們天體鄰居動盪不安的起源與演化歷程。"
+      "en": "This innovative collaboration illustrates how democratized science is transforming our comprehension of transient astronomy. By empowering dedicated hobbyists to contribute meaningful scientific measurements, researchers ensure that fewer fleeting celestial milestones slip away undetected. Each confirmed observation refines theoretical models regarding stellar evolution, black hole formation, and chemical enrichment throughout the cosmos. Ultimately, turning backyard telescopes toward the deepest reaches of the cosmos reveals that deciphering our universe is no longer restricted to elite laboratories. Instead, everyday citizens are actively piecing together the origins of the rarest elements found on Earth, connecting modest suburban rooftops directly to the cataclysms of distant space.",
+      "zh": "這項創新合作展現了大眾化科學如何徹底改變我們對瞬態天文學的理解。藉由賦予熱忱愛好者貢獻重要科學測量數據的能力，研究人員得以確保更少稍縱即逝的天文里程碑在未被察覺的情況下溜走。每一次獲得確認的觀測數據，都在不斷修正關於恆星演化、黑洞形成以及全宇宙化學元素豐富化的理論模型。歸根結底，將後院望遠鏡對準宇宙深處的事實表明，解讀宇宙奧祕已不再局限於頂尖的科研實驗室。相反地，一般大眾正積極拼湊出地球上最稀有元素的起源，將平凡的郊區屋頂與遙遠深空的劇烈天體災變直接連結在一起。"
     }
   ],
   "vocabulary": {
-    "traversing": {
-      "word": "traverse",
-      "syllables": "trav·ers·ing",
-      "pos": "v. 動詞",
-      "zh": "橫越、穿越",
-      "explanation": "指在廣闊或艱難的區域中穿梭移動，文中形容太空船在太陽系內進行漫長飛行。",
-      "example": "The high-speed train spent six hours traversing the vast mountain range."
-    },
-    "enigmatic": {
-      "word": "enigmatic",
-      "syllables": "en·ig·mat·ic",
+    "catastrophic": {
+      "word": "catastrophic",
+      "syllables": "cat·a·stroph·ic",
       "pos": "adj. 形容詞",
-      "zh": "神秘的、難以捉摸的",
-      "explanation": "形容某事物充滿謎團或難以理解，文中指水星許多尚未被科學家解開的特徵。",
-      "example": "The detective was determined to solve the enigmatic puzzle surrounding the artifact."
+      "zh": "災難性的；毀滅性的",
+      "explanation": "形容事件具有毀滅性或引發重大突變，文中指中子星相撞時劇烈無比的合併過程。",
+      "example": "The catastrophic volcanic eruption blanketed the nearby towns in thick ash."
     },
-    "telemetry": {
-      "word": "telemetry",
-      "syllables": "te·lem·e·try",
+    "optical": {
+      "word": "optical",
+      "syllables": "op·ti·cal",
+      "pos": "adj. 形容詞",
+      "zh": "光學的；可見光的",
+      "explanation": "指與光線或視覺相關的，在天文學中常指人眼或一般望遠鏡可見的光波段。",
+      "example": "Astronomers used an optical telescope to observe the distant rings of Saturn."
+    },
+    "luminous": {
+      "word": "luminous",
+      "syllables": "lu·mi·nous",
+      "pos": "adj. 形容詞",
+      "zh": "發光的；明亮的",
+      "explanation": "形容物體自身發出耀眼光芒，文中描述千新星爆發時產生的短暫光亮。",
+      "example": "Fireflies produced a luminous glow across the dark summer meadow."
+    },
+    "mechanism": {
+      "word": "mechanism",
+      "syllables": "mech·a·nism",
       "pos": "n. 名詞",
-      "zh": "遙測技術、遙測數據",
-      "explanation": "指透過無線電將遠端設備的數據傳回基地台的技術與資料，文中指探測器傳送回來的訊號。",
-      "example": "Engineers monitored the rocket's telemetry to ensure all sensors were working during launch."
+      "zh": "機制；運作原理",
+      "explanation": "指某種自然現象或機器內部運作與發生的系統性過程或物理途徑。",
+      "example": "Scientists are still investigating the precise mechanism that triggers earthquakes."
+    },
+    "exotic": {
+      "word": "exotic",
+      "syllables": "ex·ot·ic",
+      "pos": "adj. 形容詞",
+      "zh": "奇特的；不尋常的",
+      "explanation": "在物理學中指極端、罕見或超越常態的物理現象或粒子狀態。",
+      "example": "Black holes create exotic physical conditions that cannot be replicated on Earth."
+    },
+    "synthesizes": {
+      "word": "synthesize",
+      "syllables": "syn·the·size",
+      "pos": "v. 動詞",
+      "zh": "合成；綜合生成",
+      "explanation": "指將較簡單的成分或原子透過化學或核反應結合成更複雜的物質。",
+      "example": "Plants absorb sunlight to synthesize glucose and oxygen during photosynthesis."
     },
     "unprecedented": {
       "word": "unprecedented",
       "syllables": "un·prec·e·dent·ed",
       "pos": "adj. 形容詞",
-      "zh": "前所未有的、史無前例的",
-      "explanation": "指過去從未發生過或未曾存在過的經驗，文中強調這項科學研究計畫的突破性。",
-      "example": "The discovery of liquid water on the distant planet was an unprecedented milestone."
+      "zh": "史無前例的；空前的",
+      "explanation": "表示前所未見或從未發生過的事物，文中指觀測千新星帶來的嶄新視野。",
+      "example": "The space agency achieved an unprecedented milestone by landing a rover on the far side of the moon."
     },
-    "proximity": {
-      "word": "proximity",
-      "syllables": "prox·im·i·ty",
-      "pos": "n. 名詞",
-      "zh": "接近、鄰近",
-      "explanation": "指空間或時間上的靠近程度，文中形容水星距離太陽極近的危險位置。",
-      "example": "The house was highly valued due to its close proximity to the central park."
-    },
-    "fluctuate": {
-      "word": "fluctuate",
-      "syllables": "fluc·tu·ate",
-      "pos": "v. 動詞",
-      "zh": "波動、起伏不定",
-      "explanation": "指數量、溫度或狀態持續高低變動，文中形容水星表面晝夜溫差的劇烈變化。",
-      "example": "Prices of seasonal fruits tend to fluctuate based on weather and crop yield."
-    },
-    "dissipate": {
-      "word": "dissipate",
-      "syllables": "dis·si·pate",
-      "pos": "v. 動詞",
-      "zh": "消散、驅散（熱能）",
-      "explanation": "指使能量、熱量或氣體逐漸散去，文中指太空船的防護系統散發高溫。",
-      "example": "The metallic cooling fin helped dissipate heat generated by the computer processor."
-    },
-    "trajectories": {
-      "word": "trajectory",
-      "syllables": "tra·jec·to·ries",
-      "pos": "n. 名詞",
-      "zh": "軌道、飛行路徑",
-      "explanation": "指物體在空中或太空推進時所遵循的預定路徑，文中指探測器繞行行星的軌道。",
-      "example": "Calculations of satellite trajectories must account for atmospheric drag and gravity."
-    },
-    "diminutive": {
-      "word": "diminutive",
-      "syllables": "di·min·u·tive",
+    "transient": {
+      "word": "transient",
+      "syllables": "tran·sient",
       "pos": "adj. 形容詞",
-      "zh": "極小的、小巧的",
-      "explanation": "形容體積或尺寸特別小，文中用以對比水星小巧的體積與其巨大的核心。",
-      "example": "Despite its diminutive frame, the hummingbird can fly vast distances during migration."
+      "zh": "短暫的；轉瞬即逝的",
+      "explanation": "天文學術語，用以形容在極短時間內爆發隨後迅速褪去的天體現象。",
+      "example": "Shooting stars are transient events that illuminate the night sky for only a second."
     },
-    "anomalies": {
-      "word": "anomaly",
-      "syllables": "a·nom·a·lies",
+    "confirmation": {
+      "word": "confirmation",
+      "syllables": "con·fir·ma·tion",
       "pos": "n. 名詞",
-      "zh": "異常現象、不規則之處",
-      "explanation": "指偏離常規、標準或預期的特殊現象，文中指水星內部結構不尋常之處。",
-      "example": "Scientists analyzed the satellite data to identify weather anomalies across the ocean."
+      "zh": "確認；證實",
+      "explanation": "提供額外證據以確立某個假說、訊號或發現真實無誤的過程。",
+      "example": "Scientists awaited visual confirmation before announcing the discovery of the comet."
     },
-    "meticulously": {
-      "word": "meticulously",
-      "syllables": "me·tic·u·lous·ly",
-      "pos": "adv. 副詞",
-      "zh": "縝密地、精細地",
-      "explanation": "指極度注重細節且非常小心認真地做事，文中描述探測儀器精確地繪製地圖。",
-      "example": "The researchers meticulously documented every observation during the laboratory experiment."
-    },
-    "architecture": {
-      "word": "architecture",
-      "syllables": "ar·chi·tec·ture",
-      "pos": "n. 名詞",
-      "zh": "結構、構造",
-      "explanation": "在此非指建築，而是指系統、物體或行星內部各部分的組織與排列方式。",
-      "example": "Seismologists study earth tremors to map the internal architecture of the planet."
-    },
-    "refine": {
-      "word": "refine",
-      "syllables": "re·fine",
+    "mobilizing": {
+      "word": "mobilize",
+      "syllables": "mo·bi·lize",
       "pos": "v. 動詞",
-      "zh": "修正、改善",
-      "explanation": "指透過修改與補充使理論、計畫或技術更加完善精確，文中指優化行星科學模型。",
-      "example": "The physicist had to refine her original hypothesis after receiving new experimental data."
+      "zh": "動員；調動",
+      "explanation": "將一群人或資源有效組織並調動起來以達成共同任務或目標。",
+      "example": "The organization succeeded in mobilizing hundreds of volunteers to clean the coastline."
     },
-    "collaboration": {
-      "word": "collaboration",
-      "syllables": "col·lab·o·ra·tion",
+    "coordinates": {
+      "word": "coordinate",
+      "syllables": "co·or·di·nate",
       "pos": "n. 名詞",
-      "zh": "合作、共同研究",
-      "explanation": "指多個團體或國家為了共同目標一起努力工作，文中指跨國航太機構的合作。",
-      "example": "The international space station is a triumph of global scientific collaboration."
+      "zh": "座標",
+      "explanation": "在天球或地圖上用以精準標定某個物體具體位置的數字組合。",
+      "example": "The navigator entered the exact geographic coordinates into the global positioning system."
+    },
+    "democratized": {
+      "word": "democratize",
+      "syllables": "de·moc·ra·tize",
+      "pos": "v. 動詞（此處作分詞形容詞）",
+      "zh": "普及化的；大眾化的",
+      "explanation": "指使某項知識、技術或權利變得普及，讓所有大眾皆能參與或享有。",
+      "example": "The internet has democratized access to educational resources worldwide."
+    },
+    "comprehension": {
+      "word": "comprehension",
+      "syllables": "com·pre·hen·sion",
+      "pos": "n. 名詞",
+      "zh": "理解；認識",
+      "explanation": "指對複雜概念、知識或現象具備深入且全面的了解。",
+      "example": "Studying ancient fossils expands our comprehension of prehistoric ecosystems."
+    },
+    "restricted": {
+      "word": "restricted",
+      "syllables": "re·strict·ed",
+      "pos": "adj. 形容詞",
+      "zh": "受限的；僅限於的",
+      "explanation": "指活動或權限受到界線約束，文中指科學探索不再局限於少數機構。",
+      "example": "Access to the high-security research laboratory is restricted to authorized personnel."
     }
   },
   "quiz": [
     {
-      "question": "1. What is the central idea of the article?",
+      "question": "What is the central idea of the article?",
       "options": [
-        "A. Mercury is too hot and dangerous for any human space exploration.",
-        "B. A joint international space mission has reached Mercury to investigate its unique engineering and geological mysteries.",
-        "C. Scientists have determined that Mercury was once a earth-like planet covered in oceans.",
-        "D. Solar radiation near Mercury makes liquid fuel engines completely ineffective."
-      ],
-      "answer": 1,
-      "explanation": "全文圍繞著歐日聯合太空船歷經八年飛行抵達水星，並即將開展針對水星工程挑戰與地質謎團的科學調查（段落 1 與 3）。選項 B 最符合全文主旨。"
-    },
-    {
-      "question": "2. According to paragraph 2, how did engineers enable the spacecraft to decelerate without running out of fuel?",
-      "options": [
-        "A. By deploying giant solar sails that caught solar wind particles",
-        "B. By firing heavy thermal rockets continuously throughout the trip",
-        "C. By executing precise gravity-assist flybys past planets like Earth, Venus, and Mercury",
-        "D. By relying on Mercury's dense atmosphere to slow the craft down through friction"
-      ],
-      "answer": 2,
-      "explanation": "第二段明確指出太空船利用「飛越地球、金星與水星本身的重力助推（gravity-assist flybys）」逐漸減速，避免消耗大量液體燃料。"
-    },
-    {
-      "question": "3. In paragraph 3, what does the word 'diminutive' most nearly mean?",
-      "options": [
-        "A. Extremely small",
-        "B. Dangerously hot",
-        "C. Highly magnetic",
-        "D. Exceptionally dense"
+        "Amateur stargazers are playing a vital role in capturing brief kilonova explosions that reveal how heavy elements form.",
+        "Space agencies are replacing institutional observatories with amateur backyard telescopes to reduce operational costs.",
+        "Neutron stars are colliding more frequently today than at any other period in the history of the universe.",
+        "Supernovae remain the single astronomical event responsible for forging all precious metals in our solar system."
       ],
       "answer": 0,
-      "explanation": "'diminutive' 在文中形容水星體積「極小、小巧」，用以和其比例過大的金屬核心做對比。"
+      "explanation": "全文主旨闡述業餘天文愛好者如何透過「千新星捕捉者」等計畫，協助科學家追蹤極短暫的中子星合併爆發（千新星），進而解開宇宙重金屬（如黃金）形成的謎團。"
     },
     {
-      "question": "4. What can be inferred about existing theories of planetary formation based on paragraph 3?",
+      "question": "According to the passage, why do professional observatories require assistance from amateur astronomers to detect kilonovae?",
       "options": [
-        "A. They accurately predict the metallic core sizes of all solar system planets.",
-        "B. They cannot easily explain why a small planet like Mercury has such a massive iron core and global magnetic field.",
-        "C. They suggest that all planets in the solar system lost their outer crusts in ancient collisions.",
-        "D. They prove that magnetic fields can only exist on massive gas giant planets."
+        "Professional observatories lack the sophisticated digital sensors required to detect gravitational ripples in space.",
+        "Kilonovae fade within a few days, making rapid visual coverage across broad sky regions difficult for large telescopes alone.",
+        "Orbital satellites cannot transmit real-time alerts without passing through suburban communication networks first.",
+        "Commercial telescopes possess broader light spectrum lenses than institutional ground-based observatories."
       ],
       "answer": 1,
-      "explanation": "第三段指出水星巨大的核心與磁場「挑戰了傳統的行星形成模型（defy traditional models of planetary formation）」，由此可推論現有理論無法輕易解釋此現象。"
+      "explanation": "第一段與第三段提到，千新星爆發的可見光會在幾天內迅速消失，而專業大型天文台視野有限且需要校準時間，因此需要分佈廣泛的民間觀星網絡迅速進行大面積天區的視覺確認。"
     },
     {
-      "question": "5. What is the primary purpose of paragraph 4?",
+      "question": "As used in paragraph 3, what is the best meaning of the word \"transient\"?",
       "options": [
-        "A. To criticize the astronomical community for spending resources on Mercury exploration",
-        "B. To compare the technology of European spacecraft with Japanese spacecraft",
-        "C. To explain how data from Mercury can enhance our broader understanding of exoplanets and cosmic history",
-        "D. To announce the launch of a follow-up expedition to distant solar systems"
+        "Permanent and unchanging",
+        "Lasting for only a short time",
+        "Moving at the speed of light",
+        "Invisible to optical sensors"
       ],
-      "answer": 2,
-      "explanation": "第四段旨在說明水星研究的宏觀價值，即幫助科學家優化適用於系外行星的模型，並強調國際合作與探索宇宙起源的重要性。"
+      "answer": 1,
+      "explanation": "「transient」在文中指天文學上的「瞬態現象」，即發生時間極短暫、轉瞬即逝（lasting for only a short time）的天體爆發事件。"
     },
     {
-      "question": "6. According to the text, what direct cause led scientists to hypothesize that giant collisions occurred in Mercury's early history?",
+      "question": "What can be inferred about the process of element formation during a kilonova?",
       "options": [
-        "A. The spacecraft detected active volcanic eruptions on Mercury's surface.",
-        "B. Mercury lacks any solar radiation shielding on its daylight side.",
-        "C. Mercury has an unusually dense composition with a disproportionately massive core.",
-        "D. Scientists observed new crater patterns formed by recent asteroid impacts."
+        "Heavy elements like gold and platinum are created only when a kilonova collides directly with a planetary nebula.",
+        "The light emitted from a kilonova remains a single static color throughout its entire multi-week duration.",
+        "The shift in color of the kilonova's glow provides crucial spectral evidence regarding which isotopes were produced.",
+        "The r-process prevents radioactive decay by converting all free neutrons directly into stable hydrogen atoms."
       ],
       "answer": 2,
-      "explanation": "第三段提及科學家推測巨型碰撞的因果關係：由於水星體積小卻擁有「不成比例的巨大金屬核心與異常高密度」，科學家因而推論早期劇烈碰撞可能剝離了其外層岩石地殼。"
+      "explanation": "第二段最後指出，解讀千新星光芒「轉變的顏色」（shifting colors）使科學家能夠重構碰撞期間鍛造出的確切元素成分，因此可推論顏色的轉變提供了生成同位素的關鍵光譜證據。"
+    },
+    {
+      "question": "What is the primary organizational structure and purpose of the third paragraph?",
+      "options": [
+        "It contrasts the monetary costs of professional telescopes with amateur gear to advocate for budget cuts.",
+        "It describes a chronological history of every successful citizen science astronomical project since the 1950s.",
+        "It highlights a practical observational challenge and explains how a citizen science network helps solve it.",
+        "It outlines the theoretical disagreements among astrophysicists regarding the exact density of neutron stars."
+      ],
+      "answer": 2,
+      "explanation": "第三段先提出後勤挑戰（現代天體物理學難以在短時間內鎖定光學來源），接著解釋「千新星捕捉者」這項公民科學計畫如何動員業餘天文學家網絡來解決這個難題（問題與解決方案結構）。"
+    },
+    {
+      "question": "According to paragraph 2, what directly causes the observable burst of light seen in a kilonova?",
+      "options": [
+        "Tremendous thermal energy released as newly synthesized heavy isotopes undergo radioactive decay and stabilize",
+        "Gravitational waves physically grinding against the atmosphere of neighboring exoplanets",
+        "Direct solar radiation reflecting off suburban telescope mirrors back into deep interstellar space",
+        "The sudden cooling of stable iron cores following millions of years of nuclear fusion in massive stars"
+      ],
+      "answer": 0,
+      "explanation": "第二段明確指出：「As these newly created isotopes stabilize, they release tremendous thermal energy that powers the observable burst of light.」（新生成的同位素在趨於穩定與放射性衰變過程中釋放出巨大的熱能，進而驅動人類觀測到的耀眼爆發光芒）。"
     }
   ],
-  "image_url": "https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/eca5/live/034a6cb0-e4c7-11f1-a094-5fdc692f3e33.png",
-  "source_url": "https://www.bbc.co.uk/news/articles/c39w9l4v1p9ro?at_medium=RSS&at_campaign=rss",
+  "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/cds/citizen-science/highlights/2026/NGC_4993.jpg?w=700&#038;h=748&#038;fit=clip",
+  "source_url": "https://science.nasa.gov/get-involved/citizen-science/amateur-astronomer-be-a-kilonova-catcher/",
   "cloud_audio": {
     "cloud_uk_male": {
       "label": "🇬🇧 雲端真人級｜UK English Male (英式男主播)",

@@ -1,0 +1,253 @@
+{
+  "selected_id": 8,
+  "date": "2026-11-25",
+  "category": "🔭 Space & Cosmos",
+  "level": "US Grade 7–8 (Lexile 1050L｜CEFR B2)",
+  "title": "Chasing Cosmic Gold: How Amateur Stargazers Are Catching Elusive Kilonovae",
+  "title_zh": "追尋宇宙黃金：業餘天文愛好者如何攜手捕捉罕見的「千新星」",
+  "image_caption": "An artist's concept portrays two colliding neutron stars producing a blinding kilonova explosion that synthesizes precious heavy elements.（藝術概念圖描繪兩顆中子星劇烈相撞引發千新星爆發，並在宇宙中鍛造出珍貴的重金屬元素。）",
+  "paragraphs": [
+    {
+      "en": "Deep in the cosmos, dead stars occasionally stage some of the most violent collisions in the universe, and astronomers now need help from everyday stargazers to witness them. When pairs of neutron stars—city-sized stellar corpses packed with immense density—spiral toward one another, their catastrophic merger generates an explosion known as a kilonova. Unlike standard supernovae, which can illuminate galaxies for months, a kilonova produces a fleeting flash of optical light that vanishes within merely a few days. These brief cosmic spectacles are not just visually dazzling; they serve as celestial crucibles where intense pressures forge the majority of the universe's heaviest precious elements, including gold and platinum. Because these luminous flashes evaporate so rapidly, professional ground-based observatories frequently struggle to scan the vast night sky before the evidence disappears entirely.",
+      "zh": "在深邃的宇宙深處，死亡恆星偶爾會上演全宇宙最劇烈的撞擊，而天文學家現在需要民間觀星愛好者的協助來親眼見證這些奇觀。當中子星雙星——這些密度極高、體積僅如城市大小的恆星殘骸——彼此螺旋逼近時，它們的毀滅性合併會引發稱為「千新星」的爆炸。千新星不同於能照亮星系數月之久的典型超新星，它只會產生幾天內便消失殆盡的短暫可見光閃爍。這些短促的宇宙奇觀不僅視覺上令人驚嘆，更是孕育宇宙中多數沉重珍貴元素（如黃金與鉑金）的天然「天體熔爐」。正因為這些明亮的閃光消逝得太過迅速，大型專業地面天文台往往難以在證據完全消失前及時掃描遼闊的夜空。"
+    },
+    {
+      "en": "The underlying mechanism behind a kilonova involves exotic physics operating under extreme gravitational conditions. As the dense remnants collide, they churn out a torrential spray of neutron-rich matter while simultaneously rippling the very fabric of spacetime with gravitational waves. Within this chaotic cosmic debris, free neutrons bombard atomic nuclei at an astonishing rate through a rapid sequence called the r-process. This nuclear reaction synthesizes heavy atoms, which subsequently undergo radioactive decay. As these newly created isotopes stabilize, they release tremendous thermal energy that powers the observable burst of light. Deciphering the shifting colors of this glow allows scientists to reconstruct the exact elemental makeup forged during the collision, offering unprecedented glimpses into how the building blocks of planets and treasures originated.",
+      "zh": "千新星背後的運作機制，涉及極端重力環境下的奇異物理現象。當緻密的殘骸猛烈碰撞時，它們會噴濺出大量富含中子的物質，同時以重力波劇烈震顫時空的結構。在這些混亂的宇宙碎片中，自由中子透過名為「快中子捕獲過程」（r-process）的快速連鎖反應，以驚人速率轟擊原子核。這項核反應合成了重原子，隨後引發放射性衰變。當這些新生成的同位素趨於穩定時，會釋放出巨大的熱能，進而驅動人類觀測到的耀眼光芒。解讀這道光輝不斷轉變的顏色，能讓科學家精準推導出撞擊過程中鍛造出的元素成分，為行星與貴重金屬的起源提供前所未有的洞察。"
+    },
+    {
+      "en": "Capturing these transient phenomena poses an immense logistical challenge for modern astrophysics. While space-based instruments can detect initial gamma-ray signals or gravitational perturbations, pinpointing the precise location of the optical source requires broad visual confirmation across large swaths of sky. That is where the \"Kilonova Catcher\" initiative steps in, mobilizing an international network of amateur astronomers equipped with backyard telescopes. By disseminating automated, real-time coordinates as soon as orbital satellites register an anomaly, scientists harness a decentralized army of observers. Amateurs can swiftly pivot their optical instruments toward target coordinates, cataloging photometric data and ruling out false alarms while massive institutional observatories calibrate their complex instruments.",
+      "zh": "捕捉這些稍縱即逝的天文現象，對現代天體物理學構成了龐大的後勤挑戰。雖然太空觀測儀器能偵測到初期的伽馬射線訊號或重力擾動，但要在浩瀚夜空中精準鎖定可見光源的位置，需要跨大面積天區的廣泛光學確認。這正是「千新星捕捉者」（Kilonova Catcher）計畫發揮作用之處：該計畫動員了由配備後院望遠鏡的業餘天文愛好者所組成的國際網絡。一旦軌道衛星記錄到異常訊號，系統便會即刻發布自動化即時座標，讓科學家得以調動這支分散各地的觀測大軍。在大型機構天文台校準其複雜儀器之際，業餘愛好者能迅速將光學儀器轉向目標座標、記錄測光數據並排除假警報。"
+    },
+    {
+      "en": "This innovative collaboration illustrates how democratized science is transforming our comprehension of transient astronomy. By empowering dedicated hobbyists to contribute meaningful scientific measurements, researchers ensure that fewer fleeting celestial milestones slip away undetected. Each confirmed observation refines theoretical models regarding stellar evolution, black hole formation, and chemical enrichment throughout the cosmos. Ultimately, turning backyard telescopes toward the deepest reaches of the cosmos reveals that deciphering our universe is no longer restricted to elite laboratories. Instead, everyday citizens are actively piecing together the origins of the rarest elements found on Earth, connecting modest suburban rooftops directly to the cataclysms of distant space.",
+      "zh": "這項創新合作展現了大眾化科學如何徹底改變我們對瞬態天文學的理解。藉由賦予熱忱愛好者貢獻重要科學測量數據的能力，研究人員得以確保更少稍縱即逝的天文里程碑在未被察覺的情況下溜走。每一次獲得確認的觀測數據，都在不斷修正關於恆星演化、黑洞形成以及全宇宙化學元素豐富化的理論模型。歸根結底，將後院望遠鏡對準宇宙深處的事實表明，解讀宇宙奧祕已不再局限於頂尖的科研實驗室。相反地，一般大眾正積極拼湊出地球上最稀有元素的起源，將平凡的郊區屋頂與遙遠深空的劇烈天體災變直接連結在一起。"
+    }
+  ],
+  "vocabulary": {
+    "catastrophic": {
+      "word": "catastrophic",
+      "syllables": "cat·a·stroph·ic",
+      "pos": "adj. 形容詞",
+      "zh": "災難性的；毀滅性的",
+      "explanation": "形容事件具有毀滅性或引發重大突變，文中指中子星相撞時劇烈無比的合併過程。",
+      "example": "The catastrophic volcanic eruption blanketed the nearby towns in thick ash."
+    },
+    "optical": {
+      "word": "optical",
+      "syllables": "op·ti·cal",
+      "pos": "adj. 形容詞",
+      "zh": "光學的；可見光的",
+      "explanation": "指與光線或視覺相關的，在天文學中常指人眼或一般望遠鏡可見的光波段。",
+      "example": "Astronomers used an optical telescope to observe the distant rings of Saturn."
+    },
+    "luminous": {
+      "word": "luminous",
+      "syllables": "lu·mi·nous",
+      "pos": "adj. 形容詞",
+      "zh": "發光的；明亮的",
+      "explanation": "形容物體自身發出耀眼光芒，文中描述千新星爆發時產生的短暫光亮。",
+      "example": "Fireflies produced a luminous glow across the dark summer meadow."
+    },
+    "mechanism": {
+      "word": "mechanism",
+      "syllables": "mech·a·nism",
+      "pos": "n. 名詞",
+      "zh": "機制；運作原理",
+      "explanation": "指某種自然現象或機器內部運作與發生的系統性過程或物理途徑。",
+      "example": "Scientists are still investigating the precise mechanism that triggers earthquakes."
+    },
+    "exotic": {
+      "word": "exotic",
+      "syllables": "ex·ot·ic",
+      "pos": "adj. 形容詞",
+      "zh": "奇特的；不尋常的",
+      "explanation": "在物理學中指極端、罕見或超越常態的物理現象或粒子狀態。",
+      "example": "Black holes create exotic physical conditions that cannot be replicated on Earth."
+    },
+    "synthesizes": {
+      "word": "synthesize",
+      "syllables": "syn·the·size",
+      "pos": "v. 動詞",
+      "zh": "合成；綜合生成",
+      "explanation": "指將較簡單的成分或原子透過化學或核反應結合成更複雜的物質。",
+      "example": "Plants absorb sunlight to synthesize glucose and oxygen during photosynthesis."
+    },
+    "unprecedented": {
+      "word": "unprecedented",
+      "syllables": "un·prec·e·dent·ed",
+      "pos": "adj. 形容詞",
+      "zh": "史無前例的；空前的",
+      "explanation": "表示前所未見或從未發生過的事物，文中指觀測千新星帶來的嶄新視野。",
+      "example": "The space agency achieved an unprecedented milestone by landing a rover on the far side of the moon."
+    },
+    "transient": {
+      "word": "transient",
+      "syllables": "tran·sient",
+      "pos": "adj. 形容詞",
+      "zh": "短暫的；轉瞬即逝的",
+      "explanation": "天文學術語，用以形容在極短時間內爆發隨後迅速褪去的天體現象。",
+      "example": "Shooting stars are transient events that illuminate the night sky for only a second."
+    },
+    "confirmation": {
+      "word": "confirmation",
+      "syllables": "con·fir·ma·tion",
+      "pos": "n. 名詞",
+      "zh": "確認；證實",
+      "explanation": "提供額外證據以確立某個假說、訊號或發現真實無誤的過程。",
+      "example": "Scientists awaited visual confirmation before announcing the discovery of the comet."
+    },
+    "mobilizing": {
+      "word": "mobilize",
+      "syllables": "mo·bi·lize",
+      "pos": "v. 動詞",
+      "zh": "動員；調動",
+      "explanation": "將一群人或資源有效組織並調動起來以達成共同任務或目標。",
+      "example": "The organization succeeded in mobilizing hundreds of volunteers to clean the coastline."
+    },
+    "coordinates": {
+      "word": "coordinate",
+      "syllables": "co·or·di·nate",
+      "pos": "n. 名詞",
+      "zh": "座標",
+      "explanation": "在天球或地圖上用以精準標定某個物體具體位置的數字組合。",
+      "example": "The navigator entered the exact geographic coordinates into the global positioning system."
+    },
+    "democratized": {
+      "word": "democratize",
+      "syllables": "de·moc·ra·tize",
+      "pos": "v. 動詞（此處作分詞形容詞）",
+      "zh": "普及化的；大眾化的",
+      "explanation": "指使某項知識、技術或權利變得普及，讓所有大眾皆能參與或享有。",
+      "example": "The internet has democratized access to educational resources worldwide."
+    },
+    "comprehension": {
+      "word": "comprehension",
+      "syllables": "com·pre·hen·sion",
+      "pos": "n. 名詞",
+      "zh": "理解；認識",
+      "explanation": "指對複雜概念、知識或現象具備深入且全面的了解。",
+      "example": "Studying ancient fossils expands our comprehension of prehistoric ecosystems."
+    },
+    "restricted": {
+      "word": "restricted",
+      "syllables": "re·strict·ed",
+      "pos": "adj. 形容詞",
+      "zh": "受限的；僅限於的",
+      "explanation": "指活動或權限受到界線約束，文中指科學探索不再局限於少數機構。",
+      "example": "Access to the high-security research laboratory is restricted to authorized personnel."
+    }
+  },
+  "quiz": [
+    {
+      "question": "What is the central idea of the article?",
+      "options": [
+        "Amateur stargazers are playing a vital role in capturing brief kilonova explosions that reveal how heavy elements form.",
+        "Space agencies are replacing institutional observatories with amateur backyard telescopes to reduce operational costs.",
+        "Neutron stars are colliding more frequently today than at any other period in the history of the universe.",
+        "Supernovae remain the single astronomical event responsible for forging all precious metals in our solar system."
+      ],
+      "answer": 0,
+      "explanation": "全文主旨闡述業餘天文愛好者如何透過「千新星捕捉者」等計畫，協助科學家追蹤極短暫的中子星合併爆發（千新星），進而解開宇宙重金屬（如黃金）形成的謎團。"
+    },
+    {
+      "question": "According to the passage, why do professional observatories require assistance from amateur astronomers to detect kilonovae?",
+      "options": [
+        "Professional observatories lack the sophisticated digital sensors required to detect gravitational ripples in space.",
+        "Kilonovae fade within a few days, making rapid visual coverage across broad sky regions difficult for large telescopes alone.",
+        "Orbital satellites cannot transmit real-time alerts without passing through suburban communication networks first.",
+        "Commercial telescopes possess broader light spectrum lenses than institutional ground-based observatories."
+      ],
+      "answer": 1,
+      "explanation": "第一段與第三段提到，千新星爆發的可見光會在幾天內迅速消失，而專業大型天文台視野有限且需要校準時間，因此需要分佈廣泛的民間觀星網絡迅速進行大面積天區的視覺確認。"
+    },
+    {
+      "question": "As used in paragraph 3, what is the best meaning of the word \"transient\"?",
+      "options": [
+        "Permanent and unchanging",
+        "Lasting for only a short time",
+        "Moving at the speed of light",
+        "Invisible to optical sensors"
+      ],
+      "answer": 1,
+      "explanation": "「transient」在文中指天文學上的「瞬態現象」，即發生時間極短暫、轉瞬即逝（lasting for only a short time）的天體爆發事件。"
+    },
+    {
+      "question": "What can be inferred about the process of element formation during a kilonova?",
+      "options": [
+        "Heavy elements like gold and platinum are created only when a kilonova collides directly with a planetary nebula.",
+        "The light emitted from a kilonova remains a single static color throughout its entire multi-week duration.",
+        "The shift in color of the kilonova's glow provides crucial spectral evidence regarding which isotopes were produced.",
+        "The r-process prevents radioactive decay by converting all free neutrons directly into stable hydrogen atoms."
+      ],
+      "answer": 2,
+      "explanation": "第二段最後指出，解讀千新星光芒「轉變的顏色」（shifting colors）使科學家能夠重構碰撞期間鍛造出的確切元素成分，因此可推論顏色的轉變提供了生成同位素的關鍵光譜證據。"
+    },
+    {
+      "question": "What is the primary organizational structure and purpose of the third paragraph?",
+      "options": [
+        "It contrasts the monetary costs of professional telescopes with amateur gear to advocate for budget cuts.",
+        "It describes a chronological history of every successful citizen science astronomical project since the 1950s.",
+        "It highlights a practical observational challenge and explains how a citizen science network helps solve it.",
+        "It outlines the theoretical disagreements among astrophysicists regarding the exact density of neutron stars."
+      ],
+      "answer": 2,
+      "explanation": "第三段先提出後勤挑戰（現代天體物理學難以在短時間內鎖定光學來源），接著解釋「千新星捕捉者」這項公民科學計畫如何動員業餘天文學家網絡來解決這個難題（問題與解決方案結構）。"
+    },
+    {
+      "question": "According to paragraph 2, what directly causes the observable burst of light seen in a kilonova?",
+      "options": [
+        "Tremendous thermal energy released as newly synthesized heavy isotopes undergo radioactive decay and stabilize",
+        "Gravitational waves physically grinding against the atmosphere of neighboring exoplanets",
+        "Direct solar radiation reflecting off suburban telescope mirrors back into deep interstellar space",
+        "The sudden cooling of stable iron cores following millions of years of nuclear fusion in massive stars"
+      ],
+      "answer": 0,
+      "explanation": "第二段明確指出：「As these newly created isotopes stabilize, they release tremendous thermal energy that powers the observable burst of light.」（新生成的同位素在趨於穩定與放射性衰變過程中釋放出巨大的熱能，進而驅動人類觀測到的耀眼爆發光芒）。"
+    }
+  ],
+  "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/cds/citizen-science/highlights/2026/NGC_4993.jpg?w=700&#038;h=748&#038;fit=clip",
+  "source_url": "https://science.nasa.gov/get-involved/citizen-science/amateur-astronomer-be-a-kilonova-catcher/",
+  "cloud_audio": {
+    "cloud_uk_male": {
+      "label": "🇬🇧 雲端真人級｜UK English Male (英式男主播)",
+      "title": "data/archive/audio/cloud_uk_male_title.mp3",
+      "paragraphs": [
+        "data/archive/audio/cloud_uk_male_p0.mp3",
+        "data/archive/audio/cloud_uk_male_p1.mp3",
+        "data/archive/audio/cloud_uk_male_p2.mp3",
+        "data/archive/audio/cloud_uk_male_p3.mp3"
+      ]
+    },
+    "cloud_us_male": {
+      "label": "🇺🇸 雲端真人級｜US English Male (美式男主播)",
+      "title": "data/archive/audio/cloud_us_male_title.mp3",
+      "paragraphs": [
+        "data/archive/audio/cloud_us_male_p0.mp3",
+        "data/archive/audio/cloud_us_male_p1.mp3",
+        "data/archive/audio/cloud_us_male_p2.mp3",
+        "data/archive/audio/cloud_us_male_p3.mp3"
+      ]
+    },
+    "cloud_uk_female": {
+      "label": "🇬🇧 雲端真人級｜UK English Female (英式女主播)",
+      "title": "data/archive/audio/cloud_uk_female_title.mp3",
+      "paragraphs": [
+        "data/archive/audio/cloud_uk_female_p0.mp3",
+        "data/archive/audio/cloud_uk_female_p1.mp3",
+        "data/archive/audio/cloud_uk_female_p2.mp3",
+        "data/archive/audio/cloud_uk_female_p3.mp3"
+      ]
+    },
+    "cloud_us_female": {
+      "label": "🇺🇸 雲端真人級｜US English Female (美式女主播)",
+      "title": "data/archive/audio/cloud_us_female_title.mp3",
+      "paragraphs": [
+        "data/archive/audio/cloud_us_female_p0.mp3",
+        "data/archive/audio/cloud_us_female_p1.mp3",
+        "data/archive/audio/cloud_us_female_p2.mp3",
+        "data/archive/audio/cloud_us_female_p3.mp3"
+      ]
+    }
+  }
+}
